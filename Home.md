@@ -15,11 +15,11 @@ Here you can find all the PJON standard definitions:
 * Every device can be connected to n PJON network media (with n dedicated pins)
 * Every device has equal right to transmit and receive on the common medium
 * Transmission occurs only if communication medium is not in use
-* Syncronization occurs every byte
+* Synchronization occurs every byte
 * Devices communicate through packets
 
 ###Byte transmission
-Every byte is prepended with 2 syncronization padding bits. The first is a 60 microseconds logic 1 followed by a standard 20 microseconds logic 0. The reception tecnique is based on finding a logic 1 as long as the first padding bit within a certain threshold, syncronising to its falling edge and checking if it is followed by a standard length logic 0. If this pattern is recognised byte reception starts, if not, interference, syncronization loss or simply absence of communication is detected at byte level. This adds a certain overhead to information but reduces the need of precise time tuning because syncronization is renewed every byte.
+Every byte is prepended with 2 synchronization padding bits. The first is a 60 microseconds logic 1 followed by a standard 20 microseconds logic 0. The reception tecnique is based on finding a logic 1 as long as the first padding bit within a certain threshold, synchronizing to its falling edge and checking if it is followed by a standard length logic 0. If this pattern is recognised byte reception starts, if not, interference, synchronization loss or simply absence of communication is detected at byte level. This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte.
 ```cpp  
  __________ ___________________________
 | Sync Pad | Byte                      |
@@ -29,7 +29,7 @@ Every byte is prepended with 2 syncronization padding bits. The first is a 60 mi
 |______|___|___|_____|___|___|_____|___|
 
 ```
-All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 microseconds) is the syncronization window the receiver has for every incoming byte. Also `ACCEPTANCE` has a role in noise reduction, in fact filters out short logic 1 spikes as possible signs of interference.
+All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 microseconds) is the synchronization window the receiver has for every incoming byte. Also `ACCEPTANCE` has a role in noise reduction, in fact filters out short logic 1 spikes as possible signs of interference.
 
 ###Packet transmission
 The concept of packet enables to send a communication payload to every connected device with correct reception certainty. Here is an example of packet sending to device id 12 the string "@":
@@ -42,5 +42,7 @@ The concept of packet enables to send a communication payload to every connected
 |1  |0|0000|11|0 ||1  |0|00000|1|00||1  |0|0|1|000000||1  |0|0|1|0000|1|0|
 |___|_|____|__|__||___|_|_____|_|__||___|_|_|_|______||___|_|_|_|____|_|_|
 ```
+A standard packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: channel state analysis, transmission and response. In the first phase the bus is analyzed by transmitter (reading 10 logical bits). If the 10 bits are all zero the channel is considered free and transmission phase starts.
+
 
 (work in progress)
