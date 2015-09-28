@@ -34,11 +34,11 @@ All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 micro
 ###Packet layer
 The concept of packet enables to send a communication payload to every connected device with correct reception certainty. Here an example of packet sending to device id 12 the string "@":
 ```cpp  
- ID 12               LENGTH 4            CONTENT @           CRC 121
- ___________________ ___________________ ___________________ ___________________
-|Sync |    Byte     |Sync |    Byte     |Sync |    Byte     |Sync |    Byte     |
-|___  |_    _   __  |___  |_    _   __  |___  |_    _   __  |___  |_    _   __  |
-|   | | |  | | |  | |   | | |  | | |  | |   | | |  | | |  | |   | | |  | | |  | |
-|1  |0|1|00|1|0|11|0|1  |0|1|00|1|0|11|0|1  |0|1|00|1|0|11|0|1  |0|1|00|1|0|11|0|
-|___|_|_|__|_|_|__|_|___|_|_|__|_|_|__|_|___|_|_|__|_|_|__|_|___|_|_|__|_|_|__|_|
+ ID 12            LENGTH 4         CONTENT @        CRC 130
+ ________________ ________________ ________________ __________________
+|Sync |    Byte  |Sync |    Byte  |Sync |    Byte  |Sync |    Byte    |
+|___  |     __   |___  |      _   |___  |  _       |___  |  _      _  |
+|   | |    |  |  |   | |     | |  |   | | | |      |   | | | |    | | |
+|1  |0|0000|11|0 |1  |0|00000|1|00|1  |0|0|1|000000|1  |0|0|1|0000|1|0|
+|___|_|____|__|__|___|_|_____|_|__|___|_|_|_|______|___|_|_|_|____|_|_|
 ```
