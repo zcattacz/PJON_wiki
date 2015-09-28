@@ -10,7 +10,7 @@ Here you can find all the PJON standard definitions.
 |______________________________________________________________________________| 
 
 ```
-## Basic concepts
+### Basic concepts
 * Every device has an unique 1 byte ID (255 selectable ids)
 * Every device transmit and receive on the same common PJON network medium
 * Every device can be connected to n PJON network media (with n dedicated pins)
@@ -20,7 +20,7 @@ Here you can find all the PJON standard definitions.
 * Devices communicate through packets
 
 ###Byte layer
-Every byte is prepended with 2 syncronization padding bits. The first padding bit is a 60 microseconds logic 1 bit followed by a standard 20 microseconds logic 0 bit. The reception tecnique is based on finding a logic 1 bit long as the first padding bit (with a certain acceptance) and syncronising to the falling edge of this bit, checking if it is followed by a standard logic 0 bit. If this pattern is found byte reception starts, if not, interference, syncronization loss or simply absence of communication is detected at byte level. This choice add a certain overhead to information but reduces the need of precise time tuning, so ease implementation, and gives a stable communication link.
+Every byte is prepended with 2 syncronization padding bits. The first padding bit is a 60 microseconds logic 1 bit followed by a standard 20 microseconds logic 0 bit. The reception tecnique is based on finding a logic 1 bit long as the first padding bit (with a certain acceptance) and syncronising to its falling edge, checking if followed by a standard logic 0 bit. If this pattern is recognised byte reception starts, if not, interference, syncronization loss or simply absence of communication is detected at byte level. This choice add a certain overhead to information but reduces the need of precise time tuning because syncronization is renewed every byte.
 ```cpp  
  __________ ___________________________
 | Sync Pad | Byte                      |
@@ -40,5 +40,4 @@ The concept of packet enables to send a communication payload to every connected
 |____|________|_______|________|_____|
 
 ```
-
 
