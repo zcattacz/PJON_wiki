@@ -19,7 +19,7 @@ Here you can find all the PJON standard definitions:
 * Devices communicate through packets
 
 ###Byte transmission
-Every byte is prepended with 2 syncronization padding bits. The first is a 60 microseconds logic 1 followed by a standard 20 microseconds logic 0. The reception tecnique is based on finding a logic 1 long as the first padding bit with a certain acceptance, syncronising to its falling edge and checking if it is followed by a standard logic 0. If this pattern is recognised byte reception starts, if not, interference, syncronization loss or simply absence of communication is detected at byte level. This adds a certain overhead to information but reduces the need of precise time tuning because syncronization is renewed every byte.
+Every byte is prepended with 2 syncronization padding bits. The first is a 60 microseconds logic 1 followed by a standard 20 microseconds logic 0. The reception tecnique is based on finding a logic 1 as long as the first padding bit within a certain threshold, syncronising to its falling edge and checking if it is followed by a standard length logic 0. If this pattern is recognised byte reception starts, if not, interference, syncronization loss or simply absence of communication is detected at byte level. This adds a certain overhead to information but reduces the need of precise time tuning because syncronization is renewed every byte.
 ```cpp  
  __________ ___________________________
 | Sync Pad | Byte                      |
