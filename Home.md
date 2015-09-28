@@ -29,7 +29,7 @@ Every byte is prepended with 2 syncronization padding bits. The first is a 60 mi
 |______|___|___|_____|___|___|_____|___|
 
 ```
-All the first padding bit duration minus `ACCEPTANCE` (62 microseconds) is the syncronization window the receiver has for every incoming byte.
+All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 microseconds) is the syncronization window the receiver has for every incoming byte.
 
 ###Packet layer
 The concept of packet enables to send a communication payload to every connected device with correct reception certainty. Here an example of packet sending to device id 12 the string "HI":
