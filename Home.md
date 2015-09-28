@@ -29,7 +29,7 @@ Every byte is prepended with 2 synchronization padding bits. The first is a 60 m
 |______|___|___|_____|___|___|_____|___|
 
 ```
-This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte. All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 microseconds) is the synchronization window the receiver has for every incoming byte. Also `ACCEPTANCE` has a role in noise reduction, in fact filters out short logic 1 spikes as possible signs of interference.
+This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte. All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 microseconds) is the synchronization window the receiver has for every incoming byte. Also `ACCEPTANCE` has a role in noise reduction, in fact filters out short logic 1 as possible signs of interference.
 
 ###Packet transmission
 The concept of packet enables to send a communication payload to every connected device with correct reception certainty. Here is an example of packet sending to device id 12 the string "@":
