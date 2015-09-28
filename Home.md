@@ -32,7 +32,7 @@ Every byte is prepended with 2 syncronization padding bits. The first is a 60 mi
 All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 microseconds) is the syncronization window the receiver has for every incoming byte. Also `ACCEPTANCE` has a role in noise reduction, in fact filters out short logic 1 spikes as possible signs of interference.
 
 ###Packet layer
-The concept of packet enables to send a communication payload to every connected device with correct reception certainty. Here an example of packet sending to device id 12 the string "@":
+The concept of packet enables to send a communication payload to every connected device with correct reception certainty. Here is an example of packet sending to device id 12 the string "@":
 ```cpp  
  ID 12             LENGTH 4          CONTENT @         CRC 130
  ________________  ________________  ________________  __________________
