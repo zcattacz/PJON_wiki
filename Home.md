@@ -22,12 +22,12 @@ Here you can find all the PJON standard definitions.
 ###Byte layer
 Every byte is prepended with 2 syncronization padding bits. The first padding bit is a 60 microseconds logic 1 bit followed by a standard 20 microseconds logic 0 bit. The reception tecnique is based on finding a logic 1 bit long as the first padding bit (with a certain acceptance) and syncronising to the falling edge of this bit, checking if it is followed by a standard logic 0 bit. If this pattern is found byte reception starts, if not, interference, syncronization loss or simply absence of communication is detected at byte level. This choice add a certain overhead to information but reduces the need of precise time tuning, so ease implementation, and gives a stable communication link.
 ```cpp  
-   __________ ___________________________
-  | Sync Pad | Byte                      |
-  |______    |___       ___     _____    |
-  |      |   |   |     |   |   |     |   |
-  |  1   | 0 | 1 | 0 0 | 1 | 0 | 1 1 | 0 |
-  |______|___|___|_____|___|___|_____|___|
+ __________ ___________________________
+| Sync Pad | Byte                      |
+|______    |___       ___     _____    |
+|      |   |   |     |   |   |     |   |
+|  1   | 0 | 1 | 0 0 | 1 | 0 | 1 1 | 0 |
+|______|___|___|_____|___|___|_____|___|
 
 ```
 ###Packet layer
