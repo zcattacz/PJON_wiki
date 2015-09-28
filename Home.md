@@ -1,4 +1,4 @@
-Here you can find all the PJON standard definitions.
+Here you can find all the PJON standard definitions:
 ```cpp  
  ______________________________________________________________________________
 | BIT_WIDTH 20 | BIT_SPACER 60 | ACCEPTANCE  8 | READ_DELAY 6    (microseconds)|
