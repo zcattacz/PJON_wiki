@@ -1,13 +1,13 @@
 ##PJON communication standard wiki
 Here you can find all the PJON standard definitions.
 ```cpp  
-  __________________________________________________________________________________
- | BIT_WIDTH 20 | BIT_SPACER 60 | ACCEPTANCE  8 | READ_DELAY 6        (microseconds)|
- |----------------------------------------------------------------------------------|
- | Transfer speed: 4.32 kB/s    | Data throughput:  2.65 kB/s                       |
- | Baud rate:      50000 baud/s |                                                   |
- | Accuracy:       99.995%      |                                                   |
- |__________________________________________________________________________________| 
+ _________________________________________________________________________________
+| BIT_WIDTH 20 | BIT_SPACER 60 | ACCEPTANCE  8 | READ_DELAY 6       (microseconds)|
+|---------------------------------------------------------------------------------|
+| Transfer speed: 4.32 kB/s    | Data throughput:  2.65 kB/s                      |
+| Baud rate:      50000 baud/s |                                                  |
+| Accuracy:       99.995%      |                                                  |
+|_________________________________________________________________________________| 
 
 ```
 ## Basic concepts
