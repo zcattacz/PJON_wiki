@@ -18,7 +18,7 @@ Here you can find all the PJON standard definitions:
 * Syncronization occurs every byte
 * Devices communicate through packets
 
-###Byte layer
+###Byte transmission
 Every byte is prepended with 2 syncronization padding bits. The first is a 60 microseconds logic 1 followed by a standard 20 microseconds logic 0. The reception tecnique is based on finding a logic 1 long as the first padding bit with a certain acceptance, syncronising to its falling edge and checking if it is followed by a standard logic 0. If this pattern is recognised byte reception starts, if not, interference, syncronization loss or simply absence of communication is detected at byte level. This adds a certain overhead to information but reduces the need of precise time tuning because syncronization is renewed every byte.
 ```cpp  
  __________ ___________________________
@@ -31,7 +31,7 @@ Every byte is prepended with 2 syncronization padding bits. The first is a 60 mi
 ```
 All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 microseconds) is the syncronization window the receiver has for every incoming byte. Also `ACCEPTANCE` has a role in noise reduction, in fact filters out short logic 1 spikes as possible signs of interference.
 
-###Packet layer
+###Packet transmission
 The concept of packet enables to send a communication payload to every connected device with correct reception certainty. Here is an example of packet sending to device id 12 the string "@":
 ```cpp  
  ID 12             LENGTH 4          CONTENT @         CRC 130
