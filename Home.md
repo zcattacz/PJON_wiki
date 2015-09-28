@@ -11,12 +11,12 @@ Here you can find all the PJON standard definitions:
 ```
 ### Basic concepts
 * Every device has an unique 1 byte ID (255 selectable ids)
-* Every device transmit and receive on the same common PJON network medium
+* Every device transmits and receives on the same common PJON network medium
 * Every device can be connected to n PJON network media (with n dedicated pins)
-* Every device has equal right to transmit and receive on the common medium
+* Every device has equal right to transmits and receives on the common medium
 * Device transmission occur only if communication medium is not in use
 * Device syncronization happens every byte
-* Devices communicate through packets
+* Devices communicates through packets
 
 ###Byte layer
 Every byte is prepended with 2 syncronization padding bits. The first is a 60 microseconds logic 1 followed by a standard 20 microseconds logic 0. The reception tecnique is based on finding a logic 1 long as the first padding bit with a certain acceptance, syncronising to its falling edge and checking if it is followed by a standard logic 0. If this pattern is recognised byte reception starts, if not, interference, syncronization loss or simply absence of communication is detected at byte level. This adds a certain overhead to information but reduces the need of precise time tuning because syncronization is renewed every byte.
