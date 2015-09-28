@@ -14,7 +14,7 @@ Here you can find all the PJON standard definitions:
 * Every device transmits and receives on the same common PJON network medium
 * Every device can be connected to n PJON network media (with n dedicated pins)
 * Every device has equal right to transmits and receives on the common medium
-* Device transmission occur only if communication medium is not in use
+* Device transmission occurs only if communication medium is not in use
 * Device syncronization happens every byte
 * Devices communicates through packets
 
