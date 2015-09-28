@@ -36,7 +36,7 @@ The concept of packet enables to send a communication payload to every connected
 ```cpp  
  ID 12            LENGTH 4         CONTENT @        CRC 130
  ________________ ________________ ________________ __________________
-|Sync |    Byte  |Sync |    Byte  |Sync |    Byte  |Sync |    Byte    |
+|Sync | Byte     |Sync | Byte     |Sync | Byte     |Sync | Byte       |
 |___  |     __   |___  |      _   |___  |  _       |___  |  _      _  |
 |   | |    |  |  |   | |     | |  |   | | | |      |   | | | |    | | |
 |1  |0|0000|11|0 |1  |0|00000|1|00|1  |0|0|1|000000|1  |0|0|1|0000|1|0|
