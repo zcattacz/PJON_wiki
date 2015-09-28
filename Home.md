@@ -19,7 +19,7 @@ Here you can find all the PJON standard definitions:
 * Devices communicate through packets
 
 ###Byte transmission
-Every byte is prepended with 2 synchronization padding bits. The first is a 60 microseconds logic 1 followed by a standard 20 microseconds logic 0. The reception tecnique is based on finding a logic 1 as long as the first padding bit within a certain threshold, synchronizing to its falling edge and checking if it is followed by a standard length logic 0. If this pattern is recognised byte reception starts, if not, interference, synchronization loss or simply absence of communication is detected at byte level. This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte.
+Every byte is prepended with 2 synchronization padding bits. The first is a 60 microseconds logic 1 followed by a standard 20 microseconds logic 0. The reception tecnique is based on finding a logic 1 as long as the first padding bit within a certain threshold, synchronizing to its falling edge and checking if it is followed by a standard length logic 0. If this pattern is recognised byte reception starts, if not, interference, synchronization loss or simply absence of communication is detected at byte level.
 ```cpp  
  __________ ___________________________
 | Sync Pad | Byte                      |
@@ -29,7 +29,7 @@ Every byte is prepended with 2 synchronization padding bits. The first is a 60 m
 |______|___|___|_____|___|___|_____|___|
 
 ```
-All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 microseconds) is the synchronization window the receiver has for every incoming byte. Also `ACCEPTANCE` has a role in noise reduction, in fact filters out short logic 1 spikes as possible signs of interference.
+This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte. All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 microseconds) is the synchronization window the receiver has for every incoming byte. Also `ACCEPTANCE` has a role in noise reduction, in fact filters out short logic 1 spikes as possible signs of interference.
 
 ###Packet transmission
 The concept of packet enables to send a communication payload to every connected device with correct reception certainty. Here is an example of packet sending to device id 12 the string "@":
