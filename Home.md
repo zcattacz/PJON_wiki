@@ -13,7 +13,7 @@ Bit duration: 20 microseconds  Transfer speed: 4.32 kB/s  Baud rate: 50000 baud
 
 ###Byte transmission
 Every byte is prepended with 2 synchronization padding bits. 
-The first is a 60 microseconds logic 1 followed by a standard 20 microseconds logic 0. The reception tecnique is based on finding a logic 1 as long as the first padding bit within a certain threshold, synchronizing to its falling edge and checking if it is followed by a 20 microseconds logic 0. If this pattern is recognised, byte reception starts, if not, interference, synchronization loss or simply absence of communication is detected at byte level.
+The first is a 60 microseconds logic 1 followed by a standard 20 microseconds logic 0. The reception tecnique is based on finding a logic 1 as long as the first padding bit within a certain threshold, synchronizing to its falling edge and checking if it is followed by a 20 microseconds logic 0. If this pattern is recognised, reception starts, if not, interference, synchronization loss or simply absence of communication is detected at byte level.
 ```cpp  
  __________ ___________________________
 | Sync Pad | Byte                      |
