@@ -34,12 +34,12 @@ This adds a certain overhead to information but reduces the need of precise time
 ###Packet transmission
 The concept of packet enables to send a communication payload to every connected device with correct reception certainty. Here is an example of packet sending to device id 12 the string "@":
 ```cpp  
- ID 12             LENGTH 4          CONTENT @         CRC 130
+ ID 12             LENGTH 4          CONTENT 64        CRC 130
  ________________  ________________  ________________  __________________
 |Sync | Byte     ||Sync | Byte     ||Sync | Byte     ||Sync | Byte       |
 |___  |     __   ||___  |      _   ||___  |  _       ||___  |  _      _  |
 |   | |    |  |  ||   | |     | |  ||   | | | |      ||   | | | |    | | |
-|1  |0|0000|11|0 ||1  |0|00000|1|00||1  |0|0|1|000000||1  |0|0|1|0000|1|0|
+| 1 |0|0000|11|0 || 1 |0|00000|1|00|| 1 |0|0|1|000000|| 1 |0|0|1|0000|1|0|
 |___|_|____|__|__||___|_|_____|_|__||___|_|_|_|______||___|_|_|_|____|_|_|
 ```
 A standard packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: channel state analysis, transmission and response. In the first phase the bus is analyzed by transmitter (reading 10 logical bits). If the 10 bits are all zero the channel is considered free and transmission phase starts.
