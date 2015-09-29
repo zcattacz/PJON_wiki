@@ -45,7 +45,7 @@ The concept of packet enables to send a communication payload to every connected
 A packet contains the recipient id, the length of the packet, its content and the CRC.
 A standard packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. 
 ```cpp  
-    Channel analysis   Transmission                              Response
+   Channel analysis    Transmission                             Response
     _____               _____________________________            _____
    | C-A |             | ID | LENGTH | content | CRC |          | ACK |
    |-----|-----------> |----|--------|---------|-----|--> <-----|-----|
