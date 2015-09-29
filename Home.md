@@ -32,7 +32,7 @@ Every byte is prepended with 2 synchronization padding bits. The first is a 60 m
 This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte. All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 microseconds) is the synchronization window the receiver has for every incoming byte. Also `ACCEPTANCE` has a role in noise reduction, in fact filters out short logic 1 as possible signs of interference.
 
 ###Packet transmission
-The concept of packet enables to send a communication payload to every connected device with correct reception certainty. Here is an example of packet sending to device id 12 the string "@":
+The concept of packet enables to send a communication payload to every connected device with correct reception certainty. A packet contains the recipient id, the length of the packet, its content and the CRC. Here is an example of a packet sending to device id 12 containing the string "@":
 ```cpp  
  ID 12             LENGTH 4          CONTENT 64        CRC 130
  ________________  ________________  ________________  __________________
@@ -42,7 +42,6 @@ The concept of packet enables to send a communication payload to every connected
 | 1 |0|0000|11|0 || 1 |0|00000|1|00|| 1 |0|0|1|000000|| 1 |0|0|1|0000|1|0|
 |___|_|____|__|__||___|_|_____|_|__||___|_|_|_|______||___|_|_|_|____|_|_|
 ```
-A packet contains the recipient id, the length of the packet, its content and the CRC.
 A standard packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. 
 ```cpp  
    Channel analysis    Transmission                             Response
