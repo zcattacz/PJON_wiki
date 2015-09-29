@@ -43,7 +43,16 @@ The concept of packet enables to send a communication payload to every connected
 |___|_|____|__|__||___|_|_____|_|__||___|_|_|_|______||___|_|_|_|____|_|_|
 ```
 A packet contains the recipient id, the length of the packet, its content and the CRC.
-A standard packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel state analysis**, **transmission** and **response**. In the first phase the bus is analyzed by transmitter reading 10 logical bits, if no logical 1s are detected the channel is considered free, transmission phase starts and the packet is entirely transmitted. Receiver calculates CRC and starts the response phase transmitting a single byte, `ACK` (dec 6) in case of correct reception or `NAK` (dec 21) if an error in the packet's content is detected.
+A standard packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel state analysis**, **transmission** and **response**. 
+```cpp  
+    Channel analysis   Transmission                              Response
+    _____               _____________________________            _____
+   | C-A |             | ID | LENGTH | content | CRC |          | ACK |
+   |-----|-----------> |----|--------|---------|-----|--> <-----|-----|
+   |  0  |             | 12 |   4    |   64    | 130 |          |  6  |
+   |_____|             |____|________|_________|_____|          |_____|
+```
+In the first phase the bus is analyzed by transmitter reading 10 logical bits, if no logical 1s are detected the channel is considered free, transmission phase starts and the packet is entirely transmitted. Receiver calculates CRC and starts the response phase transmitting a single byte, `ACK` (dec 6) in case of correct reception or `NAK` (dec 21) if an error in the packet's content is detected.
 
 
 (work in progress)
