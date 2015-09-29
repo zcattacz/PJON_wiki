@@ -1,5 +1,4 @@
-The PJON Standard is an opensource communication bus system concept, it is designed to provide the community with a new, easy to implement way to communicate data between devices and build system networks.
-
+The PJON Standard is an opensource communication bus system concept, it is designed to provide the community with a new, easy to implement way to communicate data and build networks of devices.
 ```cpp  
  ____________________________________________________________________________
 | BIT_WIDTH 20 | BIT_SPACER 60 | ACCEPTANCE  8 | READ_DELAY 6  (microseconds)|
