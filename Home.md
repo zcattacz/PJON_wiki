@@ -1,13 +1,6 @@
 The PJON Standard is an opensource multimaster communications bus system concept. It is designed to provide the community with a new, easy to implement way to communicate data and build networks of devices.
 ```cpp  
- ____________________________________________________________________________
-| BIT_WIDTH 20 | BIT_SPACER 60 | ACCEPTANCE  8 | READ_DELAY 6  (microseconds)|
-|----------------------------------------------------------------------------|
-| Transfer speed: 4.32 kB/s    | Data throughput:  2.65 kB/s                 |
-| Baud rate:      50000 baud   |                                             |
-| Accuracy:       99.995%      |                                             |
-|____________________________________________________________________________| 
-
+Bit duration: 20 microseconds  Transfer speed: 4.32 kB/s  Baud rate: 50000 baud
 ```
 ### Basic concepts
 * Every device has an unique 1 byte ID (255 selectable ids)
