@@ -46,7 +46,7 @@ A standard packet transmission is a bidirectional communication between two devi
 ```cpp  
    Channel analysis    Transmission                             Response
     _____               _____________________________            _____
-   | C-A |             | ID | LENGTH | content | CRC |          | ACK |
+   | C-A |             | ID | LENGTH | CONTENT | CRC |          | ACK |
    |-----|-----------> |----|--------|---------|-----|--> <-----|-----|
    |  0  |             | 12 |   4    |   64    | 130 |          |  6  |
    |_____|             |____|________|_________|_____|          |_____|
