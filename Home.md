@@ -1,7 +1,4 @@
-PJON is an opensource multimaster communications bus system standard. It is designed to provide the community with a new and easy way to communicate data and build networks of devices. This set of rules are effective on different media like a electricity, radio frequency and light.
-```cpp  
-Bit duration: 20 microseconds  Transfer speed: 4.32 kB/s  Baud rate: 50000 baud
-```
+PJON is an opensource 10-bit multimaster communications bus system standard. It is designed to provide the community with a new and easy way to communicate data and build networks of devices. This set of rules is effective on different media like a electricity, radio frequency and light. The communication speed is set to a bit duration of 20 microseconds with a transfer speed of 4.16kB/s or 41666 baud.
 ### Basic concepts
 * Every device has an unique 1 byte ID (255 selectable ids)
 * Every device transmits and receives on the same common PJON network medium
