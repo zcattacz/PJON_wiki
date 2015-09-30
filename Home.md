@@ -48,6 +48,6 @@ A standard packet transmission is a bidirectional communication between two devi
 In the first phase the bus is analyzed by transmitter reading 10 logical bits, if no logical 1s are detected the channel is considered free, transmission phase starts and the packet is entirely transmitted. Receiver calculates CRC and starts the response phase transmitting a single byte, `ACK` (dec 6) in case of correct reception or `NAK` (dec 21) if an error in the packet's content is detected.
 
 ###Network
-A PJON network is made by a collection of up to 255 devices all transmitting and receiving on the same medium. Communication between devices occurs through packets and every device has the right to transmit for up to `(1000 / number of devices) milliseconds / second`.   
+A PJON network is made by a collection of up to 255 devices all transmitting and receiving on the same medium. Communication between devices occurs through packets, every device has the right to transmit for up to `(1000 / number of devices) milliseconds / second`.   
 
 (work in progress)
