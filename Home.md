@@ -23,7 +23,7 @@ The first is a 60 microseconds logic 1 followed by a standard 20 microseconds lo
 |______|___|___|_____|___|___|_____|___|
 
 ```
-This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte. All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 microseconds) is the synchronization window the receiver has for every incoming byte.  If the first padding bit received has a length of less then `ACCEPTANCE` is considered interference. This helps to filter out short logic 1s as sign of interference.
+This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte. All the first padding bit duration (60 microseconds) minus `ACCEPTANCE` (8 microseconds) is the synchronization window the receiver has for every incoming byte. If the first padding bit's detected length is less then `ACCEPTANCE` is considered interference.
 
 ###Packet transmission
 The concept of packet enables to send a communication payload to every connected device with correct reception certainty. A packet contains the recipient id, the length of the packet, its content and the CRC. Here is an example of a packet sending to device id 12 containing the string "@":
