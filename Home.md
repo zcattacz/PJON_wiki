@@ -1,4 +1,4 @@
-PJON is an opensource multimaster communications bus system standard. It is designed to provide the community with a new and easy way to communicate data and build networks of devices. This set of rules resulted effective on a variety of media like a electricity, radio frequency and light.
+PJON is an opensource multimaster communications bus system standard. It is designed to provide the community with a new and easy way to communicate data and build networks of devices. This set of rules are effective on different media like a electricity, radio frequency and light.
 ```cpp  
 Bit duration: 20 microseconds  Transfer speed: 4.32 kB/s  Baud rate: 50000 baud
 ```
@@ -47,5 +47,7 @@ A standard packet transmission is a bidirectional communication between two devi
 ```
 In the first phase the bus is analyzed by transmitter reading 10 logical bits, if no logical 1s are detected the channel is considered free, transmission phase starts and the packet is entirely transmitted. Receiver calculates CRC and starts the response phase transmitting a single byte, `ACK` (dec 6) in case of correct reception or `NAK` (dec 21) if an error in the packet's content is detected.
 
+###Network
+A PJON network is made by a collection of up to 255 devices all transmitting and receiving on the same medium. Communication between devices occurs through packets and every device has the right to transmit up to `(1000 / number of devices) milliseconds / second`.   
 
 (work in progress)
