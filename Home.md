@@ -1,9 +1,9 @@
 PJON is an opensource 10-bit multimaster communications bus system standard. It is created to provide the community with a new and easy way to communicate data and build networks of devices. This set of rules is designed to ease internet of things and opensource embedded applications. Extended tests proved its effectiveness on different media like electricity, radio frequency and light. A Bit has a duration of 20 microseconds and communication speed is 4.16kB/s or 41666 baud. This setup is selected to have an acceptable bandwidth but also to be easily implemented bitbanged or software emulated on low frequency clock microcontrollers.
 ### Basic concepts
-* Every device has an unique 1 byte ID (255 selectable ids)
+* Every device has an unique 1 byte ID (0-255)
 * Every device transmits and receives on the same common PJON network medium
-* Every device can be connected to n PJON network media (with n dedicated pins)
 * Every device has an equal right to transmit and receive on the common medium
+* Every device can be connected to n PJON network media (with n dedicated pins)
 * Transmission occurs only if the communication medium is not in use
 * Synchronization occurs every byte
 * Devices communicate through packets
