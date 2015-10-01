@@ -46,5 +46,15 @@ In the first phase the bus is analyzed by transmitter reading 10 logical bits, i
 
 ###Network
 A PJON network is made by a collection of up to 255 devices transmitting and receiving on the same medium. Communication between devices occurs through packets and it is based on democracy: every device has the right to transmit on the common medium for up to `(1000 / devices number) milliseconds / second`.   
-
+```cpp  
+   _______     _______     _______
+  |       |   |       |   |       |  
+  | ID 0  |   | ID 1  |   | ID 2  |  
+  |_______|   |_______|   |_______|    
+_____|___________|___________|_______
+        ____|__     ____|__
+       |       |   |       |   
+       | ID 3  |   | ID 4  |  
+       |_______|   |_______|  
+```
 (work in progress)
