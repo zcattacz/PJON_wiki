@@ -50,15 +50,15 @@ In the first phase the bus is analyzed by transmitter reading 10 logical bits, i
 A PJON bus is made by a collection of up to 255 devices transmitting and receiving on the same medium. Communication between devices occurs through packets and it is based on democracy: every device has the right to transmit on the common medium for up to `(1000 / devices number) milliseconds / second`.   
 
 ```cpp  
-    _______     _______     _______     _______    _______
+    _______     _______     _______     _______     _______
    |       |   |       |   |       |   |       |   |       |  
    | ID 0  |   | ID 1  |   | ID 2  |   | ID 3  |   | ID 4  |  
    |_______|   |_______|   |_______|   |_______|   |_______|    
- _____|___________|___________|___________|___________|_______
-         ____|__     ____|__     ____|__     ____|__
-        |       |   |       |   |       |   |       |   
-        | ID 5  |   | ID 6  |   | ID 7  |   | ID 8  |
-        |_______|   |_______|   |_______|   |_______|    
+ ______|___________|___________|___________|___________|______
+          ___|___     ___|___     ___|___     ___|___
+         |       |   |       |   |       |   |       |   
+         | ID 5  |   | ID 6  |   | ID 7  |   | ID 8  |
+         |_______|   |_______|   |_______|   |_______|    
 ```
 
 ###Bus network
@@ -68,7 +68,7 @@ A PJON bus network is the result of interconnecting n PJON bus using routers. A 
    |       |   |       |            |       |   |       |
    | ID 0  |   | ID 1  |            | ID 0  |   | ID 1  |
    |_______|   |_______|  ________  |_______|   |_______|
- _____|___________|______| ROUTER |_____|___________|______
+ ______|___________|_____| ROUTER |_____|___________|______
           ___|___        |  ID 3  |        ___|___
          |       |       |________|       |       |
          | ID 2  |                        | ID 2  |
