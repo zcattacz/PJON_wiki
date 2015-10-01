@@ -32,7 +32,7 @@ The concept of packet enables to send a communication payload to every connected
 |Sync | Byte     |Sync | Byte     |Sync | Byte     |Sync | Byte       |
 |___  |     __   |___  |      _   |___  |  _       |___  |  _      _  |
 |   | |    |  |  |   | |     | |  |   | | | |      |   | | | |    | | |
-| 1 |0|0000|11|0 | 1 |0|00000|1|00| 1 |0|0|1|000000| 1 |0|0|1|0000|1|0|
+| 1 |0|0000|11|00| 1 |0|00000|1|00| 1 |0|0|1|000000| 1 |0|0|1|0000|1|0|
 |___|_|____|__|__|___|_|_____|_|__|___|_|_|_|______|___|_|_|_|____|_|_|
 ```
 A standard packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. 
