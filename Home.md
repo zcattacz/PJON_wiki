@@ -9,33 +9,6 @@ PJON is an opensource multimaster communications bus system standard created to 
 * Synchronization occurs every byte
 * Devices communicate through packets
 
-###Bus
-A PJON bus is made by a collection of up to 255 devices transmitting and receiving on the same medium. Communication between devices occurs through packets and it is based on democracy: every device has the right to transmit on the common medium for up to `(1000 / devices number) milliseconds / second`.   
-```cpp  
-    _______     _______     _______     _______    _______
-   |       |   |       |   |       |   |       |   |       |  
-   | ID 0  |   | ID 1  |   | ID 2  |   | ID 3  |   | ID 4  |  
-   |_______|   |_______|   |_______|   |_______|   |_______|    
- _____|___________|___________|___________|___________|_______
-         ____|__     ____|__     ____|__     ____|__
-        |       |   |       |   |       |   |       |   
-        | ID 5  |   | ID 6  |   | ID 7  |   | ID 8  |
-        |_______|   |_______|   |_______|   |_______|    
-```
-
-###Bus network
-A PJON bus network is the result of interconnecting n PJON bus using routers. A router is a device connected to n PJON bus (with n dedicated pins) able to route a packet from a bus to anotherone.   
-```cpp  
-    _______     _______              _______     _______
-   |       |   |       |            |       |   |       |
-   | ID 0  |   | ID 1  |            | ID 0  |   | ID 1  |
-   |_______|   |_______|  ________  |_______|   |_______|
- _____|___________|______| ROUTER |_____|___________|______
-         ___|___         |  ID 3  |        ___|___
-        |       |        |________|       |       |
-        | ID 2  |                         | ID 2  |
-        |_______|                         |_______|
-```
 ###Byte transmission
 Every byte is prepended with 2 synchronization padding bits. 
 The first is a longer than standard logic 1 followed by a standard logic 0. The reception tecnique is based on finding a logic 1 as long as the first padding bit within a certain threshold, synchronizing to its falling edge and checking if it is followed by a logic 0. If this pattern is recognised, reception starts, if not, interference, synchronization loss or simply absence of communication is detected at byte level.
@@ -73,4 +46,32 @@ A standard packet transmission is a bidirectional communication between two devi
 ```
 In the first phase the bus is analyzed by transmitter reading 10 logical bits, if no logical 1s are detected the channel is considered free, transmission phase starts in which the packet is entirely transmitted. Receiver calculates CRC and starts the response phase transmitting a single byte, `ACK` (dec 6) in case of correct reception or `NAK` (dec 21) if an error in the packet's content is detected. If transmitter receives no answer or `NAK` the packet sending has to be scheduled with a delay of `ATTEMPTS * ATTEMPTS` with a maximum of 250 `ATTEMPTS` to obtain data transmission quadratic backoff. 
 
+###Bus
+A PJON bus is made by a collection of up to 255 devices transmitting and receiving on the same medium. Communication between devices occurs through packets and it is based on democracy: every device has the right to transmit on the common medium for up to `(1000 / devices number) milliseconds / second`.   
+
+```cpp  
+    _______     _______     _______     _______    _______
+   |       |   |       |   |       |   |       |   |       |  
+   | ID 0  |   | ID 1  |   | ID 2  |   | ID 3  |   | ID 4  |  
+   |_______|   |_______|   |_______|   |_______|   |_______|    
+ _____|___________|___________|___________|___________|_______
+         ____|__     ____|__     ____|__     ____|__
+        |       |   |       |   |       |   |       |   
+        | ID 5  |   | ID 6  |   | ID 7  |   | ID 8  |
+        |_______|   |_______|   |_______|   |_______|    
+```
+
+###Bus network
+A PJON bus network is the result of interconnecting n PJON bus using routers. A router is a device connected to n PJON bus (with n dedicated pins) able to route a packet from a bus to anotherone.   
+```cpp  
+    _______     _______              _______     _______
+   |       |   |       |            |       |   |       |
+   | ID 0  |   | ID 1  |            | ID 0  |   | ID 1  |
+   |_______|   |_______|  ________  |_______|   |_______|
+ _____|___________|______| ROUTER |_____|___________|______
+         ___|___         |  ID 3  |        ___|___
+        |       |        |________|       |       |
+        | ID 2  |                         | ID 2  |
+        |_______|                         |_______|
+```
 (work in progress)
