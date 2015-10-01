@@ -16,10 +16,9 @@ The first is a longer than standard logic 1 followed by a standard logic 0. The 
  __________ ___________________________
 | Sync Pad | Byte                      |
 |______    |___       ___     _____    |
-|      |   |   |     |   |   |     |   |
-|  1   | 0 | 1 | 0 0 | 1 | 0 | 1 1 | 0 |
-|______|___|___|_____|___|___|_____|___|
-
+||     |   |   |     |   |   |     |   |
+|| 1   | 0 | 1 | 0 0 | 1 | 0 | 1 1 | 0 |
+||_____|___|___|_____|___|___|_____|___|
 ```
 This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte. All the first padding bit duration minus `ACCEPTANCE` is the synchronization window the receiver has for every incoming byte. If the length of the first padding bit is less than `ACCEPTANCE` the received signal is considered interference.
 
