@@ -74,4 +74,3 @@ A PJON bus network is the result of interconnecting n PJON bus using routers. A 
          | ID 2  |                        | ID 2  |
          |_______|                        |_______|
 ```
-(work in progress)
