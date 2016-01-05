@@ -14,11 +14,11 @@ Pull the actual master from PJON's desired implementation repository and run the
 List of common problems you can face, to speed up the PJON implementaiton:
 
 * No communication at all:
-  * Wrong pin configuration in your code
-  * Physical wiring configuration
+  * Wrong pin configuration in your code.
+  * Physical wiring configuration.
   * Device ID configuration.
-  * Some other task is occupying all the loop time
-  * Forgot the `update()` or `receive()` function in loop? ;)
+  * Some other task is occupying all the available loop time.
+  * Forgot the `update()` or `receive()` function in loop ;)? 
 
 * Really slow communication speed, with a lot of CRC detected mistakes or channel often busy:
   * **Range** (You are probably near the maximum distance range of your system).
