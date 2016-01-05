@@ -29,5 +29,5 @@ List of common problems you can face, to speed up the PJON implementaiton:
     * Use faster clock
     * Optimize digital I/O (see `digitalWriteFast.h`)
   * **Interference** is generating noise. (Device avoid to transmit over noise)
-    * If wire or conductive element, use pull-down resistor around megaohms order (try various values and see results).
-    * If radio / light waves, filter noise with physical / discrete component (for example a capacitor) or / and higher transmission power.
+    * If wire or conductive element, evaluate its conducting performance and consider to use a pull-down resistor around megaohms order (try various values and see results).
+    * If radio / light waves, use a better antenna / photodiode, filter noise with physical (ground plane / lens) / discrete component (for example a capacitor) or / and higher transmission power.
