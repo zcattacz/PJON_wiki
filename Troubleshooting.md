@@ -1,6 +1,6 @@
 Also if PJON is designed to be a really stable, interference and error aware communication standard, noise can variate enormously because of the environment, the setup and the medium you are using as communication channel. PJON single bidirectional medium is not a balanced pair, for this reason long distances and interference sources can affect communication reliability and data throughput.
 
-Pull from PJON's desired implementation repository the master and run the example `NetworkAnalysis` and `SpeedTest`. This two sketches are designed to execute a test and respond through the Serial monitor with a benchmark on communication channel performance and reliability:
+Pull from PJON's desired implementation repository the master and run the example `NetworkAnalysis` and `SpeedTest`. These two sketches are designed to execute a test and respond through the Serial monitor with a benchmark on communication channel performance and reliability:
 * Absolute communication speed
 * Practical bandwidth or channel throughput
 * Number of packets sent in the test window
@@ -46,7 +46,7 @@ Device avoid to transmit over noise to ensure correct communication, for this re
 * Many CRC detected mistakes.
 * Low or absent communication speed.
 
-Bad syncronization or timing configuration. If you are porting a new device or architecture try to change timings in `PJON.h` and consider that every architecture will generate slightly dirrent durations.
+Bad syncronization or timing configuration. If you are porting a new device or architecture try to change timings in `PJON.h` and consider that every architecture will generate slightly different durations.
 
 ***
 
