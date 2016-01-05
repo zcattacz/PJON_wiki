@@ -18,7 +18,7 @@ Slow communication speed, a lot of CRC detected mistakes and / or channel often 
   * Some other task is occupying all the available loop time.
   * Forgot the `update()` or `receive()` function in loop ;) ? 
 
-For more advanced users:
+If you have not identified the problem or you are a more advanced user, porting a new device / architecture, here you can find a list of common causes of this problem:
 ####Range 
 You are probably near the maximum distance range of your system, A small capacitor can be a good solution to filter 0s that should be 1s and / or you can higher the transmission power.
 
