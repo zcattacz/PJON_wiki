@@ -31,6 +31,15 @@ You are probably near the maximum distance range of your system, A small capacit
 
 ***
 
+####Interference
+* **Channel found busy many times.**
+* Many CRC detected mistakes.
+* Low or absent communication speed.
+
+Device avoid to transmit over noise to ensure correct communication, for this reason when the communication medium is affected by noise, data throughput and communication reliability drops. If wire or conductive element, evaluate its conducting performance and consider to use a pull-down resistor around megaohms order (try various values and see results). If radio or light waves, use a better antenna / photodiode, filter noise with physical (ground plane / lens) or discrete component, for example a capacitor, and / or higher transmission power.
+
+***
+
 ####Timing
 * **Many failed receptions.**
 * Many CRC detected mistakes.
@@ -47,14 +56,5 @@ Bad syncronization or timing configuration. If you are porting a new device or a
 * Low or absent communication speed.
 
 A still not implemented architecture / device may not be fast enough to run PJON, try using a faster clock or optimize digital I/O (see `digitalWriteFast.h`)
-
-***
-
-####Interference
-* **Channel found busy many times.**
-* Many CRC detected mistakes.
-* Low or absent communication speed.
-
-Device avoid to transmit over noise to ensure correct communication, for this reason when the communication medium is affected by noise, data throughput and communication reliability drops. If wire or conductive element, evaluate its conducting performance and consider to use a pull-down resistor around megaohms order (try various values and see results). If radio or light waves, use a better antenna / photodiode, filter noise with physical (ground plane / lens) or discrete component, for example a capacitor, and / or higher transmission power.
 
 ***
