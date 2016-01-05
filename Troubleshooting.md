@@ -10,17 +10,17 @@ Pull the actual master from PJON's desired implementation repository and run the
 * How many times the channel is found busy
 * Accuracy ( packets sent / packets received with mistakes ratio)
 
-####Common problems
-List of common problems you can face, to speed up the PJON implementaiton:
+####Communication inaccurate or absent
+Really slow communication speed, with a lot of CRC detected mistakes and / or channel often busy.
 
-* No communication at all:
+* Really common issues:
   * Wrong pin configuration in your code.
   * Physical wiring configuration.
   * Device ID configuration.
   * Some other task is occupying all the available loop time.
   * Forgot the `update()` or `receive()` function in loop ;)? 
 
-* Really slow communication speed, with a lot of CRC detected mistakes or channel often busy:
+* For more advanced users:
   * **Range** (You are probably near the maximum distance range of your system).
     * A small capacitor can be a good solution to filter 0s that should be 1s. 
   * **Timing** (Bad syncronization or timing configuration).
