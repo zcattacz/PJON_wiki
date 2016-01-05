@@ -24,4 +24,4 @@ List of common problems you can face, to speed up the PJON implementaiton:
   * Execution time (a new architecture / device may not be fast enough to run PJON).
   * Interference is generating noise. (Devices avoid to transmit over noise to ensure reliability)
     * If wire or conductive element, use pull-down resistor around megaohms order (try various values and see results).
-    * If radio / light waves, filter noise with physical / discrete component or / and higher transmission power.
+    * If radio / light waves, filter noise with physical / discrete component (for example a capacitor) or / and higher transmission power.
