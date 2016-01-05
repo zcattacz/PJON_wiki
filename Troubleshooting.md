@@ -10,9 +10,7 @@ Pull from PJON's desired implementation repository the master and run the exampl
 * Accuracy ( packets sent / packets received with mistakes ratio)
 
 ###Communication inaccurate or absent
-Slow communication speed, a lot of CRC detected mistakes and / or channel often busy.
-
-Really common issues:
+Slow communication speed, a lot of CRC detected mistakes and / or channel often busy. Here you can find a list of really common issues that can lead to this problem:
   * If necessary (wire medium for example) use common ground for every device.
   * Wrong pin configuration in code.
   * Physical wiring configuration.
