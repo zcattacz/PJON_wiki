@@ -18,7 +18,7 @@ Really slow communication speed, with a lot of CRC detected mistakes and / or ch
   * Physical wiring configuration.
   * Device ID configuration in code.
   * Some other task is occupying all the available loop time.
-  * If necessary (for example with wired implementation) use common ground for every device.
+  * If necessary (wire medium for example) use common ground for every device.
   * Forgot the `update()` or `receive()` function in loop ;)? 
 
 * For more advanced users:
