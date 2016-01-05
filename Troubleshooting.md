@@ -9,26 +9,26 @@ Pull from PJON's desired implementation repository the master and run the exampl
 * How many times the channel is found busy
 * Accuracy ( packets sent / packets received with mistakes ratio)
 
-####Communication inaccurate or absent
+###Communication inaccurate or absent
 Slow communication speed, a lot of CRC detected mistakes and / or channel often busy.
 
-* Really common issues:
+Really common issues:
   * If necessary (wire medium for example) use common ground for every device.
   * Wrong pin configuration in code.
   * Physical wiring configuration.
   * Device ID configuration in code.
   * Some other task is occupying all the available loop time.
-  * Forgot the `update()` or `receive()` function in loop ;)? 
+  * Forgot the `update()` or `receive()` function in loop ;) ? 
 
-* For more advanced users:
-  * **Range** (You are probably near the maximum distance range of your system).
-    * A small capacitor can be a good solution to filter 0s that should be 1s. 
-  * **Timing** (Bad syncronization or timing configuration).
-    * If you are porting a new device or architecture try to change timings in `PJON.h`.
-    * Consider that every architecture will generate slightly dirrent durations.
-  * **Execution time** (a new architecture / device may not be fast enough to run PJON).
-    * Use faster clock
-    * Optimize digital I/O (see `digitalWriteFast.h`)
-  * **Interference** is generating noise. (Device avoid to transmit over noise)
-    * If wire or conductive element, evaluate its conducting performance and consider to use a pull-down resistor around megaohms order (try various values and see results).
-    * If radio or light waves, use a better antenna / photodiode, filter noise with physical (ground plane / lens) or discrete component, for example a capacitor, and / or higher transmission power.
+For more advanced users:
+####Range 
+You are probably near the maximum distance range of your system, A small capacitor can be a good solution to filter 0s that should be 1s and / or you can higher the transmission power.
+
+####Timing
+Bad syncronization or timing configuration. If you are porting a new device or architecture try to change timings in `PJON.h` and consider that every architecture will generate slightly dirrent durations.
+
+####Execution time
+A still not implemented architecture / device may not be fast enough to run PJON, try using a faster clock or optimize digital I/O (see `digitalWriteFast.h`)
+
+####Interference
+Device avoid to transmit over noise to ensure correct communication, for this reason when the communication medium is affected by noise, data throughput and communication reliability drops. If wire or conductive element, evaluate its conducting performance and consider to use a pull-down resistor around megaohms order (try various values and see results). If radio or light waves, use a better antenna / photodiode, filter noise with physical (ground plane / lens) or discrete component, for example a capacitor, and / or higher transmission power.
