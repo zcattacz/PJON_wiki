@@ -16,7 +16,8 @@ Slow communication speed, a lot of CRC detected mistakes and / or channel often 
   * Physical wiring configuration.
   * Device ID configuration in code.
   * Some other task is occupying all the available loop time.
-  * Forgot the `update()` or `receive()` function in loop ;) ? 
+  * Uncorrect packet length passed to `send()` function
+  * Forgot the `update()` or `receive()` function in loop ;)  
 
 If you have not identified the problem or you are a more advanced user, porting a new device / architecture, here you can find a list of common causes of this problem:
 
