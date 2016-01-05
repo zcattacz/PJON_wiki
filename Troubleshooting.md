@@ -20,8 +20,12 @@ List of common problems you can face, to speed up the PJON implementaiton:
 
 * Really slow communication speed, with a lot of CRC detected mistakes or channel often busy:
   * Range (You are probably near the maximum distance range of your system).
-  * Timing (If you are porting a new device or architecture try to change timings in PJON.h).
+    * A small capacitor can be a good solution to filter 0s that should be 1s. 
+  * Timing (Bad syncronization or timing configuration).
+    * If you are porting a new device or architecture try to change timings in PJON.h.
   * Execution time (a new architecture / device may not be fast enough to run PJON).
+    * Use faster clock
+    * Optimize digital i/o (see digitalWriteFast)
   * Interference is generating noise. (Devices avoid to transmit over noise to ensure reliability)
     * If wire or conductive element, use pull-down resistor around megaohms order (try various values and see results).
     * If radio / light waves, filter noise with physical / discrete component (for example a capacitor) or / and higher transmission power.
