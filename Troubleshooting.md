@@ -14,9 +14,9 @@ Pull the actual master from PJON's desired implementation repository and run the
 Really slow communication speed, with a lot of CRC detected mistakes and / or channel often busy.
 
 * Really common issues:
-  * Wrong pin configuration in your code.
+  * Wrong pin configuration in code.
   * Physical wiring configuration.
-  * Device ID configuration.
+  * Device ID configuration in code.
   * Some other task is occupying all the available loop time.
   * Forgot the `update()` or `receive()` function in loop ;)? 
 
