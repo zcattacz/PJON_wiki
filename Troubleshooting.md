@@ -28,7 +28,7 @@ If you have not identified the problem or you are a more advanced user, porting 
 * Many failed receptions.
 * Many CRC detected mistakes.
 
-You are probably near the maximum distance range of your system, A small capacitor can be a good solution to filter 0s that should be 1s and / or you can higher the transmission power.
+You are probably near the maximum distance range of your system, A small capacitor can be a good solution to filter 0s that should be 1s and / or you can higher transmission power.
 
 ***
 
@@ -37,7 +37,7 @@ You are probably near the maximum distance range of your system, A small capacit
 * Many CRC detected mistakes.
 * Low or absent communication speed.
 
-Device avoid to transmit over noise to ensure correct communication, for this reason when the communication medium is affected by noise, data throughput and communication reliability drops. If wire or conductive element, evaluate its conducting performance and consider to use a pull-down resistor around megaohms order (try various values and see results). If radio or light waves, use a better antenna / photodiode, filter noise with physical (ground plane / lens) or discrete component, for example a capacitor, and / or higher transmission power.
+Device avoids to transmit over noise to ensure correct communication, for this reason when the communication medium is affected by noise, data throughput and communication reliability drops. If wire or conductive element, evaluate its conducting performance and consider to use a pull-down resistor around megaohms order (try various values and see results). If radio or light waves, use a better antenna / photodiode, filter noise with physical (ground plane / lens) or discrete component, for example a capacitor, and / or higher transmission power.
 
 ***
 
