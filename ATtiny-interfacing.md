@@ -1,4 +1,4 @@
-AVR ATtiny microcontroller family is a really interesting and compact platform, for this reason I worked to support it in the PJON [Arduino compatible implementation](https://github.com/gioblu/PJON) and it will be soon compatible also with [PJON_ASK wireless implementation](https://github.com/gioblu/PJON_ASK). 
+AVR ATtiny microcontroller family is a really interesting and compact platform supported by PJON [Arduino compatible implementation](https://github.com/gioblu/PJON) and also soon compatible also with [PJON_ASK wireless implementation](https://github.com/gioblu/PJON_ASK). 
 
 ![ATtiny45/85](http://uk.rs-online.com/largeimages/F6962327-01.jpg)
 
