@@ -24,46 +24,38 @@ If you have not identified the problem or you are a more advanced user, porting 
 ***
 
 ####Range 
-Indications:
 * **Long distance between devices.**
 * Many failed receptions.
 * Many CRC detected mistakes.
 
-Cause:
 You are probably near the maximum distance range of your system, A small capacitor can be a good solution to filter 0s that should be 1s and / or you can higher transmission power.
 
 ***
 
 ####Interference
-Indications:
 * **Channel found busy many times.**
 * Many CRC detected mistakes.
 * Low or absent communication speed.
 
-Cause:
 Device avoids to transmit over noise to ensure correct communication, for this reason when the communication medium is affected by noise, data throughput and communication reliability drops. If wire or conductive element, evaluate its conducting performance and consider to use a pull-down resistor around megaohms order (try various values and see results). If radio or light waves, use a better antenna / photodiode, filter noise with physical (ground plane / lens) or discrete component, for example a capacitor, and / or higher transmission power.
 
 ***
 
 ####Timing
-Indications:
 * **Many failed receptions.**
 * Many CRC detected mistakes.
 * Low or absent communication speed.
 
-Cause:
 Bad syncronization or timing configuration. If you are porting a new device or architecture try to change timings in `PJON.h` and consider that every architecture will generate slightly different durations.
 
 ***
 
 ####Execution time
-Indications:
 * **Low quality of communication also after tuning / timing tweek.**
 * Many failed receptions.
 * Many CRC detected mistakes.
 * Low or absent communication speed.
 
-Cause:
 Every architecture needs a different time to execute the same PJON's code, so at the point where it should start to read the first bit of a byte, after initial padding bits, it can be a little shifted in time relatively to the transmitter, and so not able to read correctly the bit sequence. `READ_DELAY` constant in `PJON.h` regulates the correct positioning in every bit of the 8 readings in time. Take in consideration that a still not implemented architecture / device may not be fast enough to run PJON, try using a faster clock or optimize digital I/O (see `digitalWriteFast.h`).
 
 ***
