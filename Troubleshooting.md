@@ -38,7 +38,7 @@ You are probably near the maximum distance range of your system. The most straig
 * Many mistakes detected by CRC.
 * Low or absent communication speed.
 
-Device avoids to transmit over noise to ensure correct communication, for this reason when the communication medium is affected by noise, data throughput and communication reliability drops. Because of interference are also detected mistakes by CRC. If using a wire or a conductive element, evaluate its conducting performance and consider to use a pull-down resistor around megaohms order (try various values and see results). 
+Device avoids to transmit over noise to ensure correct communication, for this reason when the communication medium is affected by noise, data throughput and communication reliability drops. Because of interference are also detected mistakes by CRC. If using a wire or a conductive element, evaluate its conducting performance and consider to use a pull-down resistor around megaohms order (try various and see results). 
 
 ***
 
