@@ -47,7 +47,7 @@ Device avoids to transmit over noise to ensure correct communication, for this r
 * Many mistakes detected by CRC.
 * Low or absent communication speed.
 
-Bad syncronization or timing configuration. If you are porting a new device or architecture try to change timings in `PJON.h` and consider that every architecture will generate slightly different durations.
+Bad syncronization or timing configuration. If you are porting a new device or architecture try to tweak `BIT_WIDTH`, `BIT_SPACER`, `READ_DELAY` and `ACCEPTANCE` in `PJON.h` and consider that every architecture will execute code with a different timing.
 
 ***
 
