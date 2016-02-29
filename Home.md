@@ -9,6 +9,8 @@ PJON is an opensource multimaster communications bus system standard created to 
 * Synchronization occurs every byte
 * Devices communicate through packets
 
+***
+
 ###Byte transmission
 Every byte is prepended with 2 synchronization padding bits. 
 The first is a longer than standard logic 1 followed by a standard logic 0. The reception tecnique is based on finding a logic 1 as long as the first padding bit within a certain threshold, synchronizing to its falling edge and checking if it is followed by a logic 0. If this pattern is recognised, reception starts, if not, interference, synchronization loss or simply absence of communication is detected at byte level.
@@ -23,6 +25,8 @@ The first is a longer than standard logic 1 followed by a standard logic 0. The 
  ACCEPTANCE
 ```
 This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte. All the first padding bit duration minus `ACCEPTANCE` is the synchronization window the receiver has for every incoming byte. If the length of the first padding bit is less than `ACCEPTANCE` the received signal is considered interference.
+
+***
 
 ###Packet transmission
 The concept of packet enables to send a communication payload to every connected device with correct reception certainty. A packet contains the recipient id, the length of the packet, its content and the CRC. Here is an example of a packet sending to device id 12 containing the string "@":
@@ -46,6 +50,8 @@ A standard packet transmission is a bidirectional communication between two devi
 ```
 In the first phase the bus is analyzed by transmitter reading 10 logical bits, if no logical 1s are detected the channel is considered free, transmission phase starts in which the packet is entirely transmitted. Receiver calculates CRC and starts the response phase transmitting a single byte, `ACK` (dec 6) in case of correct reception or `NAK` (dec 21) if an error in the packet's content is detected. If transmitter receives no answer or `NAK` the packet sending has to be scheduled with a delay of `ATTEMPTS * ATTEMPTS` with a maximum of 250 `ATTEMPTS` to obtain data transmission quadratic backoff. 
 
+***
+
 ###Bus
 A PJON bus is made by a collection of up to 255 devices transmitting and receiving on the same medium. Communication between devices occurs through packets and it is based on democracy: every device has the right to transmit on the common medium for up to `(1000 / devices number) milliseconds / second`.   
 
@@ -61,6 +67,8 @@ A PJON bus is made by a collection of up to 255 devices transmitting and receivi
          |_______|   |_______|   |_______|   |_______|    
 ```
 
+***
+
 ###Bus network
 A PJON bus network is the result of interconnecting n PJON bus using routers. A router is a device connected to n PJON bus (with n dedicated pins) able to route a packet from a bus to anotherone.   
 ```cpp  
@@ -73,4 +81,31 @@ A PJON bus network is the result of interconnecting n PJON bus using routers. A 
          |       |       |________|       |       |
          | ID 2  |                        | ID 2  |
          |_______|                        |_______|
+```
+
+***
+
+###License
+
+```cpp
+/* Copyright (c) 2012-2016, Giovanni Blu Mitolo All rights reserved.
+
+All advertising materials or physical products mentioning features or use of this software 
+   must display the following acknowledgement:
+   "Powered by the PJON standard"
+
+-  Neither the name of PJON, PJON_ASK nor the
+   names of its contributors may be used to endorse or promote products
+   derived from the PJON Standard without specific prior written permission.
+
+This Standard is provided by the copyright holders and contributors "as is" 
+and any express or implied warranties, including, but not limited to, the 
+implied warranties of merchantability and fitness for a particular purpose 
+are disclaimed. In no event shall the copyright holder or contributors be 
+liable for any direct, indirect, incidental, special, exemplary, or consequential 
+damages (including, but not limited to, procurement of substitute goods or services; 
+loss of use, data, or profits; or business interruption) however caused and on any 
+theory of liability, whether in contract, strict liability, or tort (including 
+negligence or otherwise) arising in any way out of the use of this software, even if 
+advised of the possibility of such damage. */
 ```
