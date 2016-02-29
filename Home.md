@@ -90,9 +90,9 @@ A PJON bus network is the result of interconnecting n PJON bus using routers. A 
 ```cpp
 /* Copyright (c) 2012-2016, Giovanni Blu Mitolo All rights reserved.
 
-All advertising materials or physical products mentioning features or use of this software 
-   must display the following acknowledgement:
-   "Powered by the PJON standard"
+-  All advertising materials or physical products mentioning features or 
+   use of this Standard must display the following acknowledgement:
+    "Powered by the PJON standard"
 
 -  Neither the name of PJON, PJON_ASK nor the
    names of its contributors may be used to endorse or promote products
