@@ -70,7 +70,8 @@ A PJON bus is made by a collection of up to 255 devices transmitting and receivi
 ***
 
 ###Bus network
-A PJON bus network is the result of interconnecting n PJON bus using routers. A router is a device connected to n PJON bus (with n dedicated pins) able to route a packet from a bus to anotherone.   
+A PJON bus network is the result of interconnecting n PJON bus using routers. A router is a device connected to n PJON bus (with n dedicated pins) able to route a packet from a bus to anotherone. All the routing procedure is managed by an higher level protocol called [OSPREY](https://github.com/gioblu/OSPREY) still far from be correctly compiled :), where I am actually brainstorming how the routing and networking Standard will be structured.
+
 ```cpp  
     _______     _______              _______     _______
    |       |   |       |            |       |   |       |
