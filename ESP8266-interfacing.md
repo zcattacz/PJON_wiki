@@ -6,4 +6,4 @@ I've created a Fritzing project here as well: http://fritzing.org/projects/pjon-
 
 Here's the diagram from the project. Note that 10K pulldown resistors are required on both ends.
 
-![Wiring Diagram](http://i.imgur.com/GjZe1vq.png)
+![Wiring Diagram](http://www.gioblu.com/PJON/PJON_uno_esp8266_with_logic_level_converter.jpg)
