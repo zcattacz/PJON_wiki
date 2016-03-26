@@ -6,4 +6,4 @@ If you are connecting an ESP8266 to a 5v bus you need to add some complexity to 
 
 Here's the diagram from the project. Note that 10K pulldown resistors are required on both ends.
 
-![Wiring Diagram](http://www.gioblu.com/PJON/PJON_uno_esp8266_with_logic_level_converter.jpg)
+![Wiring Diagram](http://www.gioblu.com/PJON/PJON%20-%20Uno%20ESP8266%20communication.png)
