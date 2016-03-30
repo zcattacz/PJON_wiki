@@ -6,8 +6,8 @@ If you are connecting an ESP8266 to a 5v bus you need to add some complexity to 
 
 Note: 
 - Add 1-2KOhm pulldown resistors on Arduino Duemilanove / Uno / Nano side.
-- Add 10KOhm pulldown resistors on ESP8266 side if converter has no integrated pullup resistors. 
-- Add 1-2KOhm  pulldown resistors on ESP8266 side if converter has integrated pullup resistors.
+- Add 10KOhm pulldown resistors on ESP8266 side (converter without integrated pullup resistors). 
+- Add 1-2KOhm  pulldown resistors on ESP8266 side (converter with integrated pullup resistors).
 
 Here's the diagram from the project. 
 ![Wiring Diagram](http://www.gioblu.com/PJON/PJON%20-%20Uno%20ESP8266%20communication.png)
