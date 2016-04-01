@@ -12,7 +12,7 @@ PJON is an opensource multimaster communications bus system Standard created to 
 ***
 
 ###Byte transmission
-Every byte is prepended with 2 synchronization padding bits. Byte transmission occurs LSB-first.
+Every byte is prepended with 2 synchronization padding bits and transmission occurs LSB-first.
 The first is a longer than standard logic 1 followed by a standard logic 0. The reception tecnique is based on finding a logic 1 as long as the first padding bit within a certain threshold, synchronizing to its falling edge and checking if it is followed by a logic 0. If this pattern is recognised, reception starts, if not, interference, synchronization loss or simply absence of communication is detected at byte level.
 ```cpp  
  __________ ___________________________
