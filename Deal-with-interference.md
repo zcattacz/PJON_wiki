@@ -22,7 +22,7 @@ GND ------
 VIN ---------[|__]------- POWER SUPPLY FEED
              diode
 ```         
-Electromagnetic fields can temporary charge the bus and provoke series of burst-errors. This is often provoked by powerful rotating, magnetic motors, welders, tasers and other devices able to burst a mix of high-power radio waves and magnetic fields. A strong palliative is the use of a simple ferrite beads. Many devices where digital communication is used are equipped with it (see Sony Playstation old wired controller).
+Electromagnetic fields can temporary charge the bus and provoke series of burst-errors. This is often provoked by powerful rotating, magnetic motors, welders, tasers and other devices able to burst a mix of high-power radio waves and magnetic fields. A strong palliative is the use of ferrite beads. Many devices where digital communication is used are equipped with it (see Sony Playstation old wired controller).
 ```cpp
               _______
              |       |
