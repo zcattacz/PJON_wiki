@@ -22,7 +22,15 @@ GND ------
 VIN ---------[|__]------- POWER SUPPLY FEED
              diode
 ```         
-Electromagnetic fields can temporary charge the bus and provoke series of burst-errors. This is often provoked by powerful rotating, magnetic motors, welders, tasers and other devices able to burst a mix of high-power radio waves and magnetic fields. A serious solution is to use a well insulated wire (mil standard for radio communication / surplus avionics), but this can only be applied for home-made / non-serial production. A more standard approach is the use of a simple coaxial cable in one of its forms (from earbuds wire to super-expensive gold-plated pro radio-amateur gizmo).
+Electromagnetic fields can temporary charge the bus and provoke series of burst-errors. This is often provoked by powerful rotating, magnetic motors, welders, tasers and other devices able to burst a mix of high-power radio waves and magnetic fields. A strong palliative is the use of a simple ferrite beads. Many devices where digital communication is used are equipped with it (see Sony Playstation old wired controller).
+```cpp
+              _______
+             |       |
+I/O PIN -----|-------|----- BUS
+             |_______|
+              ferrite bead
+```   
+A serious solution is to use a well insulated wire (mil standard for radio communication / surplus avionics), but this can only be applied for home-made / non-serial production. A more standard approach is the use of a simple coaxial cable in one of its forms (from earbuds wire to super-expensive gold-plated pro radio-amateur gizmo).
 ```cpp
  _______                                   _______
 |       | I/O PIN                 I/O PIN |       |
