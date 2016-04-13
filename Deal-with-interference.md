@@ -8,10 +8,26 @@ The third category describes interference that can occur because of unknown sour
 ### Connected hardware related interference
 The most experienced sort of interference is a high chance to find the channel `BUSY`. This happens because the pin is "floating" from a logic state to the other one. This often happens because the bus, and the devices connected to it are acting as a capacitor, often reaching the `HIGH` logical state also in a quiescent state. A fast solution to this problem is the use of a pull-down resistor to discharge the unwanted capacitance build-up in the channel. The correct resistor value to be applied is very variable, depending on the topology and medium used, but is often near to the mega ohm order.
 ```cpp
- I/O PIN ------------.--- BUS
-                     |
- GND -------[/\/]----/
+I/O PIN ------------------- BUS
+                      |
+GND -------[/\/]------|
+           resistor
 ```
 Bandwidth loss related to the system's power consumption is the sign of power supply interference. Never feed devices with shared power supply with high-power demanding appliances like servos, motors or actuators. If this is not possible at least position a diode connected to `VIN`, able to block inverse current from the `VIN` pin back to the wire and use a capacitor to fill temporary feeding shortages.
-
+```cpp
+GND ------
+         |    
+        === capacitor
+         |
+VIN ---------[|__]------- POWER SUPPLY FEED
+             diode
+```         
 Electromagnetic fields can temporary charge the bus and provoke series of burst-errors. This is often provoked by powerful rotating, magnetic motors, welders, tasers and other devices able to burst a mix of high-power radio waves and magnetic fields. A serious solution is to use a well insulated wire (mil standard for radio communication / surplus avionics), but this can only be applied for home-made / non-serial production. A more standard approach is the use of a simple coaxial cable in one of its forms (from earbuds wire to super-expensive gold-plated pro radio-amateur gizmo).
+```cpp
+ _______                                   _______
+|       | I/O PIN                 I/O PIN |       |
+|       |\                               /|       |
+| ID 1  | > ====== COAXIAL CABLE ====== < | ID 2  |
+|       |/                               \|       |
+|_______| GND                         GND |_______|
+```    
