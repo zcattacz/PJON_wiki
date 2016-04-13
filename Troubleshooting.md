@@ -22,16 +22,12 @@ Here you can find a list of really common issues that can lead to this problem:
 
 If you haven't identified the problem or you are a more advanced user, porting a new device / architecture, here you can find a list of common causes of this problem:
 
-***
-
 ####Range 
 * **Long distance between devices.**
 * Many failed receptions.
 * Many mistakes detected by CRC.
 
 You are probably near the maximum distance range of your system. The most straight-forward solution is to higher transmission power or to use a small capacitor to filter 1s received as 0s because of distance weakened voltage.
-
-***
 
 ####Interference
 * **Channel detected busy many times.**
@@ -40,16 +36,12 @@ You are probably near the maximum distance range of your system. The most straig
 
 Device avoids to transmit over noise to ensure correct communication, when the communication medium is affected by noise, data throughput and communication reliability drops. Because of interference are also detected mistakes by CRC. If using a wire or a conductive element, evaluate its conducting performance and consider to use a pull-down resistor around megaohms order (try various and see results). 
 
-***
-
 ####Timing
 * **Many failed receptions.**
 * Many mistakes detected by CRC.
 * Low or absent communication speed.
 
 Bad syncronization or timing configuration. If you are porting a new device or architecture try to tweak `BIT_WIDTH`, `BIT_SPACER`, `READ_DELAY` and `ACCEPTANCE` in `PJON.h` and consider that every architecture will execute code with a different timing.
-
-***
 
 ####Execution time
 * **Low quality of communication also after tuning / timing tweek.**
@@ -58,5 +50,3 @@ Bad syncronization or timing configuration. If you are porting a new device or a
 * Low or absent communication speed.
 
 Every architecture needs a different time to execute the same PJON's code, so at the point where it should start to read the first bit of a byte, after initial padding bits, it can be a little shifted in time relatively to the transmitter, and so not able to read correctly the bit sequence. `READ_DELAY` constant in `PJON.h` regulates the correct positioning in every bit of the 8 readings in time. Take in consideration that a still not implemented architecture / device may not be fast enough to run PJON, try using a faster clock or optimize digital I/O (see `digitalWriteFast.h`).
-
-***
