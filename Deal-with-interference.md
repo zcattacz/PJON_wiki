@@ -11,6 +11,7 @@ The most experienced sort of interference is a high chance to find the channel `
 I/O PIN ------------------- BUS
                       |
 GND -------[/\/]------|
+
            resistor
 ```
 Bandwidth loss related to the system's power consumption is the sign of power supply interference. Never feed devices with shared power supply with high-power demanding appliances like servos, motors or actuators. If this is not possible at least position a diode connected to `VIN`, able to block inverse current from the `VIN` pin back to the wire and use a capacitor to fill temporary feeding shortages.
@@ -20,6 +21,7 @@ GND ------
         === capacitor
          |
 VIN ---------[|__]------- POWER SUPPLY FEED
+
              diode
 ```         
 Electromagnetic fields can temporary charge the bus and provoke series of burst-errors. This is often provoked by powerful rotating, magnetic motors, welders, tasers and other devices able to burst a mix of high-power radio waves and magnetic fields. A strong palliative is the use of ferrite beads. Many devices where digital communication is used are equipped with it (see Sony Playstation old wired controller).
@@ -28,6 +30,7 @@ Electromagnetic fields can temporary charge the bus and provoke series of burst-
              |       |
 I/O PIN -----|-------|----- BUS
              |_______|
+
               ferrite bead
 ```   
 A serious solution is to use a well insulated wire (mil standard for radio communication / surplus avionics), but this can only be applied for home-made / non-serial production. A more standard approach is the use of a simple coaxial cable in one of its forms (from earbuds wire to super-expensive gold-plated pro radio-amateur gizmo).
