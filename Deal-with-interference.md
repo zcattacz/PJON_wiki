@@ -33,7 +33,8 @@ I/O PIN -----|-------|----- BUS
 
               ferrite bead
 ```   
-A serious solution is to use a well insulated wire (mil standard for radio communication / surplus avionics), but this can only be applied for home-made / non-serial production. A more standard approach is the use of a simple coaxial cable in one of its forms (from earbuds wire to super-expensive gold-plated pro radio-amateur gizmo).
+A serious solution is to use a well insulated wire (mil standard for radio communication / surplus avionics), but this can only be applied for home-made / non-serial production. A more standard approach is the use of a simple coaxial cable in one of its forms, from earbuds wire to super-expensive gold-plated coaxial.
+
 ```cpp
  _______                                   _______
 |       | I/O PIN                 I/O PIN |       |
