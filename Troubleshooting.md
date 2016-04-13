@@ -36,7 +36,7 @@ You are probably near the maximum distance range of your system. The most straig
 * Many mistakes detected by CRC.
 * Low or absent communication speed.
 
-Device avoids to transmit over noise to ensure correct communication, when the communication medium is affected by noise, data throughput and communication reliability drops. Because of interference are also detected mistakes by CRC. See the dedicated wiki page [Deal with interference](https://github.com/gioblu/PJON/wiki/Deal-with-interference).
+Device avoids to transmit over noise to ensure correct communication, when the medium is affected by noise, data throughput and communication reliability drops. Because of interference are also detected mistakes by CRC. See the dedicated wiki page [Deal with interference](https://github.com/gioblu/PJON/wiki/Deal-with-interference).
 
 ####Timing
 * **Many failed receptions.**
