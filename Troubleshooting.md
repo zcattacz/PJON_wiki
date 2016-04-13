@@ -1,4 +1,4 @@
-Also if PJON is designed to be a really stable, interference and error aware communication standard, noise can variate enormously because of the environment, the setup and medium you are using as communication channel. PJON single bidirectional medium is not a balanced pair, for this reason long distances and interference sources can affect communication reliability and data throughput.
+Also if PJON is designed to be a really stable, interference and error aware communication Standard, noise can variate enormously because of the environment, the setup and medium you are using as communication channel. PJON single bidirectional medium is not a balanced pair, for this reason long distances and interference sources can affect communication reliability and data throughput.
 
 If you have a Saleae Logic Analyzer you will be amazed by [saleae-pjon-protocol-analyzer](https://github.com/aperepel/saleae-pjon-protocol-analyzer) crafted by the user aperepel.
 
