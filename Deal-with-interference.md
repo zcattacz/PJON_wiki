@@ -10,7 +10,7 @@ The most experienced sort of interference is a high chance to find the channel `
 ```cpp
 I/O PIN ------------------- BUS
                       |
-GND -------[/\/]------|
+GND -------[/\/]------/
 
            resistor
 ```
@@ -23,17 +23,19 @@ GND ------
 VIN ---------[|__]------- POWER SUPPLY FEED
 
              diode
-```         
-Electromagnetic fields can temporary charge the bus and provoke series of burst-errors. This is often provoked by powerful rotating, magnetic motors, welders, tasers and other devices able to burst a mix of high-power radio waves and magnetic fields. A strong palliative is the use of ferrite beads. Many devices where digital communication is used are equipped with it (see Sony Playstation old wired controller).
+```
+The above solution can reduce but not eliminate transient voltage spikes. A more decisive way to deal with transient voltage is to use diodes in opposition. This technique reduces the short duration electrical spikes can occur because of power shortages, power transitions in other large equipment on the same power line or lightning strikes.
 ```cpp
-              _______
-             |       |
-I/O PIN -----|-------|----- BUS
-             |_______|
+             diode                       diode
 
-              ferrite bead
-```   
-A serious solution is to use a well insulated wire (mil standard for radio communication / surplus avionics), but this can only be applied for home-made / non-serial production. A more standard approach is the use of a simple coaxial cable in one of its forms, from earbuds wire to super-expensive gold-plated coaxial.
+GND ---------[__|]--------------|--------[__|]--- POWER SUPPLY FEED
+                                |                
+                /-----[/\/]-----/  
+                |
+                |     resistor
+I/O PIN  -------|-------------------------------- BUS                         
+```
+A serious step toward reliability is to use a well insulated wire (mil standard for radio communication / avionics surplus), but this can only be applied for home-made / non-serial production; a more standard approach is the use of a simple coaxial cable in one of its forms, from earbuds wire to super-expensive gold-plated coaxial. Thanks to the "sock" ground shielding the use of this sort of cable highly reduces interference and is also really comfortable, connecting also the ground with only one wire.
 
 ```cpp
  _______                                   _______
@@ -43,3 +45,14 @@ A serious solution is to use a well insulated wire (mil standard for radio commu
 |       |/                               \|       |
 |_______| GND                         GND |_______|
 ```    
+
+### Third-party hardware related interference
+Electromagnetic fields can temporary charge the bus and provoke series of burst-errors. This is often provoked by powerful rotating, magnetic motors, welders, tasers and other devices able to burst a mix of high-power radio waves and magnetic fields. A strong palliative is the use of ferrite beads. Many devices where digital communication is used are equipped with it (see Sony Playstation old wired controller).
+```cpp
+              _______
+             |       |
+I/O PIN -----|-------|----- BUS
+             |_______|
+
+              ferrite bead
+```   
