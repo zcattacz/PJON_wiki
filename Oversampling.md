@@ -1,4 +1,4 @@
-**Media:** Wire, Radio |
+**Media:** Radio, Wire |
 **Pins used:** 2
 
 Oversampling strategy comes from the PJON_ASK repository, and it was integrated in PJON repository from version 3.0 beta, as a physical layer strategy, this enables easy routing from a radio mesh network to a wired bus. It is tested effectively with many versions of the ASK/FSK 433Mhz modules present on the market. This implementation works with a simple over-sampling approach, for this reason works also on wires and other radio modules.
