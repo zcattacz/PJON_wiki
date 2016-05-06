@@ -6,5 +6,4 @@
  * [Troubleshooting](https://github.com/gioblu/PJON/wiki/Troubleshooting)
 + [Strategies](https://github.com/gioblu/PJON/wiki/Strategies)
  * [SoftwareBitBang](https://github.com/gioblu/PJON/wiki/SoftwareBitBang)
- * SoftwareBitBangOversampling
 + [Press](https://github.com/gioblu/PJON/wiki/Press)
