@@ -1,13 +1,14 @@
-
+`SoftwareBitBang` is the default physical layer strategy used by the PJON template object. This implementation is based on `micros()` and `delayMicroseconds()`. It makes no use of dedicated timers or interrupt driven strategies to handle binary communication. It is designed to have a small footprint on memory and to be extremely resilient to interference and timing inaccuracies. Thanks to the use of a dedicated digitalWriteFast library, fast and reliable cross-architecture communication can be achieved.
 
 ####Compatibility
-- ATmega88/168/328 8/16Mhz (Diecimila, Duemilanove, Uno, Nano, Mini, Lillypad)
+- ATmega88/168/328 16Mhz (Diecimila, Duemilanove, Uno, Nano, Mini, Lillypad)
 - ATmega2560 16Mhz (Arduino Mega)
-- ATmega16u4/32u4 (Arduino Leonardo)
-- ATtiny45/85 8/16Mhz (Trinket, other ATtiny 85 boards), see [ATtiny Wiki page](https://github.com/gioblu/PJON/wiki/ATtiny-interfacing)
+- ATmega16u4/32u4 16Mhz (Arduino Leonardo)
+- ATtiny45/85 8Mhz, see https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
 - SAMD (Arduino Zero)
-- ESP8266 v.1-7 80Mhz "AI-THINKER AT" firmware, see [ESP8266 Arduino IDE](https://github.com/esp8266/Arduino)  
-- ESP8266 NodeMCU v0.9-1.0 80Mhz, see [ESP8266 Arduino IDE](https://github.com/esp8266/Arduino)  
+- ESP8266 v.1-7 80Mhz "AI-THINKER AT" firmware, see https://github.com/esp8266/Arduino
+- ESP8266 NodeMCU v0.9-1.0 80Mhz, see https://github.com/esp8266/Arduino
+- MK20DX256 96Mhz (Teensy 3.1)
 
 ####Performance
 PJON works in 3 different communication modes, `STANDARD`, `FAST` and `OVERDRIVE`:
