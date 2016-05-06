@@ -9,7 +9,7 @@ Lets start coding, looking how to instantiate in the simplest way the `PJON` obj
   PJON<SoftwareBitBang> bus;
 
 ```
-Now the PJON bus runs with the default strategy (see [Strategies](https://github.com/gioblu/PJON/wiki/Strategies)) [SoftwareBitBang](https://github.com/gioblu/PJON/wiki/SoftwareBitBang), and no id is assigned to the device, still able to communicate using `BROADCAST` id and to try to acquire an id using the `acquire_id` method. If you need to predefine the device id on instantiation, pass the selected id as shown below:
+Now the PJON bus runs with the default strategy (see [Strategies](https://github.com/gioblu/PJON/wiki/Strategies)) [SoftwareBitBang](https://github.com/gioblu/PJON/wiki/SoftwareBitBang), and no id is assigned to the device, but it can acquire an id using the `acquire_id` method or communicate using `BROADCAST` id. If you need to predefine the device id on instantiation, pass the selected id as shown below:
 ```cpp  
   PJON<> bus(1); // Device id 1
 ```
@@ -19,7 +19,7 @@ Now set the pin where the bus is connected
 bus.set_pin(12); // Set pin where to operate
 ```
 
-After this the `begin` function has to be called in the setup or in the loop. The lack of this method can lead to collision problems on startup, so be sure of its presence in every device's setup. 
+After this the `begin` function has to be called in the setup or in the loop. The lack of this method call can lead to collision problems on startup, so be sure of its presence in every device's setup. 
 ```cpp  
   bus.begin(); // initialize PJON bus
 ```
