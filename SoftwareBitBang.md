@@ -1,4 +1,5 @@
 **Medium:** Wire
+**Pins used:** 1
 
 `SoftwareBitBang` is the default physical layer strategy used by the PJON template object. This implementation is based on `micros()` and `delayMicroseconds()`. It makes no use of dedicated timers or interrupt driven strategies to handle binary communication. It is designed to have a small footprint on memory and to be extremely resilient to interference and timing inaccuracies. Thanks to the use of a dedicated digitalWriteFast library, fast and reliable cross-architecture communication can be achieved.
 
