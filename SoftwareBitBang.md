@@ -18,9 +18,9 @@ Pass the ```SoftwareBitBang``` type as PJON template parameter to instantiate a 
 
 ####Performance
 PJON works in 3 different communication modes, `STANDARD`, `FAST` and `OVERDRIVE`:
-- `STANDARD` mode runs at 16.944kBd or 2.12kB/s cross-architecture, promiscuous clock compatible.
-- `FAST` mode runs at 25.157kBd or 3.15kB/s cross-architecture, promiscuous clock compatible.
-- `OVERDRIVE` mode runs a specific architecture at its maximum limits (non cross-architecture compatible). Every architecture has its own limits, Arduino Duemilanove for example runs at 33.898kBd, Arduino Zero can reach 48.000kBd.
+- `STANDARD` runs at 16944Bd or 2.12kB/s cross-architecture, promiscuous clock compatible.
+- `FAST` runs at 25157Bd or 3.15kB/s cross-architecture, promiscuous clock compatible.
+- `OVERDRIVE` runs a specific architecture at its maximum limits (non cross-architecture compatible). Every architecture has its own limits, Arduino Duemilanove for example runs at 33898Bd or 4.23kB/s, Arduino Zero can reach 48000Bd or 6.00kB/s.
 
 When including and using SoftwareBitBang, as physical layer of a PJON bus, you have the complete access to the microntroller ready to be used, as usual, untouched. This happens because SoftwareBitBang is completely software emulated strategy with a non blocking implementation, transforming a painfull walk to the hill in a nice flight.
 
