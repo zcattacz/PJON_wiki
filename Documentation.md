@@ -9,7 +9,7 @@ Lets start coding, looking how to instantiate in the simplest way the `PJON` obj
   PJON<SoftwareBitBang> bus;
 
 ```
-Now the PJON bus runs with the default strategy SoftwareBitBang, and no id is assigned to the device, still able to communicate using `BROADCAST` id and to try to acquire an id using the `acquire_id` method. If you need to predefine the device id on instantiation, pass the selected id as shown below:
+Now the PJON bus runs with the default strategy (see [Strategies](https://github.com/gioblu/PJON/wiki/Strategies)) [SoftwareBitBang](https://github.com/gioblu/PJON/wiki/SoftwareBitBang), and no id is assigned to the device, still able to communicate using `BROADCAST` id and to try to acquire an id using the `acquire_id` method. If you need to predefine the device id on instantiation, pass the selected id as shown below:
 ```cpp  
   PJON<> bus(1); // Device id 1
 ```
