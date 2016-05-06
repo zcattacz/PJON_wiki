@@ -14,14 +14,14 @@ Now the PJON bus runs with the default strategy SoftwareBitBang, and no id is as
   PJON<> bus(1); // Device id 1
 ```
 
-After this the begin function has to be called in the setup or in the loop. Forgetting to call this method can lead to collision problems on startup, so be sure of its presence in every device's setup. 
-```cpp  
-  bus.begin(); // initialize PJON bus
-```
-
 Now set the pin where the bus is connected 
 ```cpp  
 bus.set_pin(12); // Set pin where to operate
+```
+
+After this the `begin` function has to be called in the setup or in the loop. The lack of this method can lead to collision problems on startup, so be sure of its presence in every device's setup. 
+```cpp  
+  bus.begin(); // initialize PJON bus
 ```
 
 If you are interested auto-addressing is really easy to use but still experimental:
@@ -32,8 +32,7 @@ If you are interested auto-addressing is really easy to use but still experiment
   bus.acquire_id();
   Serial.println(bus.device_id()); // Device id found with scan
 ```
-All ids are scanned sending a packet containing the `ACQUIRE_ID` constant. If no answer is received from an id, it is considered free.
-If auto-addressing approach is your choice, you should never have a blind timeframe longer than 1.5 seconds (i.e. `delay(2000)`) between every `receive` function call. This constrain is imposed by the necessity of having the device able to receive incoming packets (as `ACQUIRE_ID` used to determine if a device id is free or not). If a device is executing something for too much time while not reading the bus for incoming packets, its device id could be stolen by another device. There is still no device id collision detection / correction, but respecting the described rules, collision should not happen.
+All ids are scanned sending a packet containing the `ACQUIRE_ID` constant. If no answer is received from an id, it is considered free. If auto-addressing approach is your choice, you should never have a blind timeframe longer than 1.5 seconds (i.e. `delay(2000)`) between every `receive` function call. This constrain is imposed by the necessity of having the device able to receive incoming packets (as `ACQUIRE_ID` used to determine if a device id is free or not). If a device is executing something for too much time while not reading the bus for incoming packets, its device id could be stolen by another device. There is still no device id collision detection / correction, but respecting the described rules, collision should not happen.
 
 #### Transmit data
 Data transmission is handled by a packet manager, the `update()` function has to be called at least once per loop cycle:
