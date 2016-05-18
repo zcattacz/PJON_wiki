@@ -1,3 +1,4 @@
+![PJON](http://www.gioblu.com/PJON/PJON-makers.jpg)
 The first step is the wiring: connect with a wire two boards using a digital pin on both boards. After this you should have both arduino boards connected by the wire on the same pin. The selected pins are the same only for simplicity and to avoid mistakes, PJON works fine on every Arduino digital or analog (used as digital) I/O pin.
 
 Lets start coding, looking how to instantiate in the simplest way the `PJON` object that in the example is called bus:
