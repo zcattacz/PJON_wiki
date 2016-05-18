@@ -1,3 +1,5 @@
+![PJON documentation](http://www.gioblu.com/PJON/PJON-clouds.jpg)
+
 **Media:** Radio, Wire |
 **Pins used:** 2
 
