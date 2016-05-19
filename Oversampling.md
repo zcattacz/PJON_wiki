@@ -6,11 +6,9 @@
 `Oversampling` strategy comes from the [PJON_ASK](https://github.com/gioblu/PJON_ASK) repository, and it was integrated in the PJON repository from version 3.0 beta, as a physical layer strategy. This strategy is inspired by SoftwareBitBang, but bits are over-sampled to have high resilience in high interference media like ASK/FSK cheap radio transceivers in urban environment. It is tested effectively with many versions of the ASK/FSK 433Mhz modules present on the market. This implementation works with a simple over-sampling approach, for this reason works also on wires and other radio modules.
 
 ####Compatibility
-- Arduino Diecimila / Duemilanove
-- Arduino Mini
-- Arduino Uno
-- Arduino Nano
-- Arduino Mega
+- ATmega88/168/328 16Mhz (Diecimila, Duemilanove, Uno, Nano, Mini, Lillypad)
+- ATmega2560 16Mhz (Arduino Mega)
+- ATmega16u4/32u4 16Mhz (Arduino Leonardo)
 
 ####Performance
 - Transfer speed: 202 B/s or 1620 Baud
