@@ -8,7 +8,7 @@ SoftwareBitBang is the default physical layer strategy used by the PJON template
 ####How to use SoftwareBitBang
 Pass the ```SoftwareBitBang``` type as PJON template parameter to instantiate a PJON object ready to communicate in this Strategy. All the other necessary information is present in the general [Documentation](https://github.com/gioblu/PJON/wiki/Documentation).
 ```cpp  
-  PJON<SoftwareBitBang> bus; // One wire software emulated physical layer
+  PJON<SoftwareBitBang> bus;
 ```
 
 ####Compatibility
