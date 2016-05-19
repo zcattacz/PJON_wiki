@@ -23,3 +23,16 @@ Pass the `OverSampling` type as PJON template parameter to instantiate a PJON ob
 ```cpp  
   PJON<OverSampling> bus; // 2 pin over-sampled physical layer
 ```
+
+####Use OverSampling with cheap 433Mhz transceivers
+The first suggested antenna design is a wide beam pseudo half-wavelength dipole antenna made by two 345mm long conductive elements, one connected to ground and the other connected to the input or output pin:
+```cpp  
+
+        345mm                    345mm                  345mm                    345mm
+   -------------------|--------------------        -------------------|--------------------
+                    __|__                                          ___|________
+                   | tx  |                                        | rx         |
+                   |_____|                                        |____________|
+
+```
+A more directional and long range antenna design is the pseudo half wavelength wip antenna. Can be easily crafted with two 345mm long insulated wire sections wrapped with each other every 5mm, one is connected to ground and the other to the input or output pin.
