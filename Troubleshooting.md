@@ -11,9 +11,7 @@ Pull from PJON's desired implementation repository the master and run the exampl
 * How many times the channel is found busy
 * Accuracy ( packets sent / packets received with mistakes ratio)
 
-###Communication inaccurate or absent
-Absent or slow communication speed, a lot of CRC detected mistakes and / or channel often busy. 
-Here you can find a list of really common issues that can lead to this problem:
+If you detect absent or slow communication speed, a lot of CRC detected mistakes and / or channel often busy, here you can find a list of really common issues that can lead to this problem:
   * If necessary (i.e. wire / conductive medium) use common ground for every device.
   * Pin configuration in your code.
   * Physical wiring to the pin.
