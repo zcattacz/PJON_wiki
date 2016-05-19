@@ -1,6 +1,6 @@
 ![PJON wiki](http://www.gioblu.com/PJON/PJON-mars.jpg)
 
-PJON is an opensource multimaster communications bus system Standard created to provide the community with a new and easy way to communicate data and build a network of devices. Its more common applications are in the field of internet of things and embedded systems. Extended tests proved its effectiveness on different media like electricity, radio frequency and light.
+PJON is an opensource multimaster communications bus system Standard created to provide the community with a new and easy way to communicate data and build a network of devices. Its more common applications are in the field of internet of things and embedded systems. Extended tests proved its effectiveness on different media like electricity, radio and light.
 
 ### Basic concepts
 * Every device has an unique 1 byte ID (0-255)
