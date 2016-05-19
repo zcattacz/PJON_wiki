@@ -1,7 +1,6 @@
 
 ![PJON Strategies wiki](http://www.gioblu.com/PJON/PJON-clouds.jpg)
 
-####What is a Strategy?
 PJON codebase uses strategies to physically communicate through the medium used, abstracting the physical layer from its procedure. A Strategy is only a class containing a set of functions able to send and receive messages:
 
 ```cpp
