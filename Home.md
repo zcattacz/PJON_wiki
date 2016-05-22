@@ -13,6 +13,19 @@ PJON is an opensource multimaster communications bus system Standard created to 
 * Synchronization occurs every byte
 * Devices communicate through packets
 
+###Bus
+A PJON bus is made by a collection of up to 255 devices transmitting and receiving on the same medium. Communication between devices occurs through packets and it is based on democracy: every device has the right to transmit on the common medium for up to `(1000 / devices number) milliseconds / second`.
+```cpp  
+    _______     _______     _______     _______     _______
+   |       |   |       |   |       |   |       |   |       |  
+   | ID 0  |   | ID 1  |   | ID 2  |   | ID 3  |   | ID 4  |  
+   |_______|   |_______|   |_______|   |_______|   |_______|    
+ ______|___________|___________|___________|___________|______
+          ___|___     ___|___     ___|___     ___|___
+         |       |   |       |   |       |   |       |   
+         | ID 5  |   | ID 6  |   | ID 7  |   | ID 8  |
+         |_______|   |_______|   |_______|   |_______|    
+```
 
 ###Byte transmission
 Every byte is prepended with 2 synchronization padding bits and transmission occurs LSB-first (although in the following graphs is presented for clarity as MSB-first). The first is a longer than standard logic 1 followed by a standard logic 0. The reception tecnique is based on finding a logic 1 as long as the first padding bit within a certain threshold, synchronizing to its falling edge and checking if it is followed by a logic 0. If this pattern is recognised, reception starts, if not, interference, synchronization loss or simply absence of communication is detected at byte level.
@@ -61,21 +74,6 @@ Channel analysis  Transmission                               Response
    |_____|        |____|________|_________|_________|_____|   |_____|
 ```
 Thanks to this rule is not only possible to share a medium with neighbors, but also  network with them and enhance connectivity for free.
-
-###Bus
-A PJON bus is made by a collection of up to 255 devices transmitting and receiving on the same medium. Communication between devices occurs through packets and it is based on democracy: every device has the right to transmit on the common medium for up to `(1000 / devices number) milliseconds / second`.
-```cpp  
-    _______     _______     _______     _______     _______
-   |       |   |       |   |       |   |       |   |       |  
-   | ID 0  |   | ID 1  |   | ID 2  |   | ID 3  |   | ID 4  |  
-   |_______|   |_______|   |_______|   |_______|   |_______|    
- ______|___________|___________|___________|___________|______
-          ___|___     ___|___     ___|___     ___|___
-         |       |   |       |   |       |   |       |   
-         | ID 5  |   | ID 6  |   | ID 7  |   | ID 8  |
-         |_______|   |_______|   |_______|   |_______|    
-```
-
 
 ###Bus network
 A PJON bus network is the result of n PJON buses sharing the same medium and / or interconnecting n PJON buses using routers. A router is a device connected to n PJON buses, with n dedicated pins, on n dedicated media, able to route a packet from a bus / medium to anotherone. All the routing procedure is managed by an higher level protocol called [OSPREY](https://github.com/gioblu/OSPREY) still far from completion where I am actually brainstorming how the routing and networking Standard will be structured.
