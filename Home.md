@@ -64,7 +64,7 @@ A standard local packet transmission is a bidirectional communication between tw
 ```
 In the first phase the bus is analyzed by transmitter reading 10 logical bits, if no logical 1s are detected the channel is considered free, transmission phase starts in which the packet is entirely transmitted. Receiver calculates CRC and starts the response phase transmitting a single byte, `ACK` (dec 6) in case of correct reception or `NAK` (dec 21) if an error in the packet's content is detected. If transmitter receives no answer or `NAK` the packet sending has to be scheduled with a delay of `ATTEMPTS * ATTEMPTS * ATTEMPTS` with a maximum of 125 `ATTEMPTS` to obtain data transmission 3rd degree polynomial backoff. 
 
-In a shared medium (like 433Mhz channel-less transceivers) it is necessary to define a bus id to isolate devices from outcoming communication of other buses nearby. Below is shown the same local transmission (with the obvious `127.0.0.1` or `localhost` bus id omitted) used as an example before, in a shared environment instead the packet's content is prepended with the bus id:
+In a shared medium (like 433Mhz channel-less transceivers) it is necessary to define a bus id to isolate devices from outcoming communication of other buses nearby. Below is shown the same local transmission (with the obvious `0.0.0.0` or `localhost` bus id omitted) used as an example before, in a shared environment instead the packet's content is prepended with the bus id:
 ```cpp  
 Channel analysis  Transmission                               Response
     _____          _______________________________________     _____
