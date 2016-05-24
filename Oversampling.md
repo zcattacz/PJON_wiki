@@ -13,7 +13,7 @@ Oversampling strategy comes from the [PJON_ASK](https://github.com/gioblu/PJON_A
 ####Performance
 - Transfer speed: 202 B/s or 1620 Baud
 - Data throughput: 150 B/s
-- Range: 250 meters in urban environment / 3km with LOS transmitting from a flying balloon
+- Range: 250 meters in urban environment / 5km with LOS transmitting from a flying balloon
 
 ####Why not VirtualWire / RadioHead?
 I don't think those libraries are clear, efficient and understandable enough to be the standard library for wireless radio communication available to the community, because of its implementation mess and complexity. Moreover VirtualWire doesn't have the support for multiple devices in multimaster setup, CRC, acknowledge, collision avoidance and packet management. For this reason I wrote this implementation to provide the user with the PJON standard also on wireless. :)
