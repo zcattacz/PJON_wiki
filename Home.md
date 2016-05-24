@@ -66,7 +66,7 @@ In the first phase the bus is analyzed by transmitter reading 10 logical bits, i
 
 In a shared medium (like 433Mhz channel-less transceivers) it is necessary to define a bus id to isolate devices from outcoming communication of other buses nearby. Below is shown the same local transmission (with the obvious `0.0.0.0` or `localhost` bus id omitted) used as an example before, in a shared environment instead the packet's content is prepended with the bus id:
 ```cpp  
-Channel analysis  Transmission                               Response
+Channel analysis  Transmission                                Response
     _____          _______________________________________     _____
    | C-A |        | ID | LENGTH | BUS ID  | CONTENT | CRC |   | ACK |
 <--|-----|--------|----|--------|---------|---------|-----|> <|-----|
