@@ -3,12 +3,12 @@ Define a `void function` that will be called if a correct message is received. T
 void receiver_function(uint8_t id, uint8_t *payload, uint8_t length) {
   Serial.print("Recipient id: ");
   Serial.print(id);
-  Serial.print(" Message content: ");
+  Serial.print(" Content: ");
 
   for(int i = 0; i < length; i++)
     Serial.print(payload[i]);
 
-  Serial.print(" Message length: ");
+  Serial.print(" Length: ");
   Serial.println(length);
 };
 ```
@@ -21,11 +21,11 @@ void receiver_function(uint8_t id, uint8_t *payload, uint8_t length) {
   for(int i = 0; i < 4; i++)
     Serial.print(payload[i]);
 
-  Serial.print("Message content: ");
+  Serial.print(" Content: ");
   for(int i = 4; i < length; i++)
     Serial.print(payload[i]);
 
-  Serial.print(" Message length: ");
+  Serial.print(" Length: ");
   Serial.println(length);
 };
 ```
