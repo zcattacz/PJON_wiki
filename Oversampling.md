@@ -1,7 +1,7 @@
 ![PJON Oversampling wiki](http://www.gioblu.com/PJON/PJON-radio.jpg)
 
 **Media:** Radio, Wire |
-**Pins used:** 2
+**Pins used:** 1 / 2
 
 Oversampling strategy comes from the [PJON_ASK](https://github.com/gioblu/PJON_ASK) repository, and it was integrated in the PJON repository from version 3.0 beta, as a physical layer strategy. Bits are over-sampled to have high resilience in high interference scenarios like ASK/FSK cheap radio transceivers in urban environment. It is tested effectively with many versions of the ASK/FSK 315/433Mhz modules available on the market.
 
