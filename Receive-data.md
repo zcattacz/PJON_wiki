@@ -15,9 +15,9 @@ void receiver_function(uint8_t id, uint8_t *payload, uint8_t length) {
 If a bus id is defined, the payload is prepended with the recipient bus id:
 ```cpp
 void receiver_function(uint8_t id, uint8_t *payload, uint8_t length) {
-  Serial.print(" Recipient id: ");
+  Serial.print("Recipient id: ");
   Serial.print(id);
-  Serial.print("Recipient bus id: ");
+  Serial.print(" Recipient bus id: ");
   for(int i = 0; i < 4; i++)
     Serial.print(payload[i]);
 
