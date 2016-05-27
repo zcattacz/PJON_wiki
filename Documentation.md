@@ -1,8 +1,6 @@
 ![PJON Documentation](http://www.gioblu.com/PJON/PJON-makers.jpg)
 
-PJON is designed to be as user friendly and less technical as possible to be fastly mastered also by new users.
-
-Visit the dedicated sections to get detailed info:
+PJON is designed to be as user friendly and less technical as possible to be fastly mastered also by new users. Visit the dedicated sections to get detailed info:
 
  - [PJON instance](https://github.com/gioblu/PJON/wiki/PJON-instance)
  - [Device id setup](https://github.com/gioblu/PJON/wiki/Device-id-setup)
