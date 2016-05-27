@@ -25,6 +25,7 @@ Pass the `OverSampling` type as PJON template parameter to instantiate a PJON ob
 ```
 
 ####Use OverSampling with cheap 433Mhz transceivers
+![PJON Oversampling packet radio](http://www.gioblu.com/PJON/PJON-OverSampling-packet-radio2.jpg)
 The first suggested antenna design is a wide beam pseudo half-wavelength dipole antenna made by two 345mm long conductive elements, one connected to ground and the other connected to the input or output pin:
 ```cpp  
 
