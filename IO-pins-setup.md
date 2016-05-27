@@ -1,4 +1,4 @@
-If you want to communicate bidirectionally on a single medium, so sharing transmission and reception line use:
+If you want to communicate bidirectionally on a single medium, sharing transmission and reception line, use:
 ```cpp  
  PJON<> bus;
  bus.set_pin(12);
