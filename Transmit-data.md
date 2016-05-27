@@ -1,4 +1,4 @@
-The begin function has to be called in the setup or in the loop. The lack of this method call can lead to collision problems on startup, so be sure of its presence in every device's setup.
+The begin function has to be called in the setup or in the loop. The lack of this method call can lead to collision problems on startup, so be sure to call this function before starting transmitting or receiving.
 ```cpp  
   bus.begin();
 ```
@@ -8,7 +8,7 @@ Data transmission is handled by a packet manager, call the `update()` function o
   bus.update();
 ```
 
-To send a string to another device connected to the bus simply call `send()` function passing the ID you want to contact, the string you want to send and its length:
+To send a string to another device connected to the bus simply call `send()` function passing the id you want to contact, the string you want to send and its length:
 ```cpp
 bus.send(100, "Ciao, this is a test!", 21);
 ```
