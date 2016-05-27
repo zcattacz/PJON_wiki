@@ -25,7 +25,7 @@ Pass the `OverSampling` type as PJON template parameter to instantiate a PJON ob
 ```
 
 ####Use OverSampling with cheap 433Mhz transceivers
-To build a real open-source PJON packet radio able to communicate up to 5km you need only a couple (for SIMPLEX mode) or two couples (for HALF_DUPLEX mode) of cheap 315/433Mhz ASK/FSK transmitter / receiver modules. Please be sure of the regulations your government impose on radio transmission over these frequencies before use.
+To build a real open-source PJON packet radio able to communicate up to 5km you need only a couple (for SIMPLEX mode) or two couples (for HALF_DUPLEX mode) of cheap 315/433Mhz ASK/FSK transmitter / receiver modules (the total cost should be around 2/3 dollars). Please be sure of the regulations your government impose on radio transmission over these frequencies before use.
 
 ![PJON Oversampling packet radio](http://www.gioblu.com/PJON/PJON-OverSampling-packet-radio2.jpg)
 
