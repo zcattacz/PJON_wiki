@@ -29,3 +29,15 @@ void receiver_function(uint8_t id, uint8_t *payload, uint8_t length) {
   Serial.println(length);
 };
 ```
+Inform the bus to call `receiver_function` when a correct message is received:
+```cpp
+bus.set_receiver(receiver_function);
+```
+To correctly receive data call the `receive` function at least once per loop cycle:
+```cpp
+int response = bus.receive();
+```
+If you want to dedicate a certain timeframe to reception call the `receive` function passing the maximum reception time in microseconds:
+```cpp
+int response = bus.receive(1000);
+```
