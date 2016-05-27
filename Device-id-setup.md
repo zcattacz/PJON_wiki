@@ -11,7 +11,7 @@ Can be read through a getter:
   bus.device_id();  
 ```
 
-If you are interested auto-addressing is really easy to use but still experimental:
+If you are interested, auto-addressing is really easy to use but still experimental:
 ```cpp  
   PJON bus;
   bus.set_pin(12);
