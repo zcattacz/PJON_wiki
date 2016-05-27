@@ -37,7 +37,7 @@ Using `OverSampling` physical layer, synchronous acknowledge can reduce the maxi
 ```
 
 ####Antenna design
-Experiments in `HALF_DUPLEX` mode shown that seems better to keep isolated the two antennas, using two different, not connected elements to transmit and receive. The first suggested antenna design is a wide beam pseudo half-wavelength dipole antenna made by two 345mm long conductive elements, one connected to ground and the other connected to the input or output pin:
+Experiments in `HALF_DUPLEX` mode have shown that it seems better to keep isolated the two antennas, using two different, not connected elements to transmit and receive. The first suggested antenna design is a wide beam pseudo half-wavelength dipole antenna made by two 345mm long conductive elements, one connected to ground and the other connected to the input or output pin:
 ```cpp  
 
       345mm                    345mm   
