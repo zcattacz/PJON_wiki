@@ -14,10 +14,6 @@ If you need to communicate on a noisy medium like radio, laser or infrared light
 ```cpp  
   PJON<OverSampling> bus;
 ```
-Using this particular physical layer, synchronous acknowledge can reduce the maximum range, on certain media, so if you detect reduced range performance in `HALF_DUPLEX` compared to a mono-directional or `SIMPLEX` communication, and you can do without `ACK`, configure the absence of it after the packet transmission:
-```cpp  
-  bus.set_acknowledge(false);
-```
 If you are transmitting on a shared medium like the channel-less transmitters described above, it's better to define a bus id to isolate your networking from other buses nearby and to avoid unwanted and potentially critical collisions (i.e. opening the neighbour's garage door, when you just wanted to brighten your kitchen):
 ```cpp  
   // Bus id definition
@@ -27,4 +23,8 @@ If you are transmitting on a shared medium like the channel-less transmitters de
   PJON<OverSampling> bus(bus_id, 45);
 ```
 In this example we are defining a new bus id made by 4 bytes, and we are passing it to the PJON object followed by the chosen and predefined device id.
- 
+
+Using `OverSampling` physical layer, synchronous acknowledge can reduce the maximum range, on certain media, so if you detect reduced range performance in `HALF_DUPLEX` compared to a mono-directional or `SIMPLEX` communication, and you can do without `ACK`, configure the absence of it after the packet transmission:
+```cpp  
+  bus.set_acknowledge(false);
+```
