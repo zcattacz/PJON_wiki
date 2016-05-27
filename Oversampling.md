@@ -31,6 +31,8 @@ To build a real open-source PJON packet radio able to communicate up to 5km you 
 
 The maximum detected range was experimented launching a balloon with a small payload containing the packet radio transmitting its position every minute. The maximum range obtained was slightly more than 5 kilometers. Two couples of STX882 and SRX882 were used as transceivers. If you choose these modules, remember to set `HIGH` the pin `CS` on the receiver before starting reception.
 
+![SRX882 - STX882 433Mhz radio modules](http://www.gioblu.com/PJON/STX882-SRX882.jpg)
+
 Using `OverSampling` physical layer, synchronous acknowledge can reduce the maximum range, on certain media, so if you detect reduced range performance in `HALF_DUPLEX` compared to a mono-directional or `SIMPLEX` communication, and you can do without `ACK`, configure the absence of it after the packet transmission:
 ```cpp  
   bus.set_acknowledge(false);
