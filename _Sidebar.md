@@ -3,6 +3,7 @@
  * [PJON instance](https://github.com/gioblu/PJON/wiki/PJON-instance)
  * [IO pins setup](https://github.com/gioblu/PJON/wiki/IO-pins-setup)
  * [Transmit data](https://github.com/gioblu/PJON/wiki/Transmit-data)
+ * [Receive data](https://github.com/gioblu/PJON/wiki/Receive-data)
  * [Error handling](https://github.com/gioblu/PJON/wiki/Error-handling)
 + [Interfacing](https://github.com/gioblu/PJON/wiki/Interfacing)
  * [ATtiny interfacing](https://github.com/gioblu/PJON/wiki/ATtiny-interfacing)
