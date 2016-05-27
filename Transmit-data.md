@@ -1,6 +1,6 @@
 The begin function has to be called in the setup or in the loop. The lack of this method call can lead to collision problems on startup, so be sure of its presence in every device's setup.
 ```cpp  
-  bus.begin(); // initialize PJON bus
+  bus.begin();
 ```
 
 Data transmission is handled by a packet manager, call the `update()` function once per loop cycle:
