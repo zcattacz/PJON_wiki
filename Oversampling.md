@@ -36,3 +36,8 @@ The first suggested antenna design is a wide beam pseudo half-wavelength dipole 
 
 ```
 A more directional and long range antenna design is the pseudo half wavelength wip antenna. Can be easily crafted with two 345mm long insulated wire sections wrapped with each other every 5mm, one is connected to ground and the other to the input or output pin.
+
+Using `OverSampling` physical layer, synchronous acknowledge can reduce the maximum range, on certain media, so if you detect reduced range performance in `HALF_DUPLEX` compared to a mono-directional or `SIMPLEX` communication, and you can do without `ACK`, configure the absence of it after the packet transmission:
+```cpp  
+  bus.set_acknowledge(false);
+```
