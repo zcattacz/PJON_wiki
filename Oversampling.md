@@ -29,6 +29,8 @@ To build a real open-source PJON packet radio able to communicate up to 5km you 
 
 ![PJON Oversampling packet radio](http://www.gioblu.com/PJON/PJON-OverSampling-packet-radio2.jpg)
 
+The maximum detected range was experimented launching a balloon with a small payload containing the packet radio transmitting its position every minute. The maximum range obtained was slightly more than 5 kilometers. Two couples of STX882 and SRX882 were used as transceivers. If you choose these modules, remember to set `HIGH` the pin `CS` on the receiver before starting reception.
+
 The first suggested antenna design is a wide beam pseudo half-wavelength dipole antenna made by two 345mm long conductive elements, one connected to ground and the other connected to the input or output pin:
 ```cpp  
 
