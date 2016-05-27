@@ -1,4 +1,4 @@
-The first step using PJON is an instantiation of a PJON object. Template can be scary at first sight, but they are quite straight-forward and efficient. Lets start coding, looking how to instantiate in the simplest way the `PJON` object that in the example is called bus with a wire compatible physical layer:
+Template can be scary at first sight, but they are quite straight-forward and efficient. Lets start coding, looking how to instantiate in the simplest way the `PJON` object that in the example is called bus with a wire compatible physical layer:
 ```cpp  
   PJON<> bus;
 
