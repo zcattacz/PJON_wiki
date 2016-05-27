@@ -1,4 +1,4 @@
-Data transmission is handled by a packet manager, the `update()` function has to be called at least once per loop cycle:
+Data transmission is handled by a packet manager, call the `update()` function once per loop cycle:
 
 ```cpp  
   bus.update();
