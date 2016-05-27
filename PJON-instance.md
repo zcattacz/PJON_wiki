@@ -18,4 +18,13 @@ Using this particular physical layer, synchronous acknowledge can reduce the max
 ```cpp  
   bus.set_acknowledge(false);
 ```
+If you are transmitting on a shared medium like the channel-less transmitters described above, it's better to define a bus id to isolate your networking from other buses nearby and to avoid unwanted and potentially critical collisions (i.e. opening the neighbour's garage door, when you just wanted to brighten your kitchen):
+```cpp  
+  // Bus id definition
+  uint8_t bus_id[] = {0, 0, 0, 1};
+
+  // PJON object
+  PJON<OverSampling> bus(bus_id, 45);
+```
+In this example we are defining a new bus id made by 4 bytes, and we are passing it to the PJON object followed by the chosen and predefined device id.
  
