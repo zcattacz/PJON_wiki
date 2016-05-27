@@ -1,6 +1,7 @@
 + [Home](https://github.com/gioblu/PJON/wiki)
 + [Documentation](https://github.com/gioblu/PJON/wiki/Documentation)
  * [PJON instance](https://github.com/gioblu/PJON/wiki/PJON-instance)
+ * [Device id setup](https://github.com/gioblu/PJON/wiki/Device-id-setup)
  * [IO pins setup](https://github.com/gioblu/PJON/wiki/IO-pins-setup)
  * [Transmit data](https://github.com/gioblu/PJON/wiki/Transmit-data)
  * [Receive data](https://github.com/gioblu/PJON/wiki/Receive-data)
