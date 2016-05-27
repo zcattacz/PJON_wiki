@@ -2,6 +2,7 @@
 + [Documentation](https://github.com/gioblu/PJON/wiki/Documentation)
  * [PJON instance](https://github.com/gioblu/PJON/wiki/PJON-instance)
  * [IO pins setup](https://github.com/gioblu/PJON/wiki/IO-pins-setup)
+ * [Error handling](https://github.com/gioblu/PJON/wiki/Error-handling)
 + [Interfacing](https://github.com/gioblu/PJON/wiki/Interfacing)
  * [ATtiny interfacing](https://github.com/gioblu/PJON/wiki/ATtiny-interfacing)
  * [ESP8266 interfacing](https://github.com/gioblu/PJON/wiki/ESP8266-interfacing)
