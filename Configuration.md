@@ -28,3 +28,8 @@ Using `OverSampling` physical layer, synchronous acknowledge can reduce the maxi
 ```cpp  
   bus.set_acknowledge(false);
 ```
+
+PJON by default includes the sender information in the packet. If you don't need this information you can use the provided setter to reduce overhead and higher communication speed:
+```cpp  
+  bus.include_sender_info(false);
+```
