@@ -20,7 +20,7 @@ To send a value repeatedly simply call `send_repeatedly()` and add as last param
 int one_second_test = bus.send_repeatedly(100, "Test sent every second!", 23, 1000000);
 ```
 
-The `one_second_test` variable contains the id of the packet. If you want to remove this repeated task simply:
+The `one_second_test` variable contains the id of the packet, to remove this repeated task simply:
 ```cpp
 bus.remove(one_second_test);
 ```
