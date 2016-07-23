@@ -47,13 +47,13 @@ This adds a certain overhead to information but reduces the need of precise time
 The concept of packet enables to send a communication payload to every connected device with correct reception certainty. A packet contains the recipient id, the length of the packet, its content and the CRC. In this example is shown a packet sending to device id 12 on a local bus containing the string "@":
 ```cpp  
 
- RECIPIENT ID 12  LENGTH 5          HEADER 0       CONTENT 64       CRC
- ________________ _________________ ______________ ________________ ___________________
-|Sync | Byte     |Sync | Byte      |Sync | Byte   |Sync | Byte     |Sync | Byte        |
-|___  |     __   |___  |      _   _|___  |        |___  |  _       |___  |  _    _    _|
-|   | |    |  |  |   | |     | | | |   | |        |   | | | |      |   | | | |  | |  | |
-| 1 |0|0000|11|00| 1 |0|00000|1|0|1| 1 |0|00000000| 1 |0|0|1|000000| 1 |0|0|1|00|1|00|1|
-|___|_|____|__|__|___|_|_____|_|_|_|___|_|________|___|_|_|_|______|___|_|_|_|__|_|__|_|
+ RECIPIENT ID 12  LENGTH 5          HEADER 1        CONTENT 64       CRC 72
+ ________________ _________________ _______________ ________________ __________________
+|Sync | Byte     |Sync | Byte      |Sync | Byte    |Sync | Byte     |Sync | Byte       |
+|___  |     __   |___  |      _   _|___  |        _|___  |  _       |___  |  _    _    |
+|   | |    |  |  |   | |     | | | |   | |       | |   | | | |      |   | | | |  | |   |
+| 1 |0|0000|11|00| 1 |0|00000|1|0|1| 1 |0|0000000|1| 1 |0|0|1|000000| 1 |0|0|1|00|1|000|
+|___|_|____|__|__|___|_|_____|_|_|_|___|_|_______|_|___|_|_|_|______|___|_|_|_|__|_|___|
 ```
 A standard local packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. 
 ```cpp  
@@ -61,7 +61,7 @@ Channel analysis   Transmission                                     Response
     _____           ________________________________________           _____
    | C-A |         | ID | LENGTH |  HEADER  | CONTENT | CRC |         | ACK |
 <--|-----|---< >---|----|--------|----------|---------|-----|--> <----|-----|
-   |  0  |         | 12 |   4    | 00000001 |    64   | 130 |         |  6  |
+   |  0  |         | 12 |   4    | 00000001 |    64   |  72 |         |  6  |
    |_____|         |____|________|__________|_________|_____|         |_____|
 ```
 In the first phase the bus is analyzed by transmitter reading 10 logical bits, if no logical 1s are detected the channel is considered free, transmission phase starts in which the packet is entirely transmitted. Receiver calculates CRC and starts the response phase transmitting a single byte, `ACK` (decimal 6) in case of correct reception or `NAK` (decimal 21) if an error in the packet's content is detected. If transmitter receives no answer or `NAK` the packet sending has to be scheduled with a delay of `ATTEMPTS * ATTEMPTS * ATTEMPTS` with a maximum of 125 `ATTEMPTS` to obtain data transmission 3rd degree polynomial backoff. 
