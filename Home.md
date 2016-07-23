@@ -69,12 +69,12 @@ In the first phase the bus is analyzed by transmitter reading 10 logical bits, i
 In a shared medium (like 433Mhz channel-less transceivers) it is necessary to define a bus id to isolate devices from outcoming communication of other buses nearby, enabling many to coexist on the same communication medium. Below is shown the same local transmission used as an example before, formatted to be sent in a shared environment, where device id `12` of bus `0.0.0.1` wants to send @ to device id `11` in bus id `0.0.0.1`. The packet's content is prepended with the bus id and device id of the recipient, and optionally the sender:
 ```cpp  
 Channel analysis                       Transmission                              Response
-  _____     __________________________________________________________________     _____
- | C-A |   | ID | LENGTH | HEADER | BUS ID | ID | BUS ID | ID | CONTENT | CRC |   | ACK |
-<|-----|< >|----|--------|--------|--------|----|--------|----|---------|-----|> <|-----|
- |  0  |   | 12 |   15   |  111   |  0001  | 11 |  0001  | 12 |   64    |     |   |  6  |
- |_____|   |____|________|________|________|____|________|____|_________|_____|   |_____|
-                                  |Receiver info| Sender info |
+ _____     __________________________________________________________________     _____
+| C-A |   | ID | LENGTH | HEADER | BUS ID | ID | BUS ID | ID | CONTENT | CRC |   | ACK |
+|-----|< >|----|--------|--------|--------|----|--------|----|---------|-----|> <|-----|
+|  0  |   | 12 |   15   |  111   |  0001  | 11 |  0001  | 12 |   64    |     |   |  6  | 
+|_____|   |____|________|________|________|____|________|____|_________|_____|   |_____|
+                                 |   RX INFO   |   TX INFO   |
 ```
 Thanks to this rule is not only possible to share a medium with neighbors, but also  network with them and enhance connectivity for free.
 
