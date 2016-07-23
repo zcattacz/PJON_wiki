@@ -57,26 +57,14 @@ The concept of packet enables to send a communication payload to every connected
 ```
 A standard local packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. 
 ```cpp  
-Channel analysis   Transmission                            Response
-    _____           _____________________________           _____
-   | C-A |         | ID | LENGTH | CONTENT | CRC |         | ACK |
-<--|-----|---------|----|--------|---------|-----|--> <----|-----|
-   |  0  |         | 12 |   4    |   64    | 130 |         |  6  |
-   |_____|         |____|________|_________|_____|         |_____|
+Channel analysis   Transmission                                     Response
+    _____           ________________________________________           _____
+   | C-A |         | ID | LENGTH |  HEADER  | CONTENT | CRC |         | ACK |
+<--|-----|---< >---|----|--------|----------|---------|-----|--> <----|-----|
+   |  0  |         | 12 |   4    | 00000001 |    64   | 130 |         |  6  |
+   |_____|         |____|________|__________|_________|_____|         |_____|
 ```
 In the first phase the bus is analyzed by transmitter reading 10 logical bits, if no logical 1s are detected the channel is considered free, transmission phase starts in which the packet is entirely transmitted. Receiver calculates CRC and starts the response phase transmitting a single byte, `ACK` (decimal 6) in case of correct reception or `NAK` (decimal 21) if an error in the packet's content is detected. If transmitter receives no answer or `NAK` the packet sending has to be scheduled with a delay of `ATTEMPTS * ATTEMPTS * ATTEMPTS` with a maximum of 125 `ATTEMPTS` to obtain data transmission 3rd degree polynomial backoff. 
-
-In a shared medium (like 433Mhz channel-less transceivers) it is necessary to define a bus id to isolate devices from outcoming communication of other buses nearby, enabling many to coexist on the same communication medium. Below is shown the same local transmission used as an example before, formatted to be sent in a shared environment, where device id `12` of bus `0.0.0.1` sends @ (decimal 64) to device id `11` in bus id `0.0.0.1`. The packet's content is prepended with the bus id and device id of the recipient, and optionally the sender:
-```cpp  
-Channel analysis                       Transmission                              Response
- _____     __________________________________________________________________     _____
-| C-A |   | ID | LENGTH | HEADER | BUS ID | ID | BUS ID | ID | CONTENT | CRC |   | ACK |
-|-----|< >|----|--------|--------|--------|----|--------|----|---------|-----|> <|-----|
-|  0  |   | 12 |   15   |  111   |  0001  | 11 |  0001  | 12 |   64    |     |   |  6  | 
-|_____|   |____|________|________|________|____|________|____|_________|_____|   |_____|
-                                 |   RX INFO   |   TX INFO   |
-```
-Thanks to this rule is not only possible to share a medium with neighbors, but also  network with them and enhance connectivity for free.
 
 ###Bus network
 A PJON bus network is the result of n PJON buses sharing the same medium and / or interconnecting n PJON buses using routers. A router is a device connected to n PJON buses, with n dedicated pins, on n dedicated media, able to route a packet from a bus / medium to anotherone. All the routing procedure is managed by an higher level protocol called [OSPREY](https://github.com/gioblu/OSPREY) still far from completion where I am actually brainstorming how the routing and networking Standard will be structured.
@@ -92,6 +80,19 @@ A PJON bus network is the result of n PJON buses sharing the same medium and / o
          | ID 2  |                        | ID 2  |
          |_______|                        |_______|
 ```
+
+In a shared medium (like 433Mhz channel-less transceivers) it is necessary to define a bus id to isolate devices from outcoming communication of other buses nearby, enabling many to coexist on the same communication medium. Below is shown the same local transmission used as an example before, formatted to be sent in a shared environment, where device id `12` of bus `0.0.0.1` sends @ (decimal 64) to device id `11` in bus id `0.0.0.1`. The packet's content is prepended with the bus id and device id of the recipient, and optionally the sender:
+```cpp  
+Channel analysis                       Transmission                              Response
+ _____     __________________________________________________________________     _____
+| C-A |   | ID | LENGTH | HEADER | BUS ID | ID | BUS ID | ID | CONTENT | CRC |   | ACK |
+|-----|< >|----|--------|--------|--------|----|--------|----|---------|-----|> <|-----|
+|  0  |   | 12 |   15   |  111   |  0001  | 11 |  0001  | 12 |   64    |     |   |  6  | 
+|_____|   |____|________|________|________|____|________|____|_________|_____|   |_____|
+                                 |   RX INFO   |   TX INFO   |
+```
+Thanks to this rule is not only possible to share a medium with neighbors, but also  network with them and enhance connectivity for free.
+
 
 
 ###License
