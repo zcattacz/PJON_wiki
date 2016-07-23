@@ -55,9 +55,11 @@ The concept of packet enables to send a communication payload to every connected
 | 1 |0|0000|11|00| 1 |0|00000|1|0|1| 1 |0|0000000|1| 1 |0|0|1|000000| 1 |0|0|1|00|1|000|
 |___|_|____|__|__|___|_|_____|_|_|_|___|_|_______|_|___|_|_|_|______|___|_|_|_|__|_|___|
 ```
-A default local packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. The header bits permit to the packet's receiver to handle the exchange as transmitter requires.
+A default local packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. 
+
+###Header configuration
+The header bitmask let the packet's receiver handle the exchange as transmitter requested.
 ```cpp
-HEADER CONFIGURATION
  ____________________________________________________________________________
 |00000011| Local bus  | Sender info included     | Acknowledge requested     | <- DEFAULT
 |00000010| Local bus  | Sender info included     | Acknowledge not requested |
