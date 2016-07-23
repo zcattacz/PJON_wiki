@@ -1,30 +1,32 @@
-Define a `void function` that will be called if a correct message is received. This function receives 3 parameters: the recipient id (so you can determine if was a `BROADCAST` or a device's id addressed packet), the received payload and its length:
+Define a `void function` that will be called if a correct message is received. This function receives 3 parameters: the transmission content, its length and a pointer to a `PacketInfo` data structure that contains all the info contained in the packet metadata:
 ```cpp
-void receiver_function(uint8_t id, uint8_t *payload, uint8_t length) {
-  Serial.print("Recipient id: ");
-  Serial.print(id);
+void receiver_function(uint8_t *payload, uint8_t length, const PacketInfo &packet_info) {
+  Serial.print("Header: ");
+  Serial.print(packet_info.header);
+
+  if((packet_info.header & MODE_BIT) != 0) {
+    Serial.print("Receiver bus id: ");
+    Serial.print(packet_info.receiver_bus_id[0]);
+    Serial.print(packet_info.receiver_bus_id[1]);
+    Serial.print(packet_info.receiver_bus_id[2]);
+    Serial.print(packet_info.receiver_bus_id[3]);
+    Serial.print(" - device id: ");
+    Serial.print(packet_info.receiver_id);
+    if((packet_info.header & SENDER_INFO_BIT) != 0) {
+      Serial.print(" | Sender bus id: ");
+      Serial.print(packet_info.sender_bus_id[0]);
+      Serial.print(packet_info.sender_bus_id[1]);
+      Serial.print(packet_info.sender_bus_id[2]);
+      Serial.print(packet_info.sender_bus_id[3]);
+      Serial.print(" - device id: ");
+      Serial.println(packet_info.sender_id);
+    }  
+  }
+
   Serial.print(" Content: ");
-
-  for(int i = 0; i < length; i++)
+  for(uint8_t i = 0; i < length; i++) 
     Serial.print(payload[i]);
-
-  Serial.print(" Length: ");
-  Serial.println(length);
-};
-```
-If a bus id is defined, the payload is prepended with the recipient bus id:
-```cpp
-void receiver_function(uint8_t id, uint8_t *payload, uint8_t length) {
-  Serial.print("Recipient id: ");
-  Serial.print(id);
-  Serial.print(" Recipient bus id: ");
-  for(int i = 0; i < 4; i++)
-    Serial.print(payload[i]);
-
-  Serial.print(" Content: ");
-  for(int i = 4; i < length; i++)
-    Serial.print(payload[i]);
-
+  
   Serial.print(" Length: ");
   Serial.println(length);
 };
