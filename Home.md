@@ -55,7 +55,7 @@ The concept of packet enables to send a communication payload to every connected
 | 1 |0|0000|11|00| 1 |0|00000|1|0|1| 1 |0|0000000|1| 1 |0|0|1|000000| 1 |0|0|1|00|1|000|
 |___|_|____|__|__|___|_|_____|_|_|_|___|_|_______|_|___|_|_|_|______|___|_|_|_|__|_|___|
 ```
-A standard local packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. 
+A default local packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. 
 ```cpp  
 Channel analysis   Transmission                                     Response
     _____           ________________________________________           _____
