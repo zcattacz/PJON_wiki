@@ -12,6 +12,7 @@ PJON is an opensource multimaster communications bus system Standard created to 
 * Transmission occurs only if the communication medium is not in use
 * Synchronization occurs every byte
 * Devices communicate through packets
+* Packet transmission is regulated by a 1 byte header
 
 ###Bus
 A PJON bus is made by a collection of up to 255 devices transmitting and receiving on the same medium. Communication between devices occurs through packets and it is based on democracy: every device has the right to transmit on the common medium for up to `(1000 / devices number) milliseconds / second`.
@@ -45,33 +46,35 @@ This adds a certain overhead to information but reduces the need of precise time
 ###Packet transmission
 The concept of packet enables to send a communication payload to every connected device with correct reception certainty. A packet contains the recipient id, the length of the packet, its content and the CRC. In this example is shown a packet sending to device id 12 on a local bus containing the string "@":
 ```cpp  
- ID 12            LENGTH 4         CONTENT 64       CRC 130
- ________________ ________________ ________________ __________________
-|Sync | Byte     |Sync | Byte     |Sync | Byte     |Sync | Byte       |
-|___  |     __   |___  |      _   |___  |  _       |___  |  _      _  |
-|   | |    |  |  |   | |     | |  |   | | | |      |   | | | |    | | |
-| 1 |0|0000|11|00| 1 |0|00000|1|00| 1 |0|0|1|000000| 1 |0|0|1|0000|1|0|
-|___|_|____|__|__|___|_|_____|_|__|___|_|_|_|______|___|_|_|_|____|_|_|
+
+ RECIPIENT ID 12  LENGTH 5          HEADER 0       CONTENT 64       CRC
+ ________________ _________________ ______________ ________________ ___________________
+|Sync | Byte     |Sync | Byte      |Sync | Byte   |Sync | Byte     |Sync | Byte        |
+|___  |     __   |___  |      _   _|___  |        |___  |  _       |___  |  _    _    _|
+|   | |    |  |  |   | |     | | | |   | |        |   | | | |      |   | | | |  | |  | |
+| 1 |0|0000|11|00| 1 |0|00000|1|0|1| 1 |0|00000000| 1 |0|0|1|000000| 1 |0|0|1|00|1|00|1|
+|___|_|____|__|__|___|_|_____|_|_|_|___|_|________|___|_|_|_|______|___|_|_|_|__|_|__|_|
 ```
 A standard local packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. 
 ```cpp  
-  Channel analysis   Transmission                            Response
-      _____           _____________________________           _____
-     | C-A |         | ID | LENGTH | CONTENT | CRC |         | ACK |
-  <--|-----|---------|----|--------|---------|-----|--> <----|-----|
-     |  0  |         | 12 |   4    |   64    | 130 |         |  6  |
-     |_____|         |____|________|_________|_____|         |_____|
+Channel analysis   Transmission                            Response
+    _____           _____________________________           _____
+   | C-A |         | ID | LENGTH | CONTENT | CRC |         | ACK |
+<--|-----|---------|----|--------|---------|-----|--> <----|-----|
+   |  0  |         | 12 |   4    |   64    | 130 |         |  6  |
+   |_____|         |____|________|_________|_____|         |_____|
 ```
 In the first phase the bus is analyzed by transmitter reading 10 logical bits, if no logical 1s are detected the channel is considered free, transmission phase starts in which the packet is entirely transmitted. Receiver calculates CRC and starts the response phase transmitting a single byte, `ACK` (dec 6) in case of correct reception or `NAK` (dec 21) if an error in the packet's content is detected. If transmitter receives no answer or `NAK` the packet sending has to be scheduled with a delay of `ATTEMPTS * ATTEMPTS * ATTEMPTS` with a maximum of 125 `ATTEMPTS` to obtain data transmission 3rd degree polynomial backoff. 
 
-In a shared medium (like 433Mhz channel-less transceivers) it is necessary to define a bus id to isolate devices from outcoming communication of other buses nearby. Below is shown the same local transmission (with the obvious `0.0.0.0` or `localhost` bus id omitted) used as an example before, in a shared environment instead the packet's content is prepended with the bus id:
+In a shared medium (like 433Mhz channel-less transceivers) it is necessary to define a bus id to isolate devices from outcoming communication of other buses nearby, enabling many to coexist on the same communication medium. Below is shown the same local transmission used as an example before, formatted to be sent in a shared environment, where device id `12` of bus `0.0.0.1` wants to send @ to device id `11` in bus id `0.0.0.1`. The packet's content is prepended with the bus id and device id of the recipient, and optionally the sender:
 ```cpp  
-Channel analysis  Transmission                                Response
-    _____          _______________________________________     _____
-   | C-A |        | ID | LENGTH | BUS ID  | CONTENT | CRC |   | ACK |
-<--|-----|--------|----|--------|---------|---------|-----|> <|-----|
-   |  0  |        | 12 |   4    | 0.0.0.1 |   64    | 130 |   |  6  |
-   |_____|        |____|________|_________|_________|_____|   |_____|
+Channel analysis                       Transmission                              Response
+  _____     __________________________________________________________________     _____
+ | C-A |   | ID | LENGTH | HEADER | BUS ID | ID | BUS ID | ID | CONTENT | CRC |   | ACK |
+<|-----|< >|----|--------|--------|--------|----|--------|----|---------|-----|> <|-----|
+ |  0  |   | 12 |   5    |  111   |  0001  | 11 |  0001  | 12 |   64    |     |   |  6  |
+ |_____|   |____|________|________|________|____|________|____|_________|_____|   |_____|
+                                  |Receiver info| Sender info |
 ```
 Thanks to this rule is not only possible to share a medium with neighbors, but also  network with them and enhance connectivity for free.
 
