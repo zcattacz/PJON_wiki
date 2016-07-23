@@ -101,16 +101,15 @@ A PJON bus network is the result of n PJON buses sharing the same medium and or 
 
 In a shared medium (like 433Mhz channel-less transceivers) it is necessary to define a bus id to isolate devices from outcoming communication of other buses nearby, enabling many to coexist on the same communication medium. Below is shown the same local transmission used as an example before, formatted to be sent in a shared environment, where device id `12` of bus `0.0.0.1` sends @ (decimal 64) to device id `11` in bus id `0.0.0.1`. The packet's content is prepended with the bus id of the recipient, and optionally the sender's bus and device id:
 ```cpp  
-Channel analysis                       Transmission                              Response
- _____     __________________________________________________________________     _____
+Channel analysis                     Transmission                              Response
+ _____     _________________________________________________________________     _____
 | C-A |   | ID | LENGTH | HEADER |   BUS ID   | BUS ID | ID | CONTENT | CRC |   | ACK |
 |-----|< >|----|--------|--------|------------|--------|----|---------|-----|> <|-----|
 |  0  |   | 12 |   15   |  111   |    0001    |  0001  | 11 |   64    |     |   |  6  | 
 |_____|   |____|________|________|____________|________|____|_________|_____|   |_____|
-                                 |   RX INFO  |   TX INFO   |
+                                 |  RX INFO   |   TX INFO   |
 ```
 Thanks to this rule is not only possible to share a medium with neighbors, but also  network with them and enhance connectivity for free.
-
 
 
 ###License
