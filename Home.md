@@ -60,17 +60,17 @@ A default local packet transmission is a bidirectional communication between two
 ###Header configuration
 The header bitmask let the packet's receiver handle the exchange as transmitter requested.
 ```cpp
- ____________________________________________________________________________
-|00000011| Local bus  | Sender info included     | Acknowledge requested     | <- DEFAULT
-|00000010| Local bus  | Sender info included     | Acknowledge not requested |
-|00000001| Local bus  | Sender info not included | Acknowledge requested     |
-|00000000| Local bus  | Sender info not included | Acknowledge not requested |
-|--------|------------|--------------------------|---------------------------|
-|00000111| Shared bus | Sender info included     | Acknowledge requested     |
-|00000110| Shared bus | Sender info included     | Acknowledge not requested |
-|00000101| Shared bus | Sender info not included | Acknowledge requested     |
-|00000100| Shared bus | Sender info not included | Acknowledge not requested |
-|________|____________|__________________________|___________________________|
+ ______________________________________________________________________________
+| 00000011 | Local bus  | Sender info included     | Acknowledge requested     | < DEFAULT
+| 00000010 | Local bus  | Sender info included     | Acknowledge not requested |
+| 00000001 | Local bus  | Sender info not included | Acknowledge requested     |
+| 00000000 | Local bus  | Sender info not included | Acknowledge not requested |
+|----------|------------|--------------------------|---------------------------|
+| 00000111 | Shared bus | Sender info included     | Acknowledge requested     |
+| 00000110 | Shared bus | Sender info included     | Acknowledge not requested |
+| 00000101 | Shared bus | Sender info not included | Acknowledge requested     |
+| 00000100 | Shared bus | Sender info not included | Acknowledge not requested |
+|__________|____________|__________________________|___________________________|
 ```
 As you can see for now, only the uppermost bit states are used for packet transmission exchange configuration, the unused bits may be used in future to extend or optimize the PJON Standard, so is suggested not make use of them on application level.
 
