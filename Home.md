@@ -55,7 +55,22 @@ The concept of packet enables to send a communication payload to every connected
 | 1 |0|0000|11|00| 1 |0|00000|1|0|1| 1 |0|0000000|1| 1 |0|0|1|000000| 1 |0|0|1|00|1|000|
 |___|_|____|__|__|___|_|_____|_|_|_|___|_|_______|_|___|_|_|_|______|___|_|_|_|__|_|___|
 ```
-A default local packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. 
+A default local packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. The header bits permit to the packet's receiver to handle the exchange as transmitter requires.
+```cpp
+HEADER CONFIGURATION
+ ____________________________________________________________________________
+|00000011| Local bus  | Sender info included     | Acknowledge requested     | <- DEFAULT
+|00000010| Local bus  | Sender info included     | Acknowledge not requested |
+|00000001| Local bus  | Sender info not included | Acknowledge requested     |
+|00000000| Local bus  | Sender info not included | Acknowledge not requested |
+|--------|------------|--------------------------|---------------------------|
+|00000111| Shared bus | Sender info included     | Acknowledge requested     |
+|00000110| Shared bus | Sender info included     | Acknowledge not requested |
+|00000101| Shared bus | Sender info not included | Acknowledge requested     |
+|00000100| Shared bus | Sender info not included | Acknowledge not requested |
+|________|____________|__________________________|___________________________|
+```
+As you can see for now, only the uppermost bit states are used for packet transmission exchange configuration, the unused bits may be used in future to extend or optimize the PJON Standard, so is suggested not make use of them on application level
 ```cpp  
 Channel analysis   Transmission                                     Response
     _____           ________________________________________           _____
