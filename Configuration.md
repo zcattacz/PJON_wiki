@@ -6,7 +6,7 @@ Templates can be scary at first sight, but they are quite straight-forward and e
 
   PJON<SoftwareBitBang> bus;
 ```
-Now the PJON bus runs with the default strategy (see [Strategies](https://github.com/gioblu/PJON/wiki/Strategies)) [SoftwareBitBang](https://github.com/gioblu/PJON/wiki/SoftwareBitBang), and any id is assigned to the device, but it can acquire an id using the `acquire_id` method or communicate using `BROADCAST` id. If you need to predefine the device's id on instantiation, pass the selected id as shown below:
+Now the PJON bus runs with the default strategy (see [Strategies](https://github.com/gioblu/PJON/wiki/Strategies)) [SoftwareBitBang](https://github.com/gioblu/PJON/wiki/SoftwareBitBang), but still no id is assigned to the device, but it can acquire an id using the `acquire_id` function or communicate using `BROADCAST` id. If you need to predefine the device's id on instantiation, pass the selected id as shown below:
 ```cpp  
   PJON<> bus(1); // Device id 1
 ```
@@ -28,7 +28,6 @@ Using `OverSampling` physical layer, synchronous acknowledge can reduce the maxi
 ```cpp  
   bus.set_acknowledge(false);
 ```
-
 PJON by default includes the sender information in the packet. If you don't need this information you can use the provided setter to reduce overhead and higher communication speed:
 ```cpp  
   bus.include_sender_info(false);
