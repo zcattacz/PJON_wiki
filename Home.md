@@ -44,7 +44,7 @@ This adds a certain overhead to information but reduces the need of precise time
 
 
 ###Packet transmission
-The concept of packet enables to send a communication payload to every connected device with correct reception certainty. A packet contains the recipient id, the length of the packet, its content and the CRC. In this example is shown a packet sending to device id 12 on a local bus containing the string "@":
+The concept of packet enables to send a communication payload to every connected device with correct reception certainty. A packet contains the recipient id, its length, its header, its content and the CRC. In this example is shown a packet sending to device id 12 on a local bus containing the string "@":
 ```cpp  
 
  RECIPIENT ID 12  LENGTH 5          HEADER 1        CONTENT 64       CRC 72
