@@ -72,7 +72,8 @@ The header bitmask let the packet's receiver handle the exchange as transmitter 
 |00000100| Shared bus | Sender info not included | Acknowledge not requested |
 |________|____________|__________________________|___________________________|
 ```
-As you can see for now, only the uppermost bit states are used for packet transmission exchange configuration, the unused bits may be used in future to extend or optimize the PJON Standard, so is suggested not make use of them on application level
+As you can see for now, only the uppermost bit states are used for packet transmission exchange configuration, the unused bits may be used in future to extend or optimize the PJON Standard, so is suggested not make use of them on application level.
+
 ```cpp  
 Channel analysis   Transmission                                     Response
     _____           ________________________________________           _____
