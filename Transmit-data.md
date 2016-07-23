@@ -15,9 +15,9 @@ bus.send(100, "Ciao, this is a test!", 21);
 
 I know that the packet length is boring to fill but is there to prevent buffer overflow. If sending arbitrary values `NULL` terminator strategy based on `strlen()` is not safe to detect the end of a string.
 
-To send a value repeatedly simply add as last parameter the interval in microseconds you want between every sending:
+To send a value repeatedly simply call `send_repeatedly()` and add as last parameter the interval in microseconds you want between every sending:
 ```cpp
-int one_second_delay_test = bus.send(100, "Test sent every second!", 23, 1000000);
+int one_second_delay_test = bus.send_repeatedly(100, "Test sent every second!", 23, 1000000);
 ```
 
 The `one_second_delay_test` variable contains the id of the packet. If you want to remove this repeated task simply:
