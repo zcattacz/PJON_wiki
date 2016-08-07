@@ -24,11 +24,23 @@ If you are transmitting on a shared medium like the channel-less transmitters de
 ```
 In this example we are defining a new bus id made by 4 bytes, and we are passing it to the PJON object followed by the chosen and predefined device id.
 
-Using `OverSampling` physical layer, synchronous acknowledge can reduce the maximum range, on certain media, so if you detect reduced range performance in `HALF_DUPLEX` compared to a mono-directional or `SIMPLEX` communication, and you can do without `ACK`, configure the absence of it after the packet transmission:
+Configure network state (local or shared):
+```cpp  
+  bus.set_shared_network(true);
+```
+Configure acknowledge:
 ```cpp  
   bus.set_acknowledge(false);
 ```
 PJON by default includes the sender information in the packet. If you don't need this information you can use the provided setter to reduce overhead and higher communication speed:
 ```cpp  
   bus.include_sender_info(false);
+```
+Configure your device to act as a router, so receiving all the incoming packets:
+```cpp  
+  bus.set_router(true);
+```
+Avoid packet auto-deletion:
+```cpp  
+  bus.set_packet_auto_deletion(false);
 ```
