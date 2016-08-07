@@ -1,5 +1,5 @@
 
-With ThroughHardwareSerial PJON can run through the Serial port of your device. Both ports should be free from USB computer connection and data pins should be wired inverted TX->RX, RX->TX.
+With ThroughHardwareSerial PJON can run through the Serial port of your device. Both ports should be free from USB computer connection and data pins should be wired inverted, TX to RX and RX to TX.
 
 ####Why to add PJON over Serial?
 Serial communication is an hardware integrated communication medium that can reach very fast communication speed but it is quite basic and lacks many of the necessary structures and entities for an easy setup of a network communication.
