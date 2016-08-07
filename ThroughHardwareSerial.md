@@ -1,5 +1,8 @@
 ![ThroughHardwareSerial](http://www.gioblu.com/PJON/PJON-makers.jpg)
 
+**Media:** Hardware Serial port |
+**Pins used:** 2
+
 With ThroughHardwareSerial PJON can run through the Serial port of your device. Both ports should be free from USB computer connection and data pins should be wired inverted, TX to RX and RX to TX.
 
 ####Why to add PJON over Serial?
