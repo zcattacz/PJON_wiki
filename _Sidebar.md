@@ -14,4 +14,5 @@
 + [Strategies](https://github.com/gioblu/PJON/wiki/Strategies)
  * [SoftwareBitBang](https://github.com/gioblu/PJON/wiki/SoftwareBitBang)
  * [OverSampling](https://github.com/gioblu/PJON/wiki/OverSampling)
+ * [ThroughHardwareSerial](https://github.com/gioblu/PJON/wiki/ThroughHardwareSerial)
 + [Press](https://github.com/gioblu/PJON/wiki/Press)
