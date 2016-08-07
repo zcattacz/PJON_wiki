@@ -33,8 +33,3 @@ Call the `begin` method on the `Serial` object you want to use for PJON communic
   }
 ```
 All the other necessary information is present in the general [Documentation](https://github.com/gioblu/PJON/wiki/Documentation).
-
-####Compatibility
-- ATmega88/168/328 16Mhz (Diecimila, Duemilanove, Uno, Nano, Mini, Lillypad)
-- ATmega2560 16Mhz (Arduino Mega)
-- ATmega16u4/32u4 16Mhz (Arduino Leonardo)
