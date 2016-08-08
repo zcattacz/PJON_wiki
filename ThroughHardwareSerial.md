@@ -17,7 +17,7 @@ Serial communication is an hardware integrated communication medium that can rea
 ####Adding PJON over Serial you get:
 - Correct transmission certainty with the use of CRC 8-bit
 - Acnowledge byte to inform transmitter of correct data reception
-- Packet handling, i.e. example schedule a repeated packet transmission.
+- Packet handling, i.e. schedule a repeated packet transmission.
 - Connect 2 slaves with a 1 master having univocal communication with device id ThroughHardwareSerial can run a 2 device bus in multi-master or a n devices bus in a master-slave setup. (n still unkown, tested with 1 master and 2 slaves)
 
 ####How to use ThroughHardwareSerial
