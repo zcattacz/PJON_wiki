@@ -1,7 +1,7 @@
 
 ![PJON Strategies wiki](http://www.gioblu.com/PJON/PJON-clouds.jpg)
 
-PJON codebase uses strategies to physically communicate through the medium used, abstracting the physical layer from its procedure. A Strategy is only a class containing a set of functions able to send and receive messages:
+A Strategy its a class containing a set of functions able to physically communicate data through the medium used, abstracting the physical layer from PJON procedure and codebase.
 
 ```cpp
 boolean can_start(uint8_t input_pin, uint8_t output_pin)
@@ -28,7 +28,7 @@ uint16_t receive_response(uint8_t input_pin, uint8_t output_pin)
 ```
 Receives a response from the packet's receiver
 
-You can define your own set of 5 methods to use PJON with your personal strategy on the media you prefer. As can see two pins are passed to the methods, enabling twisted pair, serial or radio transceiver physical layer strategies. If you need other functions, variables or constants, those can be defined in your personal Strategy class. Other communication protocols could be used inside those methods to transmit data.
+You can define your own set of functions to use PJON with your personal strategy on the medium you prefer. As can see two pins are passed to the methods, enabling twisted pair, serial or radio transceiver physical layer strategies. If you need other functions, variables or constants, those can be defined in your personal Strategy class. Other communication protocols could be used inside those functions to transmit data.
 
 ```cpp
 // Simple Serial physical layer example
