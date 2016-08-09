@@ -1,6 +1,5 @@
 ![PJON wiki](http://www.gioblu.com/PJON/PJON-mars.jpg)
-
-PJON is an opensource multimaster communications bus system Standard created to provide the community with a new and easy way to communicate data and build a network of devices. Its more common applications are in the field of internet of things and embedded systems. Extended tests proved its effectiveness on different media like electricity, radio and light.
+PJON (Padded Jittering Operative Network) is an Arduino compatible, multi-master, multi-media communications bus system. It proposes a Standard and it is designed as a framework to ease digital communication. Thanks to a medium agnostic approach PJON is able to communicate data regardless of the medium used through the concept of [Strategies](https://github.com/gioblu/PJON/wiki/Strategies). Its more common applications are in the field of internet of things and embedded systems. Extended tests proved its effectiveness on different media like electricity, radio and light.
 
 ### Basic concepts
 * Every bus has a unique IPv4 like 4 bytes id
