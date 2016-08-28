@@ -25,20 +25,6 @@ A PJON bus is made by a collection of up to 255 devices transmitting and receivi
          |_______|   |_______|   |_______|   |_______|    
 ```
 
-###Byte transmission
-Every byte is prepended with 2 synchronization padding bits and transmission occurs LSB-first (although in the following graphs is presented for clarity as MSB-first). The first is a longer than standard logic 1 followed by a standard logic 0. The reception tecnique is based on finding a logic 1 as long as the first padding bit within a certain threshold, synchronizing to its falling edge and checking if it is followed by a logic 0. If this pattern is recognised, reception starts, if not, interference, synchronization loss or simply absence of communication is detected at byte level.
-```cpp  
- __________ ___________________________
-| SyncPad  | Byte                      |
-|______    |___       ___     _____    |
-|  |   |   |   |     |   |   |     |   |
-|  | 1 | 0 | 1 | 0 0 | 1 | 0 | 1 1 | 0 |
-|_ |___|___|___|_____|___|___|_____|___|
-   |
- ACCEPTANCE
-```
-This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte. All the first padding bit duration minus `ACCEPTANCE` is the synchronization window the receiver has for every incoming byte. If the length of the first padding bit is less than `ACCEPTANCE` the received signal is considered interference.
-
 
 ###Packet transmission
 The concept of packet enables to send a communication payload to every connected device with correct reception certainty. A packet contains the recipient id, its length, its header, its content and the CRC. In this example is shown a packet transmission in a local bus to device id 12 containing the string @ (decimal 64):
