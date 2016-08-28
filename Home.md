@@ -5,9 +5,8 @@ PJON (Padded Jittering Operative Network) is an Arduino compatible, multi-master
 * Every bus has a unique IPv4 like 4 bytes id
 * Many buses can coexist on the same medium
 * Every device has a unique 1 byte id
-* Every device transmits and receives on the same common PJON bus medium
 * Every device has an equal right to transmit and receive on the common medium
-* Every device can be connected to n PJON buses (with n dedicated pins)
+* Every device can be connected to n PJON buses
 * Transmission occurs only if the communication medium is not in use
 * Synchronization occurs every byte
 * Devices communicate through packets
