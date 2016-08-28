@@ -11,11 +11,9 @@ Every byte is prepended with 2 synchronization padding bits and transmission occ
  __________ ___________________________
 | SyncPad  | Byte                      |
 |______    |___       ___     _____    |
-|  |   |   |   |     |   |   |     |   |
-|  | 1 | 0 | 1 | 0 0 | 1 | 0 | 1 1 | 0 |
-|_ |___|___|___|_____|___|___|_____|___|
-   |
- ACCEPTANCE
+|      |   |   |     |   |   |     |   |
+|    1 | 0 | 1 | 0 0 | 1 | 0 | 1 1 | 0 |
+|______|___|___|_____|___|___|_____|___|
 ```
 This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte. All the first padding bit duration minus `ACCEPTANCE` is the synchronization window the receiver has for every incoming byte. If the length of the first padding bit is less than `ACCEPTANCE` the received signal is considered interference.
 
