@@ -33,29 +33,29 @@ The concept of packet enables to send a communication payload to every connected
 ```cpp  
 
  RECIPIENT ID 12  LENGTH 5          HEADER 1        CONTENT 64       CRC 72
- ________________ _________________ _______________ ________________ __________________
-|Sync | Byte     |Sync | Byte      |Sync | Byte    |Sync | Byte     |Sync | Byte       |
-|___  |     __   |___  |      _   _|___  |        _|___  |  _       |___  |  _    _    |
-|   | |    |  |  |   | |     | | | |   | |       | |   | | | |      |   | | | |  | |   |
-| 1 |0|0000|11|00| 1 |0|00000|1|0|1| 1 |0|0000000|1| 1 |0|0|1|000000| 1 |0|0|1|00|1|000|
-|___|_|____|__|__|___|_|_____|_|_|_|___|_|_______|_|___|_|_|_|______|___|_|_|_|__|_|___|
+ ________________ _________________ ________________ ________________ __________________
+|Sync | Byte     |Sync | Byte      |Sync | Byte     |Sync | Byte     |Sync | Byte       |
+|___  |     __   |___  |      _   _|___  |      _   |___  |  _       |___  |  _    _    |
+|   | |    |  |  |   | |     | | | |   | |     | |  |   | | | |      |   | | | |  | |   |
+| 1 |0|0000|11|00| 1 |0|00000|1|0|1| 1 |0|00000|1|00| 1 |0|0|1|000000| 1 |0|0|1|00|1|000|
+|___|_|____|__|__|___|_|_____|_|_|_|___|_|_____|_|__|___|_|_|_|______|___|_|_|_|__|_|___|
 ```
 A default local packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. The packet transmission procedure is regulated by its header.
 
 ###Header configuration
 The header bitmask let the packet's receiver handle the exchange as transmitter requested.
 ```cpp
- ______________________________________________________________________________
-| 00000011 | Local bus  | Sender info included     | Acknowledge requested     | DEFAULT
-| 00000010 | Local bus  | Sender info included     | Acknowledge not requested |
-| 00000001 | Local bus  | Sender info not included | Acknowledge requested     |
-| 00000000 | Local bus  | Sender info not included | Acknowledge not requested |
-|----------|------------|--------------------------|---------------------------|
-| 00000111 | Shared bus | Sender info included     | Acknowledge requested     |
-| 00000110 | Shared bus | Sender info included     | Acknowledge not requested |
-| 00000101 | Shared bus | Sender info not included | Acknowledge requested     |
-| 00000100 | Shared bus | Sender info not included | Acknowledge not requested |
-|__________|____________|__________________________|___________________________|
+ _______________________________________ _______________________________________
+| 00000110 | Acknowledge requested     | Sender info included     | Local bus  | DEFAULT
+| 00000100 | Acknowledge requested     | Sender info not included | Local bus  |
+| 00000010 | Acknowledge not requested | Sender info included     | Local bus  |
+| 00000000 | Acknowledge not requested | Sender info not included | Local bus  |
+|----------|-------------------------- |--------------------------|------------|
+| 00000111 | Acknowledge requested     | Sender info included     | Shared bus |
+| 00000101 | Acknowledge requested     | Sender info not included | Shared bus |
+| 00000011 | Acknowledge not requested | Sender info included     | Shared bus |
+| 00000001 | Acknowledge not requested | Sender info not included | Shared bus |
+|__________|___________________________|__________________________|____________|
 ```
 As you can see for now, only the uppermost bit states are used for packet transmission exchange configuration, the unused bits may be used in future to extend or optimize the PJON Standard, so is suggested not make use of them on application level.
 
@@ -64,7 +64,7 @@ Channel analysis   Transmission                                     Response
     _____           ________________________________________           _____
    | C-A |         | ID | LENGTH |  HEADER  | CONTENT | CRC |         | ACK |
 <--|-----|---< >---|----|--------|----------|---------|-----|--> <----|-----|
-   |  0  |         | 12 |   4    | 00000001 |    64   |  72 |         |  6  |
+   |  0  |         | 12 |   4    | 00000100 |    64   |  72 |         |  6  |
    |_____|         |____|________|__________|_________|_____|         |_____|
 ```
 In the first phase the bus is analyzed by transmitter reading 10 logical bits, if any logical 1 is detected the channel is considered free, transmission phase starts in which the packet is entirely transmitted. Receiver calculates CRC and starts the response phase transmitting a single byte, `ACK` (decimal 6) in case of correct reception or `NAK` (decimal 21) if an error in the packet's content is detected. If transmitter receives no answer or `NAK` the packet sending is scheduled with a delay of `ATTEMPTS * ATTEMPTS * ATTEMPTS` with a maximum of 125 `ATTEMPTS` to obtain data transmission 3rd degree polynomial backoff. 
