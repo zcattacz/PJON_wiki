@@ -74,6 +74,8 @@ A PJON bus network is the result of n PJON buses sharing the same medium and or 
 
 ```cpp  
    TWO BUSES CONNECTED THROUGH A ROUTER
+
+       BUS ID 0.0.0.1                  BUS ID 0.0.0.2
     _______     _______              _______     _______
    |       |   |       |            |       |   |       |
    | ID 0  |   | ID 1  |            | ID 0  |   | ID 1  |
@@ -89,7 +91,7 @@ In a shared medium (like 433Mhz channel-less transceivers) it is necessary to de
 ```cpp  
    TWO BUSES SHARING THE SAME MEDIUM
      
-       BUS ID 0.0.0.1                 BUS ID 0.0.0.2
+       BUS ID 0.0.0.1                  BUS ID 0.0.0.2
     _______     _______              _______     _______
    |       |   |       |            |       |   |       |
    | ID 0  |   | ID 1  |            | ID 0  |   | ID 1  |
