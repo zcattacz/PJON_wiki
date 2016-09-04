@@ -46,7 +46,7 @@ A default local packet transmission is a bidirectional communication between two
 ###Header configuration
 The header bitmask let the packet's receiver handle the exchange as transmitter requested.
 ```cpp
- _______________________________________ _______________________________________
+ ______________________________________ _______________________________________
 | 00000110 | Acknowledge requested     | Sender info included     | Local bus  | DEFAULT
 | 00000100 | Acknowledge requested     | Sender info not included | Local bus  |
 | 00000010 | Acknowledge not requested | Sender info included     | Local bus  |
