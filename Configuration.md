@@ -4,7 +4,7 @@ Before approaching to the PJON class it is possible to define the packets and co
 #define PACKET_MAX_LENGTH 20
 #include <PJON.h>
 /* PJON can store up to 1 packet of up to 
-   20 characters - packet overhead (from 4 to 13 depending by configuration)
+   20 characters - packet overhead (from 4 to 13 depending by configuration) */
 ```
 
 Templates can be scary at first sight, but they are quite straight-forward and efficient. Lets start coding, looking how to instantiate in the simplest way the `PJON` object that in the example is called bus with a wire compatible physical layer:
@@ -25,7 +25,11 @@ If you need to communicate on a noisy medium like radio, laser or infrared light
 ```cpp  
   PJON<OverSampling> bus;
 ```
-If you are transmitting on a shared medium like the channel-less transmitters described above, it's better to define a bus id to isolate your networking from other buses nearby and to avoid unwanted and potentially critical collisions (i.e. opening the neighbour's garage door, when you just wanted to brighten your kitchen):
+Configure network state (local or shared). If local, so if passing `false`, the PJON protol layer procedure is based on a single byte device id to univocally communicate with a device; if in shared mode, so passing `true`, the protocol adopts a 4 byte bus id to univocally communicate with a device in a certain bus:
+```cpp  
+  bus.set_shared_network(true);
+```
+If you are transmitting on a shared medium it is better to define a bus id to isolate your networking from other buses nearby and to avoid unwanted and potentially critical collisions (i.e. opening the neighbour's garage door, when you just wanted to brighten your kitchen):
 ```cpp  
   // Bus id definition
   uint8_t bus_id[] = {0, 0, 0, 1};
@@ -39,10 +43,6 @@ Configure the communication mode:
 ```cpp  
   bus.set_communication_mode(SIMPLEX);     // Run in mono-directional SIMPLEX mode
   bus.set_communication_mode(HALF_DUPLEX); // Run in bi-directional HALF_DUPLEX mode
-```
-Configure network state (local or shared). If local, so if passing `false`, the PJON protol layer procedure is based on a single byte device id to univocally communicate with a device; if in shared mode, so passing `true`, the protocol adopts a 4 byte bus id to univocally communicate with a device in a certain bus:
-```cpp  
-  bus.set_shared_network(true);
 ```
 Configure acknowledge:
 ```cpp  
