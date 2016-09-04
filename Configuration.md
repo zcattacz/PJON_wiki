@@ -15,7 +15,9 @@ Templates can be scary at first sight, but they are quite straight-forward and e
 
   PJON<SoftwareBitBang> bus;
 ```
-Now the PJON bus runs with the default strategy (see [Strategies](https://github.com/gioblu/PJON/wiki/Strategies)) [SoftwareBitBang](https://github.com/gioblu/PJON/wiki/SoftwareBitBang), but still no id is assigned to the device, but it can acquire an id using the `acquire_id` function or communicate using `BROADCAST` id. If you need to predefine the device's id on instantiation, pass the selected id as shown below:
+The PJON bus runs by default through the [SoftwareBitBang](https://github.com/gioblu/PJON/wiki/SoftwareBitBang) strategy.
+
+If you need to predefine the device's id on instantiation, pass the selected id as shown below:
 ```cpp  
   PJON<> bus(1); // Device id 1
 ```
@@ -33,7 +35,7 @@ If you are transmitting on a shared medium like the channel-less transmitters de
 ```
 In this example we are defining a new bus id made by 4 bytes, and we are passing it to the PJON object followed by the chosen and predefined device id.
 
-Configure the communication mode. Passing `SIMPLEX` is configured to be monodirectional, instead passing `HALF_DUPLEX` it is set to be bi-directional. 
+Configure the communication mode:
 ```cpp  
   bus.set_communication_mode(SIMPLEX);     // Run in mono-directional SIMPLEX mode
   bus.set_communication_mode(HALF_DUPLEX); // Run in bi-directional HALF_DUPLEX mode
