@@ -3,7 +3,8 @@ Before approaching to the PJON class it is possible to define the packets and co
 #define MAX_PACKETS 1
 #define PACKET_MAX_LENGTH 20
 #include <PJON.h>
-/* PJON can store up to 1 packet of up to 20 characters - packet overhead (from 4 to 13 depending by configuration)
+/* PJON can store up to 1 packet of up to 
+   20 characters - packet overhead (from 4 to 13 depending by configuration)
 ```
 
 Templates can be scary at first sight, but they are quite straight-forward and efficient. Lets start coding, looking how to instantiate in the simplest way the `PJON` object that in the example is called bus with a wire compatible physical layer:
