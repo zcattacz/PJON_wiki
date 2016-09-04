@@ -33,7 +33,12 @@ If you are transmitting on a shared medium like the channel-less transmitters de
 ```
 In this example we are defining a new bus id made by 4 bytes, and we are passing it to the PJON object followed by the chosen and predefined device id.
 
-Configure network state (local or shared):
+Configure the communication mode. Passing `SIMPLEX` is configured to be monodirectional, instead passing `HALF_DUPLEX` it is set to be bi-directional. 
+```cpp  
+  bus.set_communication_mode(SIMPLEX);     // Run in mono-directional SIMPLEX mode
+  bus.set_communication_mode(HALF_DUPLEX); // Run in bi-directional HALF_DUPLEX mode
+```
+Configure network state (local or shared). If local, so if passing `false`, the PJON protol layer procedure is based on a single byte device id to univocally communicate with a device; if in shared mode, so passing `true`, the protocol adopts a 4 byte bus id to univocally communicate with a device in a certain bus:
 ```cpp  
   bus.set_shared_network(true);
 ```
