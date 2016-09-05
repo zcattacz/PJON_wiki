@@ -30,6 +30,7 @@ Oversampling strategy comes from the [PJON_ASK](https://github.com/gioblu/PJON_A
 
 ThroughHardwareSerial digital communication transport layer used as a Strategy by the PJON framework (included in version v4.1) With ThroughHardwareSerial PJON can run through the Serial port of your device. Both ports should be free from usb computer connection and data pin should be wired inverted (TX->RX, RX->TX). 
 
+### Practical test
 Once you have chosen the medium you will use you can start to build your personal bus (that obviously could be made also by only two devices for testing):
 ```cpp  
     _______     _______     _______     _______     _______
@@ -57,7 +58,7 @@ void loop() {
   bus.update();
 };
 ```
-As you can see the code above, device 1 is simply sending a "B" every second to the device id 2. Not bad for 6 lines of code and a piece of wire with any extra hardware.
+As you can see the code above, device 1 is simply sending a "B" every second to the device id 2.
 ```cpp
 #include <PJON.h>
 PJON<SoftwareBitBang> bus(44); // <Strategy name> bus(selected device id)
@@ -82,4 +83,4 @@ void loop() {
   bus.receive(1000);
 };
 ```
-On the receiver side we simply have to declare a receiver function will be called when a packet is received for the device. In this case, the function checks if the received character is "B" and if so blinks the LED connected to pin 13.
+On the receiver side is declared a receiver function that is called when a packet for the device is received. In this case, the function checks if the received character is "B" and if so blinks the LED connected to pin 13.
