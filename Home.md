@@ -10,21 +10,27 @@ PJON (Padded Jittering Operative Network) is an Arduino compatible, multi-master
 ### Padded jittering data link layer specification
 - [Padded jittering data link layer v0.1](https://github.com/gioblu/PJON/blob/master/strategies/SoftwareBitBang/specification/padded-jittering-protocol-specification-v0.1.md)
 
+### Why PJON?
+This PJON implementation is a tool created to simplify devices communication and network engineering. It is made to let you make your personal network of devices choosing the medium you prefer, writing few lines of code. For now there are 3 different strategies to communicate data with PJON on various media.
 
-### Basic concepts
-* Every bus has a unique IPv4 like 4 bytes id
-* Many buses can coexist on the same medium
-* Every device has a unique 1 byte id
-* Every device has an equal right to transmit and receive on the common medium
-* Every device can be connected to n PJON buses
-* Transmission occurs only if the communication medium is not in use
-* Devices communicate through packets
-* Packet transmission is regulated by a 1 byte header
+#### SoftwareBitBang  
+**Medium:** Wire | **Pins used:** 1 or 2 | [readme](https://github.com/gioblu/PJON/tree/master/strategies/SoftwareBitBang)
 
-The PJON protocol layer handles internal bus connectivity and unique addressing for 254 devices, through bus communication with unique bus addressing for 4.294.967.295 buses, supporting up to 1.090.921.692.930 devices.
+SoftwareBitBang is the default data link layer strategy used by the PJON object. This implementation is based on `micros()` and `delayMicroseconds()`. It makes no use of dedicated timers or interrupts to handle communication. It is designed to have a small footprint on memory and to be extremely resilient to interference and timing inconsistencies. Thanks to the use of a dedicated digitalWriteFast library, can be achieved fast and reliable cross-architecture communication through one or two pins. 
 
-###Bus
-A PJON bus is made by a collection of up to 255 devices transmitting and receiving on the same medium. Communication between devices occurs through packets and it is based on democracy: every device has the right to transmit on the common medium for up to `(1000 / devices number) milliseconds / second`.
+#### OverSampling
+**Medium:** Radio, Wire |
+**Pins used:** 1 or 2 | [readme](https://github.com/gioblu/PJON/tree/master/strategies/OverSampling)
+
+Oversampling strategy comes from the [PJON_ASK](https://github.com/gioblu/PJON_ASK) repository, and it was integrated in the PJON repository from version 3.0 beta, as a physical layer strategy. Bits are oversampled to have high resilience in high interference scenarios like ASK/FSK cheap radio transceivers in urban environment. It is tested effectively with many versions of the ASK/FSK 315/433Mhz modules available on the market. 
+
+#### ThroughHardwareSerial
+ **Medium:** Hardware Serial port |
+**Pins used:** 2 | [readme](https://github.com/gioblu/PJON/tree/master/strategies/ThroughHardwareSerial)
+
+ThroughHardwareSerial digital communication transport layer used as a Strategy by the PJON framework (included in version v4.1) With ThroughHardwareSerial PJON can run through the Serial port of your device. Both ports should be free from usb computer connection and data pin should be wired inverted (TX->RX, RX->TX). 
+
+Once you have chosen the medium you will use you can start to build your personal bus (that obviously could be made also by only two devices for testing):
 ```cpp  
     _______     _______     _______     _______     _______
    |       |   |       |   |       |   |       |   |       |  
@@ -36,109 +42,44 @@ A PJON bus is made by a collection of up to 255 devices transmitting and receivi
          | ID 5  |   | ID 6  |   | ID 7  |   | ID 8  |
          |_______|   |_______|   |_______|   |_______|    
 ```
-
-
-###Packet transmission
-The concept of packet enables to send a communication payload to every connected device with correct reception certainty. A packet contains the recipient id, its length, its header, its content and the CRC. In this example is shown a packet transmission in a local bus to device id 12 containing the string @ (decimal 64):
-```cpp  
-
- RECIPIENT ID 12  LENGTH 5          HEADER 1        CONTENT 64       CRC 72
- ________________ _________________ ________________ ________________ __________________
-|Sync | Byte     |Sync | Byte      |Sync | Byte     |Sync | Byte     |Sync | Byte       |
-|___  |     __   |___  |      _   _|___  |      _   |___  |  _       |___  |  _    _    |
-|   | |    |  |  |   | |     | | | |   | |     | |  |   | | | |      |   | | | |  | |   |
-| 1 |0|0000|11|00| 1 |0|00000|1|0|1| 1 |0|00000|1|00| 1 |0|0|1|000000| 1 |0|0|1|00|1|000|
-|___|_|____|__|__|___|_|_____|_|_|_|___|_|_____|_|__|___|_|_|_|______|___|_|_|_|__|_|___|
-```
-A default local packet transmission is a bidirectional communication between two devices that can be divided in 3 different phases: **channel analysis**, **transmission** and **response**. The packet transmission procedure is regulated by its header.
-
-###Header configuration
-The header bitmask let the packet's receiver handle the exchange as transmitter requested.
+A simple entry level test can be to setup a couple of Arduino duemilanove / Uno boards connected together with one single wire on both pins 12. If you have the time and will you could connect to the same wire many other devices like in the graph above and run a more complicated test. When the devices are connected it is possible to test their connectivity sending a packet from device 1 to device 2 and see if device 2 receives it blinking a LED:
 ```cpp
- ______________________________________ _______________________________________
-| 00000110 | Acknowledge requested     | Sender info included     | Local bus  | DEFAULT
-| 00000100 | Acknowledge requested     | Sender info not included | Local bus  |
-| 00000010 | Acknowledge not requested | Sender info included     | Local bus  |
-| 00000000 | Acknowledge not requested | Sender info not included | Local bus  |
-|----------|-------------------------- |--------------------------|------------|
-| 00000111 | Acknowledge requested     | Sender info included     | Shared bus |
-| 00000101 | Acknowledge requested     | Sender info not included | Shared bus |
-| 00000011 | Acknowledge not requested | Sender info included     | Shared bus |
-| 00000001 | Acknowledge not requested | Sender info not included | Shared bus |
-|__________|___________________________|__________________________|____________|
+#include <PJON.h>
+PJON<SoftwareBitBang> bus(1); // <Strategy name> bus(selected device id)
+
+void setup() {
+  bus.strategy.set_pin(12);
+  bus.begin();
+  bus.send_repeatedly(2, "B", 1, 1000000); // Send B to device 44 every second
+}
+
+void loop() {
+  bus.update();
+};
 ```
-As you can see for now, only the uppermost bit states are used for packet transmission exchange configuration, the unused bits may be used in future to extend or optimize the PJON Standard, so is suggested not make use of them on application level.
-
-```cpp  
-Channel analysis   Transmission                                     Response
-    _____           ________________________________________           _____
-   | C-A |         | ID | LENGTH |  HEADER  | CONTENT | CRC |         | ACK |
-<--|-----|---< >---|----|--------|----------|---------|-----|--> <----|-----|
-   |  0  |         | 12 |   4    | 00000100 |    64   |  72 |         |  6  |
-   |_____|         |____|________|__________|_________|_____|         |_____|
-```
-In the first phase the bus is analyzed by transmitter reading 10 logical bits, if any logical 1 is detected the channel is considered free, transmission phase starts in which the packet is entirely transmitted. Receiver calculates CRC and starts the response phase transmitting a single byte, `ACK` (decimal 6) in case of correct reception or `NAK` (decimal 21) if an error in the packet's content is detected. If transmitter receives no answer or `NAK` the packet sending is scheduled with a delay of `ATTEMPTS * ATTEMPTS * ATTEMPTS` with a maximum of 125 `ATTEMPTS` to obtain data transmission 3rd degree polynomial backoff. 
-
-###Bus network
-A PJON bus network is the result of n PJON buses sharing the same medium and or interconnection of PJON buses using routers. A router is a device connected to n PJON buses with n dedicated pins on n dedicated media, able to route a packet from a bus to anotherone.
-
-```cpp  
-   TWO BUSES CONNECTED THROUGH A ROUTER
-
-       BUS ID 0.0.0.1                  BUS ID 0.0.0.2
-    _______     _______              _______     _______
-   |       |   |       |            |       |   |       |
-   | ID 0  |   | ID 1  |            | ID 0  |   | ID 1  |
-   |_______|   |_______|  ________  |_______|   |_______|
- ______|___________|_____| ROUTER |_____|___________|______
-          ___|___        |  ID 3  |        ___|___
-         |       |       |________|       |       |
-         | ID 2  |                        | ID 2  |
-         |_______|                        |_______|
-```
-
-In a shared medium (like 433Mhz channel-less transceivers) it is necessary to define a bus id to isolate devices from outcoming communication of other buses nearby, enabling many to coexist on the same communication medium. 
-```cpp  
-   TWO BUSES SHARING THE SAME MEDIUM
-     
-       BUS ID 0.0.0.1                  BUS ID 0.0.0.2
-    _______     _______              _______     _______
-   |       |   |       |            |       |   |       |
-   | ID 0  |   | ID 1  |            | ID 0  |   | ID 1  |
-   |_______|   |_______|            |_______|   |_______|
- ______|___________|___________________|___________|______
-          ___|___                          ___|___
-         |       |                        |       |
-         | ID 2  |                        | ID 2  |
-         |_______|                        |_______|
-
-```
-Below is shown the same local transmission used as an example before, formatted to be sent in a shared environment, where device id `12` of bus `0.0.0.1` sends @ (decimal 64) to device id `11` in bus id `0.0.0.1`. The packet's content is prepended with the bus id of the recipient, and optionally the sender's bus and device id:
-```cpp  
-Channel analysis                     Transmission                              Response
- _____     _________________________________________________________________     _____
-| C-A |   | ID | LENGTH | HEADER |   BUS ID   | BUS ID | ID | CONTENT | CRC |   | ACK |
-|-----|< >|----|--------|--------|------------|--------|----|---------|-----|> <|-----|
-|  0  |   | 12 |   15   |  111   |    0001    |  0001  | 11 |   64    |     |   |  6  | 
-|_____|   |____|________|________|____________|________|____|_________|_____|   |_____|
-                                 |  RX INFO   |   TX INFO   |
-```
-Thanks to this rule is not only possible to share a medium with neighbours, but also network with them and enhance connectivity for free.
-
-###License
-
+As you can see the code above, device 1 is simply sending a "B" every second to the device id 2. Not bad for 6 lines of code and a piece of wire with any extra hardware.
 ```cpp
-/* Copyright 2012-2016 Giovanni Blu Mitolo
+#include <PJON.h>
+PJON<SoftwareBitBang> bus(44); // <Strategy name> bus(selected device id)
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+void setup() {
+  pinModeFast(13, OUTPUT);
+  digitalWriteFast(13, LOW); // Initialize LED 13 to be off
+  bus.strategy.set_pin(12);
+  bus.begin();
+  bus.set_receiver(receiver_function);
+};
 
-    http://www.apache.org/licenses/LICENSE-2.0
+void receiver_function(uint8_t *payload, uint8_t length, const PacketInfo &packet_info) {
+  if(payload[0] == 'B') {
+    digitalWrite(13, HIGH);
+    delay(30);
+    digitalWrite(13, LOW);
+  }
+}
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License. */
+void loop() {
+  bus.receive(1000);
+};
 ```
+On the receiver side we simply have to declare a receiver function will be called when a packet is received for the device. In this case, the function checks if the received character is "B" and if so blinks the LED connected to pin 13.
