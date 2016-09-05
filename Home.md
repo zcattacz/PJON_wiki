@@ -13,19 +13,17 @@ PJON (Padded Jittering Operative Network) is an Arduino compatible, multi-master
 ### Why PJON?
 This PJON implementation is a tool created to simplify devices communication and network engineering. It is made to let you make your personal network of devices choosing the medium you prefer, writing few lines of code. For now there are 3 different strategies to communicate data with PJON on various media.
 
-#### SoftwareBitBang  
-**Medium:** Wire | **Pins used:** 1 or 2 | [readme](https://github.com/gioblu/PJON/tree/master/strategies/SoftwareBitBang)
+**SoftwareBitBang** | **Medium:** Wire | **Pins used:** 1 or 2 | [readme](https://github.com/gioblu/PJON/tree/master/strategies/SoftwareBitBang)
 
 SoftwareBitBang is the default data link layer strategy used by the PJON object. This implementation is based on `micros()` and `delayMicroseconds()`. It makes no use of dedicated timers or interrupts to handle communication. It is designed to have a small footprint on memory and to be extremely resilient to interference and timing inconsistencies. Thanks to the use of a dedicated digitalWriteFast library, can be achieved fast and reliable cross-architecture communication through one or two pins. 
 
-#### OverSampling
-**Medium:** Radio, Wire |
+
+**OverSampling** | **Medium:** Radio, Wire |
 **Pins used:** 1 or 2 | [readme](https://github.com/gioblu/PJON/tree/master/strategies/OverSampling)
 
 Oversampling strategy comes from the [PJON_ASK](https://github.com/gioblu/PJON_ASK) repository, and it was integrated in the PJON repository from version 3.0 beta, as a physical layer strategy. Bits are oversampled to have high resilience in high interference scenarios like ASK/FSK cheap radio transceivers in urban environment. It is tested effectively with many versions of the ASK/FSK 315/433Mhz modules available on the market. 
 
-#### ThroughHardwareSerial
- **Medium:** Hardware Serial port |
+**ThroughHardwareSerial** | **Medium:** Hardware Serial port |
 **Pins used:** 2 | [readme](https://github.com/gioblu/PJON/tree/master/strategies/ThroughHardwareSerial)
 
 ThroughHardwareSerial digital communication transport layer used as a Strategy by the PJON framework (included in version v4.1) With ThroughHardwareSerial PJON can run through the Serial port of your device. Both ports should be free from usb computer connection and data pin should be wired inverted (TX->RX, RX->TX). 
