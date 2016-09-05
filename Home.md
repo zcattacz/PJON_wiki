@@ -8,7 +8,7 @@ PJON (Padded Jittering Operative Network) is an Arduino compatible, multi-master
 - [PJON protocol layer v0.3](https://github.com/gioblu/PJON/blob/master/specification/PJON-protocol-specification-v0.3.md)
 
 ### Padded jittering data link layer specification
-- [Padded jittering data link layer v0.3](https://github.com/gioblu/PJON/blob/master/strategies/SoftwareBitBang/specification/padded-jittering-protocol-specification-v0.1.md)
+- [Padded jittering data link layer v0.1](https://github.com/gioblu/PJON/blob/master/strategies/SoftwareBitBang/specification/padded-jittering-protocol-specification-v0.1.md)
 
 
 ### Basic concepts
