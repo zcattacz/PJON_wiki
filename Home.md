@@ -15,7 +15,7 @@ This PJON implementation is a tool created to simplify devices communication and
 
 **SoftwareBitBang** | **Medium:** Wire | **Pins used:** 1 or 2 | [readme](https://github.com/gioblu/PJON/tree/master/strategies/SoftwareBitBang)
 
-SoftwareBitBang is the default data link layer strategy used by the PJON object. This implementation is based on `micros()` and `delayMicroseconds()`. It makes no use of dedicated timers or interrupts to handle communication. It is designed to have a small footprint on memory and to be extremely resilient to interference and timing inconsistencies. Thanks to the use of a dedicated digitalWriteFast library, can be achieved fast and reliable cross-architecture communication through one or two pins. 
+SoftwareBitBang is the default data link layer strategy used by the PJON template object. This implementation is based on `micros()` and `delayMicroseconds()`. It makes no use of dedicated timers or interrupt driven strategies to handle communication. It is designed to have a small memory footprint and to be extremely resilient to interference and timing inaccuracies. Thanks to the use of a dedicated digitalWriteFast library, can be achieved fast and reliable cross-architecture communication through one or two pins.
 
 
 **OverSampling** | **Medium:** Radio, Wire |
@@ -26,7 +26,7 @@ Oversampling strategy comes from the [PJON_ASK](https://github.com/gioblu/PJON_A
 **ThroughHardwareSerial** | **Medium:** Hardware Serial port |
 **Pins used:** 2 | [readme](https://github.com/gioblu/PJON/tree/master/strategies/ThroughHardwareSerial)
 
-ThroughHardwareSerial digital communication transport layer used as a Strategy by the PJON framework (included in version v4.1) With ThroughHardwareSerial PJON can run through the Serial port of your device. Both ports should be free from usb computer connection and data pin should be wired inverted (TX->RX, RX->TX). 
+With ThroughHardwareSerial data link layer strategy, PJON can run through the Serial port of your device. Both ports should be free from USB computer connection and data pins should be wired inverted, TX to RX and RX to TX.
 
 ### Practical test
 Once you have chosen the medium you will use you can start to build your personal bus (that obviously could be made also by only two devices for testing):
@@ -81,4 +81,4 @@ void loop() {
   bus.receive(1000);
 };
 ```
-On the receiver side is declared a receiver function that is called when a packet for the device is received. In this case, the function checks if the received character is "B" and if so blinks the LED connected to pin 13.
+On the receiver side is declared a receiver function that is called when a packet for the device is received. In this case, the function checks if the received character is "B" and if so blinks the LED connected to pin 13. You should see the receiver device blinking every second.
