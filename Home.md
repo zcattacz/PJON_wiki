@@ -31,17 +31,16 @@ With ThroughHardwareSerial data link layer strategy, PJON can run through the Se
 ### Practical test
 Once you have chosen the medium you will use you can start to build your personal bus (that obviously could be made also by only two devices for testing):
 ```cpp  
-    _______     _______     _______     _______     _______
-   |       |   |       |   |       |   |       |   |       |  
-   | ID 0  |   | ID 1  |   | ID 2  |   | ID 3  |   | ID 4  |  
-   |_______|   |_______|   |_______|   |_______|   |_______|    
- ______|___________|___________|___________|___________|______
-          ___|___     ___|___     ___|___     ___|___
-         |       |   |       |   |       |   |       |   
-         | ID 5  |   | ID 6  |   | ID 7  |   | ID 8  |
-         |_______|   |_______|   |_______|   |_______|    
+ Arduino UNO        Arduino UNO
+  _________   wire   _________
+ | ||   |_||___     |         |
+ ||       ||   |    ||       ||
+ ||       ||   |    ||       ||
+ ||       ||   |____||       ||
+ |_________|        |_|_|__||_|
+                      
 ```
-A simple entry level test can be to setup a couple of Arduino duemilanove / Uno boards connected together with one single wire on both pins 12. If you have the time and will you could connect to the same wire many other devices like in the graph above and run a more complicated test. When the devices are connected it is possible to test their connectivity sending a packet from device 1 to device 2 and see if device 2 receives it blinking a LED:
+A simple entry level test can be to setup a couple of Arduino Duemilanove / Uno boards connected together with one single wire on both pins 12 as described in the illustration above. When the devices are wired it is possible to test their connectivity sending a packet from device 1 to device 2 and see if device 2 receives it blinking a LED:
 ```cpp
 #include <PJON.h>
 PJON<SoftwareBitBang> bus(1); // <Strategy name> bus(selected device id)
