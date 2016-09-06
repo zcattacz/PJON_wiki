@@ -58,7 +58,7 @@ void loop() {
 As you can see the code above, device 1 is simply sending a "B" every second to the device id 2.
 ```cpp
 #include <PJON.h>
-PJON<SoftwareBitBang> bus(44); // <Strategy name> bus(selected device id)
+PJON<SoftwareBitBang> bus(2); // <Strategy name> bus(selected device id)
 
 void setup() {
   pinModeFast(13, OUTPUT);
