@@ -1,4 +1,4 @@
-Before approaching to the PJON class it is possible to define the packets and content buffer length.  Pre-defining `MAX_PACKETS` and `PACKET_MAX_LENGTH` it is possible to configure this constants to reach the project requirements and memory aviability. Obviously, the less memory is dedicated to this buffers, the more memory can be used for something else.
+Before approaching to the PJON class it is possible to define the packets and content buffer length.  Pre-defining `MAX_PACKETS` and `PACKET_MAX_LENGTH` it is possible to configure this constants to reach the project and memory requirements. Obviously, the less memory is dedicated to this buffers, the more memory can be used for something else.
 ```cpp  
 #define MAX_PACKETS 1
 #define PACKET_MAX_LENGTH 20
