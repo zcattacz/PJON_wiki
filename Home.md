@@ -1,8 +1,8 @@
 ![PJON wiki](http://www.gioblu.com/PJON/PJON-mars.jpg)
 
-PJON (Padded Jittering Operative Network) is an Arduino compatible, multi-master, multi-media communications bus system. It proposes a Standard and it is designed as a framework to ease digital communication. Thanks to a physical layer data link layer agnostic approach the PJON protocol layer is able to communicate data regardless of the medium and the procedure used thanks to the [Strategies](https://github.com/gioblu/PJON/wiki/Strategies). Its more common applications are in the field of internet of things and embedded systems. Extended tests proved its effectiveness on different media like electricity, radio and light.
+PJON (Padded Jittering Operative Network) is an Arduino compatible, multi-master, multi-media communications bus system. It proposes a Standard and it is designed as a framework to ease digital communication. Thanks to a physical layer data link layer agnostic approach the PJON protocol layer is able to communicate data regardless of the medium and the procedure used thanks to the [Strategies](https://github.com/gioblu/PJON/wiki/Strategies). Its more common applications are in the field of internet of things and embedded systems. Extended tests proved its effectiveness on different media like electricity, radio and light. See the [video introduction](https://www.youtube.com/watch?v=vjc4ZF5own8) to have a brief overview.
 
-### PJON Protocol layer specification
+### PJON protocol layer specification
 - [PJON protocol layer v0.1](https://github.com/gioblu/PJON/blob/master/specification/PJON-protocol-specification-v0.1.md)
 - [PJON protocol layer v0.2](https://github.com/gioblu/PJON/blob/master/specification/PJON-protocol-specification-v0.2.md)
 - [PJON protocol layer v0.3](https://github.com/gioblu/PJON/blob/master/specification/PJON-protocol-specification-v0.3.md)
@@ -29,7 +29,7 @@ Oversampling strategy comes from the [PJON_ASK](https://github.com/gioblu/PJON_A
 With ThroughHardwareSerial data link layer strategy, PJON can run through the Serial port of your device. Both ports should be free from USB computer connection and data pins should be wired inverted, TX to RX and RX to TX.
 
 ### Practical test
-Once you have chosen the medium you will use you can start to build your personal bus (that obviously could be made also by only two devices for testing):
+After selecting the medium to be used you can start to build your personal bus (that can be made by only two devices for testing):
 ```cpp  
  Arduino UNO        Arduino UNO
   _________   wire   _________
@@ -80,4 +80,4 @@ void loop() {
   bus.receive(1000);
 };
 ```
-On the receiver side is declared a receiver function that is called when a packet for the device is received. In this case, the function checks if the received character is "B" and if so blinks the LED connected to pin 13. You should see the receiver device blinking every second.
+On the receiver side is declared a receiver function that is called when a packet for the device is received. In this case, the function checks if the received character is "B" and if so, starts blinks the LED connected to pin 13. You should see the receiver device blinking every second.
