@@ -80,4 +80,4 @@ void loop() {
   bus.receive(1000);
 };
 ```
-On the receiver side is declared a receiver function that is called when a packet for the device is received. In this case, the function checks if the received character is "B" and if so, starts blinks the LED connected to pin 13. You should see the receiver device blinking every second.
+On the receiver side is declared a receiver function that is called when a packet for the device is received. In this case, the function checks if the received character is "B" and if so, blinks the LED connected to pin 13. You should see the receiver device blinking every second.
