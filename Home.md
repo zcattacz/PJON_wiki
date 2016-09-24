@@ -23,10 +23,10 @@ SoftwareBitBang is the default data link layer strategy used by the PJON templat
 
 Oversampling strategy comes from the [PJON_ASK](https://github.com/gioblu/PJON_ASK) repository, and it was integrated in the PJON repository from version 3.0 beta, as a data link layer strategy. Bits are over-sampled to have high resilience in high interference scenarios, like using an ASK/FSK cheap radio transceivers in an urban environment. It is tested effectively with many versions of the ASK/FSK 315/433Mhz modules available on the market with up to 5km range, but it works nominally also through wires and the human body.
 
-**ThroughHardwareSerial** | **Medium:** Hardware Serial port |
-**Pins used:** 2 | [readme](https://github.com/gioblu/PJON/tree/master/strategies/ThroughHardwareSerial)
+**ThroughSerial** | **Medium:** Hardware Serial port |
+**Pins used:** 2 | [readme](https://github.com/gioblu/PJON/tree/master/strategies/ThroughSerial)
 
-With ThroughHardwareSerial data link layer strategy, PJON can run through the Serial port of your device. Both ports should be free from USB computer connection and data pins should be wired inverted, TX to RX and RX to TX.
+With ThroughSerial data link layer strategy, PJON can run through the Serial port of your device. Both ports should be free from USB computer connection and data pins should be wired inverted, TX to RX and RX to TX.
 
 ### Practical test
 After selecting the medium to be used you can start to build your personal bus (that can be made by only two devices for testing):
