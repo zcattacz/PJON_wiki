@@ -11,7 +11,7 @@ PJON (Padded Jittering Operative Network) is an Arduino compatible, multi-master
 - [Padded jittering data link layer v0.1](https://github.com/gioblu/PJON/blob/master/strategies/SoftwareBitBang/specification/padded-jittering-protocol-specification-v0.1.md)
 
 ### Why PJON?
-PJON is a tool created to simplify communication between devices and network engineering. Choose the medium you prefer, build your own network of devices and make it work with just a few lines of code.  For now there are 5 different strategies to communicate data with PJON on various media.
+PJON is a tool created to simplify communication between devices and network engineering. Choose the medium you prefer, build your own network of devices and make it work with few lines of code. There are 5 strategies available to communicate data with PJON on various media:
 
 **EthernetTCP** | **Medium:** Ethernet port, wired or WiFi | [readme](https://github.com/gioblu/PJON/tree/master/strategies/EthernetTCP)
 
