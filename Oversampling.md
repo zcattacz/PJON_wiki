@@ -25,7 +25,7 @@ This adds a certain overhead to information but reduces the need of precise time
 ####Performance
 - Transfer speed: 202 B/s or 1620 Baud
 - Data throughput: 150 B/s
-- Range: 250 meters in urban environment / 5km with LOS transmitting from a flying balloon
+- Range: 250 meters in urban environment / 5km with LOS
 
 ####Why not VirtualWire / RadioHead / Manchester?
 I don't think those libraries are clear, efficient and understandable enough to be the standard library for wireless radio communication available to the community, because of its implementation mess and complexity. Moreover, RadioHead doesn't have the support for multiple devices in multimaster setup, CRC, acknowledge, collision avoidance and packet management. For this reason I wrote this implementation to provide the user with the PJON standard also on wireless. :)
@@ -41,7 +41,7 @@ To build a real open-source PJON packet radio able to communicate up to 5km you 
 
 ![PJON Oversampling packet radio](http://www.gioblu.com/PJON/PJON-OverSampling-packet-radio-STX882-SRX882.jpg)
 
-The maximum detected range was experimented launching a balloon with a small payload containing the packet radio transmitting its position every minute. The maximum range obtained was slightly more than 5 kilometers. Two couples of STX882 and SRX882 were used as transceivers. If you choose these modules, remember to set `HIGH` the pin `CS` on the receiver before starting reception.
+The maximum detected range was experimented with a small arduino home made packet radio transmitting its position every minute. The maximum range obtained was slightly more than 5 kilometers. Two couples of STX882 and SRX882 were used as transceivers. If you choose these modules, remember to set `HIGH` the pin `CS` on the receiver before starting reception.
 
 Using `OverSampling` physical layer, synchronous acknowledge can reduce the maximum range, on certain media, so if you detect reduced range performance in `HALF_DUPLEX` compared to a mono-directional or `SIMPLEX` communication, and you can do without `ACK`, configure the absence of it after the packet transmission:
 ```cpp  
