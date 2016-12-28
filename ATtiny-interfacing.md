@@ -11,7 +11,7 @@ Because of the internal clock's lack of precision, with some ATtiny85 in particu
 
 ![image](https://cloud.githubusercontent.com/assets/6849527/21525671/0e9eab1e-cd1f-11e6-8e42-b9396dffc8d6.png)
 
-```
+```cpp
 // Arduino UNO sketch
 #include <PJON.h>
 PJON<SoftwareBitBang> bus(1); // <Strategy name> bus(selected device id)
@@ -19,7 +19,6 @@ PJON<SoftwareBitBang> bus(1); // <Strategy name> bus(selected device id)
 void setup() {
   pinModeFast(LED, OUTPUT);
   digitalWriteFast(LED, LOW);
-  bus.set_shared_network(false);
   bus.strategy.set_pin(12);
   bus.include_sender_info(false);
   bus.begin();
@@ -34,7 +33,7 @@ void loop() {
 
 ```
 
-```
+```cpp
 // Attiny85 sketch
 #include <PJON.h>
 PJON<SoftwareBitBang> bus(2); // <Strategy name> bus(selected device id)
@@ -42,7 +41,6 @@ PJON<SoftwareBitBang> bus(2); // <Strategy name> bus(selected device id)
 void setup() {
   pinModeFast(LED, OUTPUT);
   digitalWriteFast(LED, LOW);
-  bus.set_shared_network(false);
   bus.strategy.set_pin(2);
   bus.include_sender_info(false);
   bus.begin();
