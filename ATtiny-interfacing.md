@@ -7,7 +7,7 @@ You physically need at least one ATtiny microcontroller, a breadboard, some jump
 PJON [Arduino compatible implementation](https://github.com/gioblu/PJON) works smoothly on ATtiny45/85 8Mhz (internal) with pin 2 and 3.  
 
 ####Use PJON with ATtiny45/85 with external oscillator
-Because of the internal clock's lack of precision, with some ATtiny85 in particular, low communication performance can be detected; extended tests proven the ATtiny internal clock to be extremely inaccurate (timing inconsistency between two identical ATtiny85 can be detected). Here is an example how works with external 16 MHz oscillator.
+Because of the internal clock's lack of precision, with some ATtiny85 in particular, low communication performance can be detected; extended tests proven the ATtiny internal clock to be extremely inaccurate (timing inconsistency between two identical ATtiny85 can be detected). Here is an example how it works with external 16 MHz oscillator.
 
 ![image](https://cloud.githubusercontent.com/assets/6849527/21525671/0e9eab1e-cd1f-11e6-8e42-b9396dffc8d6.png)
 
