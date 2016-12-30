@@ -11,7 +11,7 @@ Because of the internal clock's lack of precision, with some ATtiny85 in particu
 
 ![image](http://www.gioblu.com/PJON/PJON-ATtiny85-16mhz-external.png)
 
-This is the sketch code for Arduino UNO:
+This is the sketch for Arduino UNO:
 ```cpp
 #include <PJON.h>
 PJON<SoftwareBitBang> bus(1); // <Strategy name> bus(selected device id)
