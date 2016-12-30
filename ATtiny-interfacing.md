@@ -9,10 +9,10 @@ PJON [Arduino compatible implementation](https://github.com/gioblu/PJON) works s
 ####Use PJON with ATtiny45/85 with external oscillator
 Because of the internal clock's lack of precision, with some ATtiny85 in particular, low communication performance can be detected; extended tests proven the ATtiny internal clock to be extremely inaccurate (timing inconsistency between two identical ATtiny85 can be detected). Here is an example how it works with external 16 MHz oscillator.
 
-![image](https://cloud.githubusercontent.com/assets/6849527/21525671/0e9eab1e-cd1f-11e6-8e42-b9396dffc8d6.png)
+![image](http://www.gioblu.com/PJON/PJON-ATtiny85-16mhz-external.png)
 
+This is the sketch code for Arduino UNO:
 ```cpp
-// Arduino UNO sketch
 #include <PJON.h>
 PJON<SoftwareBitBang> bus(1); // <Strategy name> bus(selected device id)
 #define LED 13
@@ -32,9 +32,8 @@ void loop() {
 };
 
 ```
-
+This is the sketch for ATtiny85:
 ```cpp
-// Attiny85 sketch
 #include <PJON.h>
 PJON<SoftwareBitBang> bus(2); // <Strategy name> bus(selected device id)
 #define LED 0
