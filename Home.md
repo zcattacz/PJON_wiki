@@ -3,12 +3,12 @@
 PJON (Padded Jittering Operative Network) is an Arduino compatible, multi-master, multi-media communications bus system. It proposes a Standard and it is designed as a framework to ease digital communication. Thanks to a data link layer agnostic approach the PJON protocol layer is able to communicate data regardless of the medium and the procedure used thanks to the [Strategies](https://github.com/gioblu/PJON/wiki/Strategies). Its more common applications are in the field of internet of things and embedded systems. Extended tests proved its effectiveness on different media like electricity, radio and light. See the [video introduction](https://www.youtube.com/watch?v=vjc4ZF5own8) to have a brief overview.
 
 
-####PJON (Padded Jittering Operative Network) Protocol specification:
+####PJON (Padded Jittering Operative Network) Protocol specification
 - PJON [v0.1](https://github.com/gioblu/PJON/blob/master/specification/PJON-protocol-specification-v0.1.md)  - [v0.2](https://github.com/gioblu/PJON/blob/master/specification/PJON-protocol-specification-v0.2.md) - [v0.3](https://github.com/gioblu/PJON/blob/master/specification/PJON-protocol-specification-v0.3.md) - [v1.0](https://github.com/gioblu/PJON/blob/master/specification/PJON-protocol-specification-v1.0.md)
 - PJON Acknowledge [v0.1](https://github.com/gioblu/PJON/blob/master/specification/PJON-protocol-acknowledge-specification-v0.1.md)
 - PJON Dynamic addressing [v0.1](https://github.com/gioblu/PJON/blob/master/specification/PJON-dynamic-addressing-specification-v0.1.md)
 
-####PJDL (Padded Jittering Data Link) specification:
+####PJDL (Padded Jittering Data Link) specification
 - PJDL [v0.1](https://github.com/gioblu/PJON/blob/master/strategies/SoftwareBitBang/specification/padded-jittering-protocol-specification-v0.1.md) - [v1.0](https://github.com/gioblu/PJON/blob/master/strategies/SoftwareBitBang/specification/PJDL-specification-v1.0.md)
 - PJDLR [v1.0](https://github.com/gioblu/PJON/blob/master/strategies/OverSampling/specification/PJDLR-specification-v1.0.md)
 
