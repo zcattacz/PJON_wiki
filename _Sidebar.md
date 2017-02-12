@@ -12,6 +12,7 @@
  * [Deal with interference](https://github.com/gioblu/PJON/wiki/Deal-with-interference)
  * [Troubleshooting](https://github.com/gioblu/PJON/wiki/Troubleshooting)
 + [Strategies](https://github.com/gioblu/PJON/tree/master/strategies)
+ * [AnalogSampling](https://github.com/gioblu/PJON/tree/master/strategies/AnalogSampling)
  * [LocalUDP](https://github.com/gioblu/PJON/tree/master/strategies/LocalUDP)
  * [EthernetTCP](https://github.com/gioblu/PJON/tree/master/strategies/EthernetTCP)
  * [OverSampling](https://github.com/gioblu/PJON/tree/master/strategies/OverSampling)
