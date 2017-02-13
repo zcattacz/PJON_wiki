@@ -22,7 +22,7 @@ PJON is a tool created to simplify communication between devices and network eng
 
 **[AnalogSampling](https://github.com/gioblu/PJON/tree/master/strategies/AnalogSampling)** | **Medium:** LED/LED and Photodiode
 
-AnalogSampling is designed to sample digital data using analog readings. It can be used to communicate data wirelessly through light. It is optimized to use a single LED for both emitting and sensing and so enable bidirectional communication with a single pair of LEDs (visible light, infrared or ultraviolet) or with two pairs of any sort of tuned photo-emitters and photo-receivers.
+AnalogSampling is designed to sample digital data using analog readings. It can be used to communicate data wirelessly through light. It is optimized to use a single LED for both data transmission and reception, enabling bidirectional half-duplex communication with a single pair of LEDs (visible light, infrared or ultraviolet) or with any sort of tuned photo-emitter and photo-receiver pair.
 
 **[EthernetTCP](https://github.com/gioblu/PJON/tree/master/strategies/EthernetTCP)** | **Medium:** Ethernet port, wired or WiFi
 
