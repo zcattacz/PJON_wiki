@@ -20,7 +20,8 @@ PJON (Padded Jittering Operative Network) is an Arduino compatible, multi-master
 ### Why PJON?
 PJON is a tool created to simplify communication between devices and network engineering. Choose the medium you prefer, build your own network of devices and make it work with few lines of code. There are 5 strategies available to communicate data with PJON on various media:
 
-**[AnalogSampling](https://github.com/gioblu/PJON/tree/master/strategies/AnalogSampling)** | **Medium:** LED/LED and Photodiode
+**[AnalogSampling](https://github.com/gioblu/PJON/tree/master/strategies/AnalogSampling)** | **Medium:** Light |
+**Pins used:** 1 or 2
 
 AnalogSampling is designed to sample digital data using analog readings. It can be used to communicate data wirelessly through light. It is optimized to use a single LED for both data transmission and reception, enabling bidirectional half-duplex communication with a single pair of LEDs (visible light, infrared or ultraviolet) or with any sort of tuned photo-emitter and photo-receiver pair.
 
