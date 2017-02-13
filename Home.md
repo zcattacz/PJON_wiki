@@ -87,7 +87,11 @@ void setup() {
   bus.set_receiver(receiver_function);
 };
 
-void receiver_function(uint8_t *payload, uint8_t length, const PJON_Packet_Info &packet_info) {
+void receiver_function(
+  uint8_t *payload, 
+  uint8_t length, 
+  const PJON_Packet_Info &packet_info
+) {
   if(payload[0] == 'B') {
     digitalWrite(13, HIGH);
     delay(30);
