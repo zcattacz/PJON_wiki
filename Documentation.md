@@ -1,6 +1,6 @@
 ![PJON Documentation](http://www.gioblu.com/PJON/PJON-makers.jpg)
 
-PJON is designed to be as user friendly and less technical as possible to be fastly mastered also by new users. Visit the dedicated sections to get detailed info:
+PJON is designed to be as user friendly and minimally technical as possible, so it can be quickly mastered by new users. Visit the dedicated sections to get detailed info:
 
 - [Addressing](https://github.com/gioblu/PJON/tree/master/documentation/addressing.md)
 - [Configuration](https://github.com/gioblu/PJON/tree/master/documentation/configuration.md)
