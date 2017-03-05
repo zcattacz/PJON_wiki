@@ -2,31 +2,31 @@ PJON Wiki
 -------------
 
 .. toctree::
-	:maxdepth: 0
+	:maxdepth: 2
 
 	Documentation
-		Addressing <https://github.com/gioblu/PJON/blob/master/documentation/addressing.md>
-		Configuration <https://github.com/gioblu/PJON/blob/master/documentation/configuration.md>
-		Configuration Raw <https://github.com/gioblu/PJON/raw/master/documentation/configuration.md>
-		Data Reception <https://github.com/gioblu/PJON/tree/master/documentation/data-reception.md>
-		Data transmission <https://github.com/gioblu/PJON/tree/master/documentation/data-transmission.md>
-		Error handling <https://github.com/gioblu/PJON/tree/master/documentation/error-handling.md>
-		IO Pins Setup <https://github.com/gioblu/PJON/tree/master/documentation/io-setup.md>
+#	Addressing <https://github.com/gioblu/PJON/blob/master/documentation/addressing.md>
+#	Configuration <https://github.com/gioblu/PJON/blob/master/documentation/configuration.md>
+#	Configuration Raw <https://github.com/gioblu/PJON/raw/master/documentation/configuration.md>
+#	Data Reception <https://github.com/gioblu/PJON/tree/master/documentation/data-reception.md>
+#	Data transmission <https://github.com/gioblu/PJON/tree/master/documentation/data-transmission.md>
+#	Error handling <https://github.com/gioblu/PJON/tree/master/documentation/error-handling.md>
+#	IO Pins Setup <https://github.com/gioblu/PJON/tree/master/documentation/io-setup.md>
 	Interfacing
-		ATtiny interfacing
-		ESP8266 interfacing
-		Deal with interference
-		Troubleshooting
+#		ATtiny interfacing <>
+#		ESP8266 interfacing
+#		Deal with interference
+#		Troubleshooting
 	Strategies <https://github.com/gioblu/PJON/tree/master/strategies/README.md>
-		AnalogSampling <https://github.com/gioblu/PJON/tree/master/strategies/AnalogSampling/README.md>
-		LocalUDP <https://github.com/gioblu/PJON/tree/master/strategies/LocalUDP/README.md>
-		EthernetTCP <https://github.com/gioblu/PJON/tree/master/strategies/EthernetTCP/README.md>
-		OverSampling <https://github.com/gioblu/PJON/tree/master/strategies/OverSampling/README.md>
-		SoftwareBitBang <https://github.com/gioblu/PJON/tree/master/strategies/SoftwareBitBang/README.md>
-		ThroughSerial <https://github.com/gioblu/PJON/tree/master/strategies/ThroughSerial/README.md>
+#		AnalogSampling <https://github.com/gioblu/PJON/tree/master/strategies/AnalogSampling/README.md>
+#		LocalUDP <https://github.com/gioblu/PJON/tree/master/strategies/LocalUDP/README.md>
+#		EthernetTCP <https://github.com/gioblu/PJON/tree/master/strategies/EthernetTCP/README.md>
+#		OverSampling <https://github.com/gioblu/PJON/tree/master/strategies/OverSampling/README.md>
+#		SoftwareBitBang <https://github.com/gioblu/PJON/tree/master/strategies/SoftwareBitBang/README.md>
+#		ThroughSerial <https://github.com/gioblu/PJON/tree/master/strategies/ThroughSerial/README.md>
 	Compliant tools
-		ModuleInterface <https://github.com/fredilarsen/ModuleInterface/README.md>
-		PJON-python <https://github.com/Girgitt/PJON-python/README.md>
-		Saleae PJON  Protocol Analyzer <https://github.com/aperepel/saleae-pjon-protocol-analyzer/README.md>
+#		ModuleInterface <https://github.com/fredilarsen/ModuleInterface/README.md>
+#		PJON-python <https://github.com/Girgitt/PJON-python/README.md>
+#		Saleae PJON  Protocol Analyzer <https://github.com/aperepel/saleae-pjon-protocol-analyzer/README.md>
 	Press
-   
+  
