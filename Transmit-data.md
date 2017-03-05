@@ -1,3 +1,5 @@
+# Trasmit Data
+
 The begin function has to be called in the setup or in the loop. The lack of this method call can lead to collision problems on startup, so be sure to call this function before starting transmitting or receiving.
 ```cpp  
   bus.begin();
