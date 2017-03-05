@@ -2,10 +2,9 @@ PJON Wiki
 -------------
 
 .. toctree::
+	:maxdepth: 2
 
-    :maxdepth: 2
-   
-	Documentation
+    Documentation
 		Addressing <https://github.com/gioblu/PJON/blob/master/documentation/addressing.md>
 		Configuration <https://github.com/gioblu/PJON/blob/master/documentation/configuration.md>
 		Data Reception <https://github.com/gioblu/PJON/tree/master/documentation/data-reception.md>
