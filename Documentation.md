@@ -1,4 +1,4 @@
-![PJON Documentation](http://www.gioblu.com/PJON/PJON-makers.jpg)
+# Documentation
 
 PJON is designed to be as user friendly and minimally technical as possible, so it can be quickly mastered by new users. Visit the dedicated sections to get detailed info:
 
