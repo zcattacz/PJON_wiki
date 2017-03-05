@@ -15,13 +15,13 @@ Templates can be scary at first sight, but they are quite straight-forward and e
 
   PJON<SoftwareBitBang> bus;
 ```
-The PJON bus runs by default through the [SoftwareBitBang](https://github.com/gioblu/PJON/wiki/SoftwareBitBang) strategy.
+The PJON bus runs by default through the [SoftwareBitBang](SoftwareBitBang) strategy.
 
 If you need to predefine the device's id on instantiation, pass the selected id as shown below:
 ```cpp  
   PJON<> bus(1); // Device id 1
 ```
-If you need to communicate on a noisy medium like radio, laser or infrared light, [OverSampling](https://github.com/gioblu/PJON/wiki/OverSampling) strategy can be used effectively (i.e. using cheap 315/433Mhz radio transcerivers maximum range is up to 5km with line of sight):
+If you need to communicate on a noisy medium like radio, laser or infrared light, [OverSampling](OverSampling) strategy can be used effectively (i.e. using cheap 315/433Mhz radio transcerivers maximum range is up to 5km with line of sight):
 ```cpp  
   PJON<OverSampling> bus;
 ```
