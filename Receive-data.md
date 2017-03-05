@@ -1,3 +1,5 @@
+# Receive Data
+
 Define a `void function` that will be called if a correct message is received. This function receives 3 parameters: the transmission content, its length and a pointer to a `PacketInfo` data structure that contains all the info contained in the packet metadata:
 ```cpp
 
