@@ -1,4 +1,4 @@
-![PJON Press](http://www.gioblu.com/PJON/PJON-press.jpg)
+# Press
 
 PJON has been released in the public domain through the Arduino forum and [www.gioblu.com](http://www.gioblu.com) in the far 2010. Only in 2015, thanks to the first publication of Michael Teew and then soon Hackernews, the PJON's repository started receiving a lot of traffic and new users. Since that day PJON has been reviewed by some of the most visited websites and blogs: 
 
