@@ -1,4 +1,4 @@
-![PJON Oversampling wiki](http://www.gioblu.com/PJON/PJON-radio.jpg)
+# Oversampling
 
 **Media:** Radio, Wire |
 **Pins used:** 1 / 2
