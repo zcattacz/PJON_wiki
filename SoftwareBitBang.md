@@ -20,7 +20,7 @@ Every byte is prepended with 2 synchronization padding bits and transmission occ
 This adds a certain overhead to information but reduces the need of precise time tuning because synchronization is renewed every byte. All the first padding bit duration minus `ACCEPTANCE` is the synchronization window the receiver has for every incoming byte. If the length of the first padding bit is less than `ACCEPTANCE` the received signal is considered interference.
 
 ####How to use SoftwareBitBang
-Pass the ```SoftwareBitBang``` type as PJON template parameter to instantiate a PJON object ready to communicate in this Strategy. All the other necessary information is present in the general [Documentation](https://github.com/gioblu/PJON/wiki/Documentation).
+Pass the ```SoftwareBitBang``` type as PJON template parameter to instantiate a PJON object ready to communicate in this Strategy. All the other necessary information is present in the general [Documentation](Documentation).
 ```cpp  
   PJON<SoftwareBitBang> bus;
 ```
@@ -29,7 +29,7 @@ Pass the ```SoftwareBitBang``` type as PJON template parameter to instantiate a 
 - ATmega88/168/328 16Mhz (Diecimila, Duemilanove, Uno, Nano, Mini, Lillypad)
 - ATmega2560 16Mhz (Arduino Mega)
 - ATmega16u4/32u4 16Mhz (Arduino Leonardo)
-- ATtiny45/85 8Mhz, see https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
+- ATtiny45/85 8Mhz, see [ATtiny Interfacing](ATtiny-interfacing)
 - SAMD (Arduino Zero)
 - ESP8266 v.1-7 80Mhz "AI-THINKER AT" firmware, see https://github.com/esp8266/Arduino
 - ESP8266 NodeMCU v0.9-1.0 80Mhz, see https://github.com/esp8266/Arduino
