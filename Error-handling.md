@@ -1,3 +1,5 @@
+# Error Handling
+
 PJON is designed to inform the user if an error is detected. A `void function` has to be defined as the error handler, it receives 2 parameters the first is the error code and the second is 1 byte additional data related to the error.
 
 Error types:
