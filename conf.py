@@ -233,8 +233,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-#  (master_doc, 'Recommonmark.tex', u'Recommonmark Documentation',
-#   u'Lu Zero, Eric Holscher, and contributors', 'manual'),
+  (master_doc, 'git_wiki.tex', u'From Github Wiki',
+   author, 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
