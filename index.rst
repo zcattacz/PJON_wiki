@@ -2,7 +2,7 @@ PJON Wiki
 -------------
 
 .. toctree::
-	:maxdepth: 1
+	:maxdepth: 0
 
 	Documentation
 		Addressing <https://github.com/gioblu/PJON/blob/master/documentation/addressing.md>
