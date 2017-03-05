@@ -1,4 +1,4 @@
-![PJON Interfacing](http://www.gioblu.com/PJON/PJON-makers.jpg)
+# Interfacing
 
 PJON is designed to be as user friendly and less technical as possible to be fastly mastered also by new users.
 Visit the architecture dedicated sections to get detailed info on your setup:
