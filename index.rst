@@ -4,5 +4,5 @@ PJON Wiki
 .. toctree::
    :glob:
 
-   Home
+   _Sidebar
 
