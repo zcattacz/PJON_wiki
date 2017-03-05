@@ -55,7 +55,7 @@ extensions = [
 master_doc = 'index'
 
 # General information about the project.
-project = u'alasql_wiki'
+project = u'pjon_wiki'
 copyright = u'Giovanni Blu Mitolo'
 author = u'Giovanni Blu Mitolo'
 
