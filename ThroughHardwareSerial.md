@@ -32,4 +32,4 @@ Call the `begin` method on the `Serial` object you want to use for PJON communic
     bus.strategy.set_serial(&Serial);
   }
 ```
-All the other necessary information is present in the general [Documentation](https://github.com/gioblu/PJON/wiki/Documentation).
+All the other necessary information is present in the general [Documentation](Documentation).
