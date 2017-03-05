@@ -1,5 +1,4 @@
-
-![PJON Strategies wiki](http://www.gioblu.com/PJON/PJON-clouds.jpg)
+# Strategies
 
 A Strategy its a class containing a set of functions able to physically communicate data through the medium used, abstracting the physical layer from PJON procedure and codebase.
 
