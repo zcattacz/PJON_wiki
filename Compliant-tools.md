@@ -1,4 +1,4 @@
-![PJON Interfacing](http://www.gioblu.com/PJON/PJON-makers.jpg)
+#Compliant Tools
 
 Here a list of the compliant tools:
 - [ModuleInterface](https://github.com/fredilarsen/ModuleInterface)
